@@ -1,1 +1,3 @@
 # blog
+
+License: cc0
