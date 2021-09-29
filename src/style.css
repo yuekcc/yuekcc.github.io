@@ -505,7 +505,7 @@ body {
 }
 
 #sidebar li {
-  line-height: 2.2;
+  line-height: 2.0;
 }
 
 #sidebar ul {
@@ -515,6 +515,7 @@ body {
 #sidebar h2 {
   margin-top: 1em;
   font-size: 110%;
+  line-height: 2.0;
 }
 
 #content {

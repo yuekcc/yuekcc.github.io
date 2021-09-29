@@ -422,7 +422,7 @@ body {
   width: 300px;
 }
 #sidebar li {
-  line-height: 2.2;
+  line-height: 2.0;
 }
 #sidebar ul {
   margin-bottom: 1em;
@@ -430,6 +430,7 @@ body {
 #sidebar h2 {
   margin-top: 1em;
   font-size: 110%;
+  line-height: 2.0;
 }
 #content {
   padding: 2em;
