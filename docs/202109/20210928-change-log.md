@@ -48,4 +48,5 @@ footer 用来指示这次修改涉及的一些 issue 单或需求单号。
 
 [1]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0
 
-> 2021 年 9 月 8 日
+----
+2021 年 9 月 8 日
