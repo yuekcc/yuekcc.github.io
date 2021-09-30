@@ -2,6 +2,21 @@ import marked from 'marked';
 import './style.css';
 
 const $ = document.querySelector.bind(document);
+const $sidebar = $('#sidebar');
+const $post = $('#content');
+const $menuSwitch = $('.sidebar-control button');
+
+let menuIsShowing = false;
+
+function clickMenuControl() {
+  if (menuIsShowing) {
+    $sidebar.classList.remove('showing');
+  } else {
+    $sidebar.classList.add('showing');
+  }
+
+  menuIsShowing = !menuIsShowing;
+}
 
 function fetchText(url) {
   return fetch(url).then(resp => {
@@ -30,7 +45,7 @@ function renderMarkdown(url, defaultResult = 'not found') {
 function renderContent(hash = '') {
   const url = hash.startsWith('#') ? hash.slice(1) : hash;
   return renderMarkdown(url || 'README.md').then(html => {
-    $('#content').innerHTML = html;
+    $post.innerHTML = html;
   });
 }
 
@@ -45,13 +60,15 @@ function renderSidebar() {
       it.setAttribute('href', hash);
     });
 
-    $('#sidebar').innerHTML = dom.body.innerHTML;
+    $sidebar.innerHTML = dom.body.innerHTML;
   });
 }
 
 window.addEventListener('popstate', () => {
   renderContent(location.hash);
 });
+
+$menuSwitch.addEventListener('click', clickMenuControl);
 
 renderSidebar();
 renderContent(location.hash);

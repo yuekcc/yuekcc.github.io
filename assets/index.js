@@ -2178,6 +2178,18 @@
   // src/index.js
   var import_marked = __toModule(require_marked());
   var $ = document.querySelector.bind(document);
+  var $sidebar = $("#sidebar");
+  var $post = $("#content");
+  var $menuSwitch = $(".sidebar-control button");
+  var menuIsShowing = false;
+  function clickMenuControl() {
+    if (menuIsShowing) {
+      $sidebar.classList.remove("showing");
+    } else {
+      $sidebar.classList.add("showing");
+    }
+    menuIsShowing = !menuIsShowing;
+  }
   function fetchText(url) {
     return fetch(url).then((resp) => {
       if (resp.ok) {
@@ -2199,7 +2211,7 @@
   function renderContent(hash = "") {
     const url = hash.startsWith("#") ? hash.slice(1) : hash;
     return renderMarkdown(url || "README.md").then((html) => {
-      $("#content").innerHTML = html;
+      $post.innerHTML = html;
     });
   }
   function renderSidebar() {
@@ -2211,12 +2223,13 @@
         const hash = `#${url.pathname}${url.search}`;
         it.setAttribute("href", hash);
       });
-      $("#sidebar").innerHTML = dom.body.innerHTML;
+      $sidebar.innerHTML = dom.body.innerHTML;
     });
   }
   window.addEventListener("popstate", () => {
     renderContent(location.hash);
   });
+  $menuSwitch.addEventListener("click", clickMenuControl);
   renderSidebar();
   renderContent(location.hash);
 })();

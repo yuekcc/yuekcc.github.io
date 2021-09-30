@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild --bundle --target=chrome70 --platform=browser --outfile=index.js src/index.js",
+    "build": "esbuild --bundle --target=chrome70 --platform=browser --outdir=assets src/index.js",
+    "build:dev": "esbuild --watch --bundle --target=chrome70 --platform=browser --outdir=assets src/index.js",
     "serve": "sirv -D ."
   },
   "author": "yuekcc",

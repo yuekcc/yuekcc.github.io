@@ -399,6 +399,15 @@ caption {
 .typo img {
   max-width: 100%;
 }
+pre {
+  overflow: auto;
+  max-width: 100%;
+}
+pre,
+code,
+pre tt {
+  font-size: 0.85rem;
+}
 .f {
   display: flex;
 }
@@ -412,28 +421,70 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-#sidebar {
-  padding: 2em;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  left: 0;
-  border-right: 1px solid #cfcfcf;
-  width: 300px;
-}
 #sidebar li {
-  line-height: 2.0;
+  line-height: 2;
 }
 #sidebar ul {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 #sidebar h2 {
-  margin-top: 1em;
+  margin-top: 1rem;
   font-size: 110%;
-  line-height: 2.0;
+  line-height: 2;
 }
 #content {
-  padding: 2em;
+  padding: 1rem;
   overflow: auto;
   max-height: 100vh;
+}
+#sidebar {
+  display: none;
+}
+#content {
+  padding: 1rem;
+}
+#sidebar.showing {
+  background-color: #fff;
+  bottom: 0;
+  display: block;
+  left: 0;
+  overflow: auto;
+  padding-top: 3rem;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.sidebar-control {
+  display: block;
+  left: 0;
+  margin: 0.2rem 1rem;
+  padding-top: 0.5rem;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+}
+@media screen and (min-width: 1080px) {
+  .sidebar-control {
+    display: none;
+  }
+  #sidebar {
+    border-right: 1px solid #cfcfcf;
+    height: 100vh;
+    left: 0;
+    overflow: auto;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    width: 300px;
+  }
+  #sidebar {
+    display: block;
+  }
+  #content {
+    padding: 2rem 3rem;
+    width: 960px;
+  }
 }
