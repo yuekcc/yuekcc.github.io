@@ -441,7 +441,7 @@ body {
   display: none;
 }
 #content {
-  padding: 1rem;
+  padding: 2rem 1rem 2rem 1rem;
 }
 #sidebar.showing {
   background-color: #fff;
