@@ -1,5 +1,9 @@
 [首页](README.md)
 
+## 2021.10
+
+- [简单笔记 App](docs/202110/simple-notes-app.md)
+
 ## 2021.9
 
 - [Vue 组件状态管理笔记](docs/202109/20210906-state-manage-in-vue.md)
