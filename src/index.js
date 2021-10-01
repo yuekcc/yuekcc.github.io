@@ -61,6 +61,10 @@ function renderSidebar() {
     });
 
     $sidebar.innerHTML = dom.body.innerHTML;
+
+    $sidebar.querySelectorAll('a').forEach(it => {
+      it.addEventListener('click', clickMenuControl);
+    });
   });
 }
 

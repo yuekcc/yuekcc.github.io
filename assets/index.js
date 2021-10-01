@@ -2224,6 +2224,9 @@
         it.setAttribute("href", hash);
       });
       $sidebar.innerHTML = dom.body.innerHTML;
+      $sidebar.querySelectorAll("a").forEach((it) => {
+        it.addEventListener("click", clickMenuControl);
+      });
     });
   }
   window.addEventListener("popstate", () => {

@@ -449,8 +449,7 @@ body {
   display: block;
   left: 0;
   overflow: auto;
-  padding-top: 3rem;
-  padding: 1rem;
+  padding: 3rem 1rem;
   position: fixed;
   right: 0;
   top: 0;
