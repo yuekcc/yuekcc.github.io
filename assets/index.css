@@ -419,7 +419,6 @@ pre tt {
 }
 body {
   height: 100vh;
-  overflow: hidden;
 }
 #sidebar li {
   line-height: 2;
@@ -441,7 +440,7 @@ body {
   display: none;
 }
 #content {
-  padding: 2rem 1rem 2rem 1rem;
+  padding: 2rem 1rem 3rem 1rem;
 }
 #sidebar.showing {
   background-color: #fff;
@@ -483,7 +482,7 @@ body {
     display: block;
   }
   #content {
-    padding: 2rem 3rem;
+    padding: 1rem 3rem 3rem 3rem;
     width: 960px;
   }
 }
