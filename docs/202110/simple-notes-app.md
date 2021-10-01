@@ -43,6 +43,9 @@ codeberg.org pages 实际上是类似于 github 的 pages 服务。因此也会�
 
 如果使用自己的 web server，并部署在根目录的话，应该没有需要修改的。如果在二级目录，可能需要 url rewrite。
 
+----
+2021 年 10 月 1日
+
 [1]: https://docsify.js.org/#/zh-cn/
 [2]: https://vvpvvp.github.io/book-cli/
 [3]: https://codeberg.org/yuekcc/pages
