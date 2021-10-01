@@ -471,12 +471,25 @@ body {
   #sidebar {
     border-right: 1px solid #cfcfcf;
     height: 100vh;
-    left: 0;
     overflow: auto;
     padding: 2rem;
     position: sticky;
+    left: 0;
     top: 0;
     width: 300px;
+  }
+  #sidebar.showing {
+    display: block;
+    overflow: auto;
+    padding: 2rem;
+    position: sticky;
+    bottom: unset;
+    left: 0;
+    right: unset;
+    top: 0;
+    width: 300px;
+    background-color: #fff;
+    z-index: 100;
   }
   #sidebar {
     display: block;
