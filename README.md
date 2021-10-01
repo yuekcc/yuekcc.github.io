@@ -1,6 +1,6 @@
 # yuekcc's notes
 
-<img width="640px" src="images/邓宁克鲁格心理效果.svg" />
+<img width="640px" src="images/dunning-kruger effect.svg" />
 
 ## License
 
