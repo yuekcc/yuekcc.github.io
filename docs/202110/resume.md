@@ -31,18 +31,21 @@
 
 与上面的出口版本不同，这个 DevOps 系统是基于公司级 devops 系统的二次开发。目标是**更好更快地完成最后一公里**。 
 
-G 系统最早是使用 Angular + Spring boot 实现的依赖软件溯源工具，主要功能是实现项目的依赖设计、使用申请审批，后续加上需求管理、流水线、构建系统支持。
+最早是使用 Angular + Spring boot 实现的依赖软件溯源工具，主要功能是实现项目的依赖设计、使用申请审批，
+后续加上需求管理、流水线、构建系统、门禁、数据面板、测试、配置中心等近 20 个模块。
 
 主要贡献：
 
 - 使用 Vue 重写原来的基于 Angular 实现的前端：
-  - 手造简洁版 DI + Rxjs 封装的 HttpClient + Composition API 平滑移植 Angular 中的 Service，减少移植工作量
+  - 基于 Element UI 二次封装常用的业务组件：表格、树型选择、折叠侧栏、弹窗 Service 等 10+ 个业务组件
+  - 开发出一个适用于 Vue 的 DI 库，配置基于 Rxjs 封装的 HttpClient 和 Composition API 平滑移植 Angular 中的 Service，减少重写项目的工作量。
   - 提供范式代码方便新手同事上手项目
-  - 基于 Element UI 二次封装常用的业务组件：表格、树型选择、折叠侧栏、DialogService 等组件
 - 支撑 Angular 版本、Vue 版本同时开发
-- 支撑前端性能优化、基础代码
+- 支撑前端性能优化
 - 微前端改造
-  - 按项目情况待制定了四种方案：插件方案，iframe 方案，基于 webcomponent 方案。最终选择了 iframe 方案，并基于 postMessage 实现应用间交互。
+  - 按项目情况待制定了四种方案：插件方案，iframe 方案，基于 web component 方案。
+- 与后端开发制定接口数据结构
+- 独立完成基于构建结果分析的依赖溯源模块前端
 
 --TBD--
 
