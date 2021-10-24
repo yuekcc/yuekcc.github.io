@@ -4,35 +4,32 @@
 
 10年开发经验，主攻 web 应用系统，第一语言 javascript，第二语言 go。近三年专注于 web 前端领域，早年多以全栈角色参与生产项目。
 
-- 10年软件开发经验，精通基于 web 技术系统、软件开发
-- 精通 javascript、typescript、vue 全家桶、nodejs
-- 精通前端工程化，有 webpack、rollup、vue-cli、esbuild 实战经历
-- 熟练使用 golang 实现微服务架构系统、命令行工具
+- 10年软件开发经验，精通基于 web 技术的软件开发
+- 精通 javascript、typescript，熟练 golang
+- 精通 vue 全家桶，熟练处理前端工程化问题
+- 熟练使用 nodejs，golang 实现后端服务
 
 ## 近三年项目经历
 
-### DevOps 系统流水线前端（V1）
+### DevOps 系统流水线模块前端
 
 流水线属于外售版本的 DevOps 系统中的一个核心模块，承载开发人员日常工作，包括 daily build、source code merge build 等。
 
-流水线前端早期版本基于 es5 + jquery + vuejs 的“混沌”开发模式。主要贡献：
+流水线前端早期版本基于 es5 + jquery + vuejs 的“混沌”开发模式，后期演进化为基于 esbuild 的工程化项目。
 
-- 基于 rollup 实现的基本的前端工程化
-  - 支持 es6 modules
-  - 支持 import json/css
-  - 增加 babel/postcss 代码二次转换支持
-  - 基于 .template.html 的 vue 模板编译支持
-  - 实现 rollup 的条件编译支持插件
-- 开发体验支撑
-  - 基于 expressjs 实现的开发服务器
-  - 基于 dotenv 文件实现的多环境支持
-  - prettier/eslint 风格制定
-  - 基础工具库
-- 通过重构提升代码复用率
+主要贡献：
 
-### 部门级别 DevOps 系统前端
+- 担任前端小组开发骨干角色
+- 基于 rollup/esbuild 实现的前端工程化，提升开发效率
+  - 增加 babel/postcss/ 工具
+  - 基于 expressjs 实现的 dev-server
+  - 自行开发基于 vue-template-compiler 实现 *.template.html 的 vue 模板持（实现模块代码、样式代码、js 代码分离）
+- 输出项目基础代码、工具库（后续也复用到流水线模块相关的 6 个项目中）
+- 带领前端小组重构项目
 
-与上面的出口版本不同，这个 DevOps 系统是基于公司级 devops 系统的二次开发。目标是**更好更快地完成最后一公里**。这个 DevOps 系统称为 **Gxx Mxxx**。
+### 部门级别 DevOps 系统（Gxx-xxxx）前端
+
+与上面的出口版本不同，这个 DevOps 系统是基于公司级 devops 系统的二次开发。目标是**更好更快地完成最后一公里**。 
 
 G 系统最早是使用 Angular + Spring boot 实现的依赖软件溯源工具，主要功能是实现项目的依赖设计、使用申请审批，后续加上需求管理、流水线、构建系统支持。
 

@@ -2,7 +2,6 @@
 
 ## 2021.10
 
-- [简历](docs/202110/resume.md)
 - [go 快速入门](docs/202110/go-quick-learn.md)
 - [简单笔记 App](docs/202110/simple-notes-app.md)
 
