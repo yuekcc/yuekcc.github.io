@@ -4,18 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>yuekcc's notes</title>
-    <link rel="stylesheet" href="assets/index.css" />
+    <title>marknote</title>
+    <link rel="stylesheet" href="dist/index.css" />
   </head>
   <body>
-    <nav class="sidebar-control">
-      <button>🎹</button>
-    </nav>
-    <div class="container f">
-      <aside id="sidebar" class="f-fixed"></aside>
-      <article id="content" class="f-auto typo"></article>
+    <div class="top-nav f">
+      <div class="f-fixed sidebar-control">
+        <button>📙</button>
+      </div>
+      <div class="f-auto">
+        <a href="/#/README.md"><h1 class="site-name">Marknote</h1></a>
+      </div>
+      <div class="f-fixed links">
+        <!-- 顶部右则导航 -->
+        <a href="https://github.com/yuekcc" target="_blank">GitHub</a>
+      </div>
     </div>
 
-    <script src="assets/index.js"></script>
+    <div class="container f">
+      <!-- 侧栏 -->
+      <aside id="sidebar" class="f-fixed"></aside>
+      <div class="f-auto content-wrapper">
+        <!-- 文章 -->
+        <article id="content" class="markdown-body"></article>
+      </div>
+    </div>
+
+    <!-- 原文连接，打印时才会显示 -->
+    <div class="permalink"></div>
+
+    <script>
+      // 配置
+      window.marknoteConfig = {
+        // 网站名称
+        siteName: `Yuekcc's 笔记`,
+      };
+    </script>
+    <script src="dist/index.js"></script>
   </body>
 </html>

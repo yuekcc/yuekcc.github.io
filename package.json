@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild --bundle --target=chrome70 --platform=browser --outdir=assets src/index.js",
-    "build:dev": "esbuild --watch --bundle --target=chrome70 --platform=browser --outdir=assets src/index.js",
-    "serve": "sirv --host -D ."
+    "serve": "sirv --dev ."
   },
   "author": "yuekcc",
   "license": "MIT",
@@ -38,14 +36,10 @@
     ]
   },
   "devDependencies": {
-    "esbuild": "^0.13.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.0",
     "sirv-cli": "^1.0.14"
-  },
-  "dependencies": {
-    "marked": "^3.0.4"
   }
 }

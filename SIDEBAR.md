@@ -1,5 +1,3 @@
-[首页](README.md)
-
 ## 2021.10
 
 - [go 快速入门](docs/202110/go-quick-learn.md)
