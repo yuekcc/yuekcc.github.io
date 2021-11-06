@@ -1,15 +1,15 @@
-# 简单笔记 app
+# Simple notes
 
 ----
 
-简单笔记 app 已正式成为独立的项目，可以看[**这里**](/#/docs/202111/marknote-intro.md?sidebar=SIDEBAR.md)了解更多。
+Simple notes 应用已正式成为独立的项目，可以看[**这里**](/#/docs/202111/marknote-intro.md?sidebar=SIDEBAR.md)了解更多。
 
 项目地址：https://github.com/yuekcc/marknote
 
 ----
 
 
-这个网站就是使用`简单笔记 App`实现的。
+这个网站就是使用`Simple notes`实现的。
 
 ## 缘起
 
