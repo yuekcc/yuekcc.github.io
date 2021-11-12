@@ -1,6 +1,6 @@
 # 我的 java 笔记
 
-是的，我终于要开始学习 java 了。
+是的，我又双开始学习 java。这次应该要认真点。
 
 [TOC]
 
@@ -15,6 +15,7 @@
 - 有地球上最强大的 vm
 - 生命力强、受欢迎
 - 没有 ide 写不出代码
+- 吃内存
 
 希望通过最近的学习，可以改变我的固有印象。
 
@@ -22,9 +23,8 @@
 
 ### 安装 jdk
 
-jdk 可以在 https://www.injdk.cn/ 下载。学习阶段推荐使用最新的 LTS 版本。
-
-Windows 下载就一路回车大法，然后就可以直接使用了。其他操作系统找文档看吧。
+jdk 可以在 https://www.injdk.cn/ 下载。学习阶段推荐使用最新的 LTS 版本。Windows 下就一路回车大法，然后
+就可以直接使用了。其他操作系统找文档看吧。
 
 ### 用 class 组织代码
 
@@ -49,7 +49,8 @@ Hello, world
 
 ```
 
-我用的是 jdk17，可以直接执行 java 源码文件。更多情况下是 java 工程是先用 `javac` 命令进行编译，然后由 `java` 命令执行。
+我用的是 jdk17，可以直接执行 java 源码文件。一般情况下 java 工程是先用 `javac` 命令进行编译，然后由 `java` 命令执行。
+实际项目中，java 都是使用 maven 或 gradle 进行管理。
 
 ### javac 命令
 
@@ -181,7 +182,7 @@ $ mvn package
 同一个 jar 文件中。
 
 ```sh
-java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+$ java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App # -cp 就是 -classpath
 ```
 
 #### 更多 maven 命令
