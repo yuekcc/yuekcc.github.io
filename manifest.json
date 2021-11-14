@@ -1,0 +1,16 @@
+{
+  "name": "Marknote",
+  "short_name": "Marknote",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Marknote for simple writing",
+  "icons": [
+    {
+      "src": "dist/logo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": []
+}
