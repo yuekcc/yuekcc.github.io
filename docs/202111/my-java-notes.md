@@ -1,23 +1,10 @@
 # 我的 java 笔记
 
-是的，我又双开始学习 java。这次应该要认真点。
+~~是的，我又双开始学习 java。这次应该要认真点。~~
+
+从不一样的角度认真学习 java。
 
 [TOC]
-
-## 我印象中的 java
-
-要说我印象中的 java，必须是这些关键字：
-
-- 体积超大的 jdk
-- 巨长的语句
-- 一板一眼，语句总是一句一句的
-- 看着好像没有什么用的 java 标准库
-- 有地球上最强大的 vm
-- 生命力强、受欢迎
-- 没有 ide 写不出代码
-- 吃内存
-
-希望通过最近的学习，可以改变我的固有印象。
 
 ## 上手
 
@@ -25,6 +12,8 @@
 
 jdk 可以在 https://www.injdk.cn/ 下载。学习阶段推荐使用最新的 LTS 版本。Windows 下就一路回车大法，然后
 就可以直接使用了。其他操作系统找文档看吧。
+
+自 jdk8 开始，o 家对 jdk 的授权发生了变化。于是就出现了大厂自己分发 jdk 的情况，也有开源组织分发 jdk。所以商业项目还是要认真审视一下这些 xxx jdk 的风险。
 
 ### 用 class 组织代码
 
@@ -210,6 +199,24 @@ maven 的 build lifecycle 中的各个阶段分别对应不同的 `plugin:goal`�
 方便插件实现不同的功能。具体应该看官方文档：
 
 http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+
+### jdeps、jlink、jpackage
+
+从 jdk9 开始引入了一系列的工具，用来解决 java 项目分发的问题。其中就有 jdeps、jlink、jpackage。
+
+- jdeps 用来分析项目的依赖
+- jlink 用于创建自定义的 jre，可以裁减未使用的 mods
+- jpackage 用于创建安装包，windows 下可以打包为 MSI 安装包
+
+这里不详细写了。先知道有这么一回事。java 项目分发更适合的做法是使用容器。可是在 windows 下就比较无力，对于普通用户安装包是比较容易接受的。
+我认为无论是使用安装包还是容器技术，减少文体体积都是比较友好的做法。试想一下，一个未经过优化的容器镜像占地 3~4 GB，无论传输、安装、更新、归档都是一笔巨大的投入。
+
+| 镜像 tag | OS/ARCH | 压缩后体积 | 主要开发语言 | 备注 |
+|---------|---------|-----------|------------|-----|
+| tomcat:jre8-openjdk-slim-buster | linux/amd64 | 81.04mb | java |  |
+| jetty:9.4.44-jre8-slim | linux/amd64 | 80.82mb | java | |
+| caddy:alpine | linux/amd64 | 14.17mb | go |
+| nginx:stable-alpine | linux/amd64 | 9.41mb | c |
 
 TBA
 
