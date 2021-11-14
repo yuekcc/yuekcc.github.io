@@ -209,7 +209,7 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 - jpackage 用于创建安装包，windows 下可以打包为 MSI 安装包
 
 这里不详细写了。先知道有这么一回事。java 项目分发更适合的做法是使用容器。可是在 windows 下就比较无力，对于普通用户安装包是比较容易接受的。
-我认为无论是使用安装包还是容器技术，减少文体体积都是比较友好的做法。试想一下，一个未经过优化的容器镜像占地 3~4 GB，无论传输、安装、更新、归档都是一笔巨大的投入。
+我认为无论是使用安装包还是容器技术，减少文体体积都是比较友好的做法。试想一下，一个未经过优化的容器镜像可能占地 3~4 GB，无论传输、安装、更新、归档都是一笔巨大的投入。
 
 | 镜像 tag | OS/ARCH | 压缩后体积 | 主要开发语言 | 备注 |
 |---------|---------|-----------|------------|-----|
@@ -217,6 +217,9 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 | jetty:9.4.44-jre8-slim | linux/amd64 | 80.82mb | java | |
 | caddy:alpine | linux/amd64 | 14.17mb | go |
 | nginx:stable-alpine | linux/amd64 | 9.41mb | c |
+
+>tomcat 和 jetty 官方没有基于 alpine 的镜像，上面列出的是体积相对比较小的。caddy 和 nginx 的镜像因为使用了 alpine，一些系统级别的依赖占地也比较小。
+>当然单纯比较镜像文件大小是没有意义的！但是在部署应用时，就不得不考虑这个问题。至少我所在项目组，镜像体积是限定尺寸的。
 
 TBA
 
