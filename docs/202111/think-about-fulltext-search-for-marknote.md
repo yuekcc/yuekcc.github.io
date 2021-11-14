@@ -16,8 +16,42 @@ elasticsearch 应该会有配合使用的组件。所以创建索引的问题就
 
 ![架构](docs/202111/images/fulltext-search-for-marknote-arch.svg)
 
+### 作者视角审视搜索功能
 
-TBD
+从作者视角审批搜索功能。作者就是 marknote 的用户。对于作者而言，搜索功能主要涉及索引创建的功能。流程：
+
+1. 作者写好文章，然后 push 到 github
+2. github 触发 pages 部署的 webhooks，将新 push 的文章部署到 github.io
+3. 同时 github 也触发 search server 的 webhooks
+4. search server 在接收到 github 请求后，触发内部的索引更新 hook，接收方是 data collector 服务
+5. data collector 调用 git pull，拉取作者最新的版本，然后通过增量方式，向 meilisearch 推送新的数据，用于更新全文检索的索引
+6. 索引创建结束
+
+### 访客视角使用搜索功能
+
+对于访客而言，搜索功能用于快速找到自己感兴趣的内容。流程：
+
+1. 访客访问 xxxx.github.io，打开页面后，在搜索栏输入关键字
+2. 搜索栏将关键字发送到 search server 搜索接口
+3. search server 转发请求到 meilisearch
+4. meilisearch 返回搜索结果给 search server
+5. search server 返回结果到访客的浏览器
+6. 浏览器渲染结果
+7. 搜索结束
+
+### 开发角度审视搜索服务
+
+整个系统的关键是全文搜索引擎。首先是考虑开源产品。最为著名的可能是 elasticsearch。考虑到 marknote search 的使用场景，使用 elasticsearch 绝对是大才小用。
+而且维护一个 elasticsearch 也不是一个简单的事。所以在搜索引擎方式，我更倾向于 go 或 rust 实现小型引擎。我认为，我需要的只是一个可以用、支持中文、性能一般但资源消耗少的引擎。
+于是就是找到了 meilisearch。
+
+meilisearch 使用了 jieba-rs 分词，对中文也有足够的支持和性能。最重要是部署也简单。
+
+search server 并不需要特别多的接口，目前打算使用 go 实现，追求的还是的部署简单。
+
+## 实现
+
+**有生之年**
 
 ----
 
