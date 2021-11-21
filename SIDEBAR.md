@@ -1,4 +1,5 @@
 - 2021.11
+  - [编写 Shell 脚本](docs/202111/bash.md)
   - [Marknote 全文搜索的想法](docs/202111/think-about-fulltext-search-for-marknote.md)
   - [我的 Java 笔记](docs/202111/my-java-notes.md)
   - [理解 Vue 的 Dep](docs/202111/dep-in-vuejs.md)
