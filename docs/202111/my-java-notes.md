@@ -41,6 +41,8 @@ Hello, world
 我用的是 jdk17，可以直接执行 java 源码文件。一般情况下 java 工程是先用 `javac` 命令进行编译，然后由 `java` 命令执行。
 实际项目中，java 都是使用 maven 或 gradle 进行管理。
 
+## 工程化
+
 ### javac 命令
 
 javac 可以将 java 源代码（.java 文件）编译为 class 字节文件（.class），供 jvm 执行。常见命令参数：
@@ -223,9 +225,44 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
 由这三个工具，可以看出 java 在云时代的努力。
 
-### GraalVM
+## 没啥用的知识
 
-Java + AOT，持续关注 GraalVM。生态成熟了，足够让 java 再战 100 年。
+### Java 虚拟机
+
+Java 是一种被设计为在 Java 虚拟机 JVM 上执行的编程语言。前面也说明了，Java 源代码会先编译为字节码，然后再交由 VM 执行。业界实际上有多个 Java VM 实现。我了解过的有 HotSpot、OpenJ9、GraalVM。
+
+#### HotSpot
+
+HotSpot 目前是 OpenJDK 上默认的 Java VM 实现。也是目前使用最广的 Java 实现。
+
+#### OpenJ9
+
+OpenJ9 最早由 IBM 开发，后来贡献给了 Eclipse 基金会。不过后面 IBM 又收回了自用。OpenJ9 最大的特点就是比较省内存、启动速度快。
+
+#### GraalVM
+
+Java + AOT，顺带搞了一个 N 种语言通过用运行时。AOT 是比较吸引的，冷启动可以做到毫秒级。这个特性真的是谁用谁知识，就连 Java 界的明星 Spring Boot 也要加入 AOT 的支持。在各种“云”当道的今天，冷启动速度已经成为了一个重要指标。
+
+GraalVM 出带有一个支持 N 种编程语言的组件。历史上不少项目都做过类似的功能，比如 MS 家的 .net 就搞过一票的 Iron* 语言。不过慢慢就没有下文了。
+
+不过单 AOT 这个特性已经足够吸引一部分用户迁移到 GraalVM。
+
+### GC
+
+Java 具有自动的内存管理功能，这个功能是通过 JVM 中的垃圾回收器 GC 实现。不同版本中使用了不同的算法：
+
+| JDK 版本 | GC 算法 | 其他 |
+|---------|--------|------|
+| JDK 8 | ParallelGC | 默认，新版本中可以通过 `-XX:+UseParallelGC` 启用    |
+| JDK 17 | G1GC | JDK9+ 默认，JDK8 中可以通过 `-XX:+UseG1GC` 启用     |
+|         | ZGC | 通过 `-XX:+UseZGC -Xmx<size>` 启用 |
+|         | Shenandoah GC | 通过 `-XX:+UseShenandoahGC` 启用 |
+
+ZGC 和 Shenandoah GC 是用于大堆优化的并行低感知 GC。低感知是指 Stop The World 时间很短（ms 级别），大堆是指 > 20GB 堆内存。所以对于一般场景更推荐默认配置。毕竟“没有免费的午餐”，GC 的低 STW 时长，是使用吞吐量为代价。
+
+### 性能测试
+
+HotSpot 是带有 JIT 功能虚拟机。JIT 一般有一个特点：越跑越快。这是因为 JIT 会尝试对经常使用的代码进行优化。因为测试 Java 代码性能时，需求在启动后多测试几个回合。一般至少三个回合。
 
 TBA
 
