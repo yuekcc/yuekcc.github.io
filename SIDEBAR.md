@@ -2,7 +2,7 @@
   - [nodejs 上实现 AES 解密实现](docs/202112/aes-decrypt.md)
 - 2021.11
   - [编写 Shell 脚本](docs/202111/bash.md)
-  - [Marknote 全文搜索的想法](docs/202111/think-about-fulltext-search-for-marknote.md)
+  - [Marknote 全文搜索的想法](docs/202111/full-text-search-for-marknote.md)
   - [我的 Java 笔记](docs/202111/my-java-notes.md)
   - [理解 Vue 的 Dep](docs/202111/dep-in-vuejs.md)
   - [前端笔记](docs/202111/frontend-tips.md)
