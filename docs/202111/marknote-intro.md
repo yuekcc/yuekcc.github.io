@@ -2,6 +2,9 @@
 
 <img src="docs/202111/images/marknote-screenshot.jpg" style="border: 2px solid #ccc; max-width: 100%">
 
+- [在线预览](https://yuekcc.github.io/marknote/)
+- [源码](https://github.com/yuekcc/marknote)
+
 [TOC]
 
 ## 想法
@@ -64,7 +67,7 @@ book-cli 是一个非常简单的静态网站应用。我称之为“应用”�
 
 - https://yuekcc.github.io
 - https://turn-left.github.io
-- https://github.com/yuekcc/marknote
+- https://yuekcc.github.io/marknote/
 
 ----
 
