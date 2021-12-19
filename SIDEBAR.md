@@ -1,4 +1,5 @@
 - 2021.12
+  - [rust 快速体验](docs/202112/rust-flash.md)
   - [nodejs 上实现 AES 解密实现](docs/202112/aes-decrypt.md)
 - 2021.11
   - [编写 Shell 脚本](docs/202111/bash.md)
