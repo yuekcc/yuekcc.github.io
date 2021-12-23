@@ -2,9 +2,7 @@
 
 ## 安装
 
-rustup + rsproxy.io。
-
-我使用的是 stable-x86_64-pc-windows-gnu 工具链，因为体积比较小。
+使用 rustup 工具，crates 镜像设置为 rsproxy.io，工具链则选择 stable-x86_64-pc-windows-gnu。
 
 ### 问题
 
