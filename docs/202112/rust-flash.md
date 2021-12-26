@@ -1,5 +1,7 @@
 # rust 快速体验
 
+![Rust 程序开发语言](/docs/202112/images/3ed4a443f105e3102e28b44eb3855c87de738796.png)
+
 ## 安装
 
 使用 rustup 工具，crates 镜像设置为 rsproxy.io，工具链则选择 stable-x86_64-pc-windows-gnu。
@@ -60,27 +62,27 @@ fn read_dir(dir: &Path) -> Vec<PathBuf> {
 // 取得文件列表
 //
 func (t *Task) getFileList() ([]string, error) {
-	log.Println("读取目录：", t.dir)
+    log.Println("读取目录：", t.dir)
 
-	items, err := os.ReadDir(t.dir)
-	if err != nil {
-		return nil, err
-	}
+    items, err := os.ReadDir(t.dir)
+    if err != nil {
+        return nil, err
+    }
 
-	itemsLen := len(items)
-	result := make([]string, itemsLen)
-	for i := 0; i < itemsLen; i++ {
-		item := items[i]
+    itemsLen := len(items)
+    result := make([]string, itemsLen)
+    for i := 0; i < itemsLen; i++ {
+        item := items[i]
 
-		// 忽略子目录
-		if item.IsDir() {
-			continue
-		}
+        // 忽略子目录
+        if item.IsDir() {
+            continue
+        }
 
-		result[i] = filepath.Join(t.dir, item.Name())
-	}
+        result[i] = filepath.Join(t.dir, item.Name())
+    }
 
-	return result, nil
+    return result, nil
 }
 ```
 
