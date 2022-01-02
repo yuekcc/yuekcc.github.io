@@ -2,7 +2,6 @@
   - [实用命令行工具](docs/202201/cli-collection.md)
 
 - 2021.12
-  - [小前端指北](docs/202112/web-intro.md)
   - [rust 快速体验](docs/202112/rust-flash.md)
   - [nodejs 上实现 AES 解密实现](docs/202112/aes-decrypt.md)
 
