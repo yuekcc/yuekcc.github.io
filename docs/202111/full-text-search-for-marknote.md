@@ -53,15 +53,17 @@ search server 并不需要特别多的接口，目前打算使用 go 实现，�
 
 ~~有生之年~~
 
-有一个基础实现了，https://github.com/yuekcc/marknote-search-mvp。
+有一个[MVP 实现](mn-search)了，目前已经实现：
 
-目前已经实现：
+- [x] 响应接口，自动调用 git clone/pull 更新文章仓库
+- [x] 推送文章数据到搜索引擎
+- [x] 有一个接口，用于搜索
+- [ ] 有一个组件，集成到 marknote 中
 
-1. 响应接口，自动调用 git clone/pull 更新文章仓库
-2. 推送文章数据到搜索引擎
-3. 有一个接口，用于搜索
+[mn-search]: https://github.com/yuekcc/marknote-search-mvp
 
 ----
 
 - 2021.11.14，初始稿
 - 2021.12.13，增加 mvp 实现的连接
+- 2022.01.02，修复 MVP 实现的 URL 错误
