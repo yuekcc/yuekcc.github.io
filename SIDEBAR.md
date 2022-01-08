@@ -1,5 +1,5 @@
 - 2022.01
-  - [Puppeteer](docs/202201/puppeteer.md)
+  - [Puppeteer 实现 UI 自动化测试](docs/202201/puppeteer.md)
   - [实用命令行工具](docs/202201/cli-collection.md)
 
 - 2021.12
