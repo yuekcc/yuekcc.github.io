@@ -1,4 +1,5 @@
 - 2022.01
+  - [OpenWrt 安装流水账](docs/202201/openwrt-install.md)
   - [Puppeteer 实现 UI 自动化测试](docs/202201/puppeteer.md)
   - [实用命令行工具](docs/202201/cli-collection.md)
 
