@@ -1,6 +1,3 @@
-serve:
-  @npm run serve
-
 @push:
   @# push to github
   git push origin
@@ -12,3 +9,6 @@ serve:
   git push codeberg
   
   @# DONE
+
+serve:
+  @npm run serve
