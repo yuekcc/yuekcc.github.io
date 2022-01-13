@@ -45,7 +45,7 @@ push:
 
 基本使用
 
-```shell
+```sh
 $ watchexec -e js,html,css npm run build
 ```
 
@@ -88,7 +88,7 @@ sirv 是 node.js 的一个简单开发服务器。sirv 自带 SPA 前端项目�
 
 基本使用：
 
-```shell
+```sh
 $ # 如果安装到全局
 $ sirv -D <dir>
 $

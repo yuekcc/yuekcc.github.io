@@ -114,7 +114,7 @@ config interface 'wan'
 
 按照清华源的[说明][setup-openwrt-mirror]，执行：
 
-```
+```sh
 sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
 ```
 
@@ -122,7 +122,7 @@ sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg
 
 然后再执行：
 
-```
+```sh
 opkg update
 ```
 
