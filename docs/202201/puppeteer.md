@@ -1,6 +1,6 @@
 # Puppeteer 实现 UI 自动化测试
 
-Puppeteer 是~~Google 官方（可能）出品的~~用于 Chrome/Chromium 的自动动化控制库。
+Puppeteer 是 ~~Google 官方（可能）出品的~~ 用于 Chrome/Chromium 的自动动化控制库。
 
 GitHub: https://github.com/puppeteer/puppeteer
 官网：https://pptr.dev/
