@@ -4,9 +4,9 @@
 
 ## just
 
-主页: https://github.com/casey/just
+主页: [https://github.com/casey/just][https://github.com/casey/just]
 
-just 是一个类似于 make 工具，用于执行项目开发中的一些组合命令。如果熟悉 node.js 的话，大概也是知道 package.json 中可以增加自定义的脚本，用于启动或执行一些命令，使用最多的情况是构建项目。just 则更为通用。类 Makefile 的语法也更容易上手。
+just 是一个类似于 make 工具，用于执行项目开发中的一些组合命令。通过 recipes 可以组成工作流 。如果熟悉 node.js 的话，大概也是知道 package.json 中可以增加自定义的脚本，用于启动或执行一些命令，使用最多的情况是构建项目。just 则更为通用。类 Makefile 的语法也更容易上手。
 
 使用：
 
@@ -37,11 +37,11 @@ push:
   - 通过 `just <recipe-name>` 执行指定的 `recipe`
   - 通过 `just -l` 查看可以用 `recipe`
 
-其他细节这里就不一一说明了。看文档吧：https://github.com/chinanf-boy/just-zh
+其他细节这里就不一一说明了。看文档吧：[https://github.com/chinanf-boy/just-zh](https://github.com/chinanf-boy/just-zh)
 
 ## watchexec
 
-主页：https://github.com/watchexec/watchexec
+主页：[https://github.com/watchexec/watchexec](https://github.com/watchexec/watchexec)
 
 基本使用
 
@@ -78,7 +78,7 @@ watch:
 
 ## sirv
 
-主页：https://github.com/lukeed/sirv
+主页：[https://github.com/lukeed/sirv](https://github.com/lukeed/sirv)
 
 sirv 是 node.js 的一个简单开发服务器。sirv 自带 SPA 前端项目支持，也只支持自动查找可用端口。
 
@@ -98,13 +98,13 @@ $ npx sirv -D <dir>
 
 ## mkcert
 
-主页：https://github.com/FiloSottile/mkcert
+主页：[https://github.com/FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
 
 mkcert 是一个创建自签证书的工具。特别适合需要内网部署 https 的场景。
 
 ## tokei
 
-主页：https://github.com/XAMPPRocky/tokei
+主页：[https://github.com/XAMPPRocky/tokei](https://github.com/XAMPPRocky/tokei)
 
 tokei 是一个代码统计工具。对比常见的 sloc，tokei 主要统计内嵌脚本。比如嵌入在 html 文件中的 js 代码。
 
@@ -114,6 +114,13 @@ tokei 使用 rust 实现，支持 linux/macos/windows 操作系统。
 
 [scc]: https://github.com/boyter/scc
 
+## WindTerm
+
+主页：[https://github.com/kingToolbox/WindTerm](https://github.com/kingToolbox/WindTerm)
+
+WindTerm 是一个 SSH 客户端，类似于 XShell 和 mobaxterm。支持保存 SSH 自动登陆，历史记录等功能。
+
 ---
 
-2022年01月02日
+- 2022年01月02日
+- 2022年02月18日，收录 WindTerm
