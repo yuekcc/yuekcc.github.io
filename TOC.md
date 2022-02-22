@@ -1,3 +1,6 @@
+- 2022.02
+  - [docutil 开发笔记](docs/202202/notes-on-docutil.md)
+
 - 2022.01
   - [OpenWrt 安装流水账](docs/202201/openwrt-install.md)
   - [Puppeteer 实现 UI 自动化测试](docs/202201/puppeteer.md)
