@@ -16,7 +16,7 @@ mingw32-w64 官方分发的 gcc 还是 gcc8。可以从 [winlibs](https://winlib
 
 ## 写点小工具
 
-我用 rust 重做了之前写用 go 写的一个工具 [picar]。picar 是一个整理照片的工具，主要功能就是遍历目录中所有照片文件，读出其 exif 数据，按照 exif 记录的时间日期进行整理。比如一个照片（.jpg 文件）拍摄于 2021年12月30日 12:30:45，移动到 <pwd>/202121/prefix_20212130_123045.jpg。
+我用 rust 重做了之前写用 go 写的一个工具 [picar]。picar 是一个整理照片的工具，主要功能就是遍历目录中所有照片文件，读出其 exif 数据，按照 exif 记录的时间日期进行整理。比如一个照片（.jpg 文件）拍摄于 2021 年 12 月 30 日 12:30:45，移动到 <pwd>/202121/prefix_20212130_123045.jpg。
 
 [picar]: https://github.com/yuekcc/picar
 
@@ -141,11 +141,11 @@ rust 应该比 c++ 要简单一些的。语法有点不太适应，生态也慢�
 
 ## 续
 
-2022年01月10日 更新
+2022 年 01 月 10 日 更新
 
 趁着双休，将原来用 go 实现的 [init-nodejs-project](https://github.com/yuekcc/init-nodejs-project) 工具用 rust 重新写了一次。init-nodejs-project 是一个自用的 node.js 项目初始化工具，主要功能就是在一个空白目录里创建 package.json、.editorconfig、.gitignore、LICENSE 四个文件。
 
-通过 rust 内置的 `include_str!()` marco，可以直接很简单地内嵌一些文件或文本数据。这点估计也是 CTEE 特性带来的好处。项目本身不复杂，但用到了不少三方库。比如处理日期的 chrono、模板处理 handlebars 和 serde_json，命令行参数处理 gflags。但是在 golang 的实现中，这些功能都可以在 golang 的标准库找到相应的实现。在标准库这个问题上，rust 是小核心库+小标准库+第三方这种风格。golang 则是大标准库风格，尽可能提供常用的功能。
+通过 rust 内置的 `include_str!()` marco，可以直接很简单地内嵌一些文件或文本数据。这点估计也是 CTEE 特性带来的好处。项目本身不复杂，但用到了不少三方库。比如处理日期的 chrono、模板处理 handlebars 和 serde_json，命令行参数处理 gflags。但是在 golang 的实现中，这些功能都可以在 golang 的标准库找到相应的实现。在标准库这个问题上，rust 是小核心库 + 小标准库 + 第三方这种风格。golang 则是大标准库风格，尽可能提供常用的功能。
 
 golang 也特别强调编译速度，甚至为了编译速度牺牲了部分性能。以至 golang 的性能是编译型语言中最为一般的。配合强制的风格和比较简单的语法，所以 golang 特别适合中间件、命令行工具这些场景。带有 gc，也可以代替部分 java 的使用场景。
 
@@ -155,7 +155,6 @@ rust 版本的 init-nodejs-project 可以看这里：[yuekcc/inp](https://github
 
 ---
 
-- 2021年12月20日，第一版
-- 2022年01月10日，更新“续”
-- 2022年02月13日，更新部分笔误
-
+- 2021 年 12 月 20 日，第一版
+- 2022 年 01 月 10 日，更新“续”
+- 2022 年 02 月 13 日，更新部分笔误

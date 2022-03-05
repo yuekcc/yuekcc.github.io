@@ -4,7 +4,7 @@
 
 ## just
 
-主页: [https://github.com/casey/just][https://github.com/casey/just]
+主页：[https://github.com/casey/just](https://github.com/casey/just)
 
 just 是一个类似于 make 工具，用于执行项目开发中的一些组合命令。通过 recipes 可以组成工作流 。如果熟悉 node.js 的话，大概也是知道 package.json 中可以增加自定义的脚本，用于启动或执行一些命令，使用最多的情况是构建项目。just 则更为通用。类 Makefile 的语法也更容易上手。
 
@@ -31,7 +31,7 @@ push:
 
 ```
 
-3. 使用:
+3. 使用：
 
   - 直接执行 `just`。默认会执行第一个 recipe
   - 通过 `just <recipe-name>` 执行指定的 `recipe`
@@ -53,10 +53,10 @@ $ watchexec -e js,html,css npm run build
 
 | 参数 | 功能 |
 |-----|------|
-| -c  | 清空 console 输出 |
-| -r  | 一旦监听到文件变化就重新启动指定的命令 |
-| -s <SINGLE> | 发送信号到指定命令 |
-| -w <DIR> | 指定监听的目录 |
+| `-c`  | 清空 console 输出 |
+| `-r`  | 一旦监听到文件变化就重新启动指定的命令 |
+| `-s <SINGLE>` | 发送信号到指定命令 |
+| `-w <DIR>` | 指定监听的目录 |
 
 watchexec 会自动忽略 `.gitignore` 中的文件，并且递归处理子目录。
 
@@ -122,5 +122,5 @@ WindTerm 是一个 SSH 客户端，类似于 XShell 和 mobaxterm。支持保存
 
 ---
 
-- 2022年01月02日
-- 2022年02月18日，收录 WindTerm
+- 2022 年 01 月 02 日
+- 2022 年 02 月 18 日，收录 WindTerm
