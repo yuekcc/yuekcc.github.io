@@ -52,21 +52,21 @@ $ tokei.exe
 rust 版本：
 
 ```sh
-$ tokei.exe
+$ tokei.exe # 2022 年 04 月 25 日 更新
 ===============================================================================
  Language            Files        Lines         Code     Comments       Blanks
 ===============================================================================
- TOML                    1           17           15            0            2
+ TOML                    1           20           17            0            3
 -------------------------------------------------------------------------------
- Markdown                1           29            0           19           10
+ Markdown                1           33            0           21           12
  |- Shell                1            4            4            0            0
- (Total)                             33            4           19           10
+ (Total)                             37            4           21           12
 -------------------------------------------------------------------------------
- Rust                    4          261          198            4           59
- |- Markdown             2            9            0            9            0
- (Total)                            270          198           13           59
+ Rust                    4          279          218            0           61
+ |- Markdown             2            7            0            7            0
+ (Total)                            286          218            7           61
 ===============================================================================
- Total                   6          307          213           23           71
+ Total                   6          332          235           21           76
 ===============================================================================
 ```
 
@@ -141,20 +141,23 @@ rust 应该比 c++ 要简单一些的。语法有点不太适应，生态也慢�
 
 ## 续
 
-2022 年 01 月 10 日 更新
+趁着双休，将原来用 go 实现的 [init-nodejs-project-go][init_nodejs_project_in_go] 工具用 rust 重新写了一次。init-nodejs-project 是一个自用的 node.js 项目初始化工具，主要功能就是在一个空白目录里创建 package.json、.editorconfig、.gitignore、LICENSE 四个文件。
 
-趁着双休，将原来用 go 实现的 [init-nodejs-project](https://github.com/yuekcc/init-nodejs-project) 工具用 rust 重新写了一次。init-nodejs-project 是一个自用的 node.js 项目初始化工具，主要功能就是在一个空白目录里创建 package.json、.editorconfig、.gitignore、LICENSE 四个文件。
+通过 rust 内置的 `include_str!()` marco，可以直接很简单地内嵌一些文件或文本数据。这点估计也是 CTEE 特性带来的好处。项目本身不复杂，但用到了不少三方库。比如处理日期的 ~~chrono~~ time-rs、模板处理 handlebars 和 serde_json，命令行参数处理 ~~gflags~~ clap。但是在 golang 的实现中，这些功能都可以在 golang 的标准库找到相应的实现。在标准库这个问题上，rust 是小核心库 + 小标准库 + 第三方库的风格。golang 则是大标准库风格，尽可能提供常用的功能，开箱即用。
 
-通过 rust 内置的 `include_str!()` marco，可以直接很简单地内嵌一些文件或文本数据。这点估计也是 CTEE 特性带来的好处。项目本身不复杂，但用到了不少三方库。比如处理日期的 chrono、模板处理 handlebars 和 serde_json，命令行参数处理 gflags。但是在 golang 的实现中，这些功能都可以在 golang 的标准库找到相应的实现。在标准库这个问题上，rust 是小核心库 + 小标准库 + 第三方这种风格。golang 则是大标准库风格，尽可能提供常用的功能。
+golang 特别强调编译速度，甚至为了编译速度牺牲部分性能。以至 golang 的性能是编译型语言中最为一般的。配合强制的风格和比较简单的语法，所以 golang 特别适合中间件、命令行工具这些场景。带有 gc，也可以代替部分 java 的使用场景。
 
-golang 也特别强调编译速度，甚至为了编译速度牺牲了部分性能。以至 golang 的性能是编译型语言中最为一般的。配合强制的风格和比较简单的语法，所以 golang 特别适合中间件、命令行工具这些场景。带有 gc，也可以代替部分 java 的使用场景。
+rust 有 c++++ 的嫌疑。性能比肩 c，声称安全第一；同时编译速度也比肩 c++，真的慢（和 golang 比）；rust 另一个著名的地方是上手难。不过我相信，c++ 更难。rust 的工具链也是相当现代化，模块管理、核心库这些都比 c++ 更现代化。
 
-rust 有 c++++ 的嫌疑。性能比肩 c++，而且声称安全第一；同时编译速度也比肩 c++，真的慢（和 golang 比）。
+rust 版本的 init-nodejs-project 可以看这里：[yuekcc/init-nodejs-project][init_nodejs_project_in_rust]。rust 版本的体积是真的小，优化下来不到 500k，go 版本怎么也得 1.5mb 左右。
 
-rust 版本的 init-nodejs-project 可以看这里：[yuekcc/inp](https://github.com/yuekcc/inp)。rust 版本的体积是真的小，优化下来不到 500k，go 版本怎么也得 1.5mb 左右。
+[init_nodejs_project_in_rust]: https://github.com/yuekcc/init-nodejs-project
+[init_nodejs_project_in_go]: https://github.com/yuekcc/init-nodejs-project-go
 
 ---
 
 - 2021 年 12 月 20 日，第一版
 - 2022 年 01 月 10 日，更新“续”
 - 2022 年 02 月 13 日，更新部分笔误
+- 2022 年 04 月 25 日，部分文字更新，更新 picar-rs 代码量表格
+
