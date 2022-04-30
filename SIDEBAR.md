@@ -9,4 +9,4 @@
 - [picar](https://github.com/yuekcc/picar)
 - [init-nodejs-project](https://github.com/yuekcc/inp)
 - [marknote](https://github.com/yuekcc/marknote)
-- [docutil](https://github.com/yuekcc/marknote-next)
+- [docutil](https://github.com/yuekcc/docutil)
