@@ -11,7 +11,7 @@ just 是一个类似于 make 工具，用于执行项目开发中的一些组合
 使用：
 
 1. 在项目中创建一个 `justfile`
-2. 在 justfile 增加一些 *recipe*，比如我当前项目的 justfile：
+2. 在 justfile 增加一些 _recipe_，比如我当前项目的 justfile：
 
 ```justfile
 serve:
@@ -23,7 +23,7 @@ push:
 
   @echo "Push to Gitee"
   @git push gitee
-  
+
   @echo "Push to Codeberg"
   @git push codeberg
 
@@ -33,9 +33,9 @@ push:
 
 3. 使用：
 
-  - 直接执行 `just`。默认会执行第一个 recipe
-  - 通过 `just <recipe-name>` 执行指定的 `recipe`
-  - 通过 `just -l` 查看可以用 `recipe`
+- 直接执行 `just`。默认会执行第一个 recipe
+- 通过 `just <recipe-name>` 执行指定的 `recipe`
+- 通过 `just -l` 查看可以用 `recipe`
 
 其他细节这里就不一一说明了。看文档吧：[https://github.com/chinanf-boy/just-zh](https://github.com/chinanf-boy/just-zh)
 
@@ -51,12 +51,12 @@ $ watchexec -e js,html,css npm run build
 
 命令行参数
 
-| 参数 | 功能 |
-|-----|------|
-| `-c`  | 清空 console 输出 |
-| `-r`  | 一旦监听到文件变化就重新启动指定的命令 |
-| `-s <SINGLE>` | 发送信号到指定命令 |
-| `-w <DIR>` | 指定监听的目录 |
+| 参数          | 功能                                   |
+| ------------- | -------------------------------------- |
+| `-c`          | 清空 console 输出                      |
+| `-r`          | 一旦监听到文件变化就重新启动指定的命令 |
+| `-s <SINGLE>` | 发送信号到指定命令                     |
+| `-w <DIR>`    | 指定监听的目录                         |
 
 watchexec 会自动忽略 `.gitignore` 中的文件，并且递归处理子目录。
 
@@ -110,7 +110,7 @@ tokei 是一个代码统计工具。对比常见的 sloc，tokei 主要统计内
 
 tokei 使用 rust 实现，支持 linux/macos/windows 操作系统。
 
-类似的工具还有使用 go 实现的 [scc](scc)。scc 甚至会根据 COCOMO 模型计算软件成本。看到自己的代码估算值 xxx USD 还是很舒服的😁
+类似的工具还有使用 go 实现的 [scc](scc)。scc 甚至会根据 COCOMO 模型计算软件成本。看到自己的代码估算值 xxx USD 还是很舒服的 😁
 
 [scc]: https://github.com/boyter/scc
 
@@ -120,7 +120,14 @@ tokei 使用 rust 实现，支持 linux/macos/windows 操作系统。
 
 WindTerm 是一个 SSH 客户端，类似于 XShell 和 mobaxterm。支持保存 SSH 自动登陆，历史记录等功能。
 
+## # WinLibs standalone build of GCC and MinGW-w64 for Windows
+
+主页：[https://winlibs.com/](https://winlibs.com/)
+
+gcc 是开源软件生态中一个非常重要的编译器，在其基本上衍生出 mingw-w64 编译器，用于支持 windows 平台。winlibs 则是 mingw-64 的一个分发版本，同步 gcc 的版本迭代速度。
+
 ---
 
 - 2022 年 01 月 02 日
 - 2022 年 02 月 18 日，收录 WindTerm
+- 2022 年 05 月 09 日，收录 winlibs build of gcc
