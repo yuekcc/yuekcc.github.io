@@ -1,5 +1,6 @@
 ## 2022
 
+- [实用代理设置](docs/202206/useful-proxy-settings.md)
 - [Web 前端开发入门](docs/202205/learn-web-dev.md)
 - [我的网站架构](docs/202205/my-site.md)
 - [预览 Sycamore 全新的响应式原语](docs/202203/sycamore-new-reactive-primitives.md)
