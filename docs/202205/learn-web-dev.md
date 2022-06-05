@@ -226,6 +226,12 @@ node.js 是一种面向后台服务的 js 执行环境。node.js 有异步 io、
 
 基本上与其他语言的开发体验一致。而且也可以通过 ci/cd 自动化集成到系统中。
 
+编辑器/IDE 可以使用 vscode 或 webstorm。vscode 免费，功能也足够使用；webstorm 则有更好的 js 静态分析支持，git ui、代码重构功能也特别好用。
+
+>广告：初始化 node.js 可以使用我家的 [init-nodejs-project][init_nodejs_project]，已经内置了 eslint、prettier 工具的配置。
+
+[init_nodejs_project]: https://github.com/yuekcc/init-nodejs-project
+
 ## VUE
 
 vuejs 是目前流行的前端三大框架之一（另两个是 angular、react）。据我所知，vue 在小厂中非常流行，原因是上手真的简单，而且原创也是华人，也有足够多的中文资料。
@@ -247,27 +253,27 @@ vuejs 是目前流行的前端三大框架之一（另两个是 angular、react�
 vue 提供了一种 Options API 用于声明一个组件。组件使用 js 对象语法描述：
 
 ```js
-const Component = {
+const AComponent = {
   data() {
-		return {
-			name: 'Tom'
-		}
-	},
-	methods: {
-		getName() {
-			return this.name;
-		}
-	}
-	template: `<div>{getName()}</div>`
+    return {
+      name: 'Tom'
+    }
+  },
+  methods: {
+    getName() {
+      return this.name;
+    }
+  },
+  template: `<div>{{getName()}}</div>`
 }
 
 ```
 
-vue 组件应用模板语法来声明组件的 html，模板会通过内置的编译器编译为 render 函数来执行。模板的了好处是比较直观，也更接近传统的网页开发方式。
+vue 组件使用模板来声明组件的 html，模板会通过内置的编译器编译为 render 函数执行。模板的好处是比较直观，也更接近传统的网页开发方式。这点也是 vue 比较容易上手的特性。
 
 如果将一个网页分为三个部分——样式、模板、脚本。然后组合在一个文件中，这样的就可以得一 Single File Component（SFC）的组件开发方式。
 
-SFC 也是现在主流的 vue 组件开发方式。不过使用 SFC 需要编译工具支持。
+SFC 也是现在主流的 vue 组件开发方式。使用 SFC 需要编译工具支持。vue 官方现在推荐使用 vite。
 
 ### vite
 
@@ -283,8 +289,11 @@ vue 生态中为工程化提供了两套解决方案：vue-cli、vite。vue-cli 
 
 vite 的文档可以在 [https://vitejs.dev/](https://vitejs.dev/) 找到。
 
+### live coding
+
 TBD
 
 ---
 
-2022 年 05 月 27 日，初稿
+- 2022 年 05 月 27 日，初稿
+- 2022 年 06 月 05 日，修订
