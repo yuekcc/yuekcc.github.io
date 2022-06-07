@@ -15,6 +15,8 @@ windows 系统下，可以编辑 `C:\Windows\System32\drivers\etc\hosts`，增�
 
 刷新 dns 可以用 `ipconfig /flushdns` 命令。
 
+可以使用我的自制工具，自动更新 hosts 文件，在这个仓库可以找下载：[https://codeberg.org/yuekcc/add-github-hosts](https://codeberg.org/yuekcc/add-github-hosts)。
+
 ## 常用软件的镜像
 
 国内一些高校都有对外提供开源软件的镜像，可以在搜索引擎中找找。像 git for windows、常见的 linux 发生版都有。我常用的是清华大学提供的 [镜像服务][tuna_mirror]。
