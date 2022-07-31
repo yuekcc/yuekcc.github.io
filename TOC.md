@@ -1,5 +1,6 @@
 ## 2022
 
+- [安装 WSL](docs/202207/install-wsl.md)
 - [实用代理设置](docs/202206/useful-proxy-settings.md)
 - [Web 前端开发入门](docs/202205/learn-web-dev.md)
 - [我的网站架构](docs/202205/my-site.md)
