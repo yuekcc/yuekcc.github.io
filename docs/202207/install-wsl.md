@@ -8,9 +8,9 @@ wsl，windows subsystem for linux，是 windows 上用于运行 linux 技术。w
 
 ## 安装
 
-在 windows 10 的某个版本开始提供了 wsl 支持。一路更新下来的 windows 10 系统应该可以正常开启 wsl 功能。
+在 windows 10 的某个版本开始提供了 wsl 支持。一直开启 windows 更新的 windows 10 系统应该可以正常开启 wsl 功能。
 
-在管理员方式打开的 powershell 中，可以执行 `wsl -l -v` 命令，查看当前已经安装 linux 发行版。
+使用管理员方式打开的 powershell（按 win+x 也可以看入口），执行 `wsl -l -v` 命令，查看当前已经安装 linux 发行版。如果正确启用了 wsl 功能，这个命令应该可以正常使用。
 
 windows app store 可以直接安装 debian、ubuntu 最近的版本。如果你的网络好用的话，应该可以直接打开 windows app store。可惜，我这边不行。只能使用其他安装方式。另外就是，通过官方手段安装的 wsl 系统，全部安装的 C:/。
 
@@ -50,7 +50,7 @@ D:/wsl/debian
 
 待安装完成后，便得到一个非常轻量的 Debian 系统。
 
-这里一个列表，https://wsldl-pg.github.io/docs/Using-wsldl/#distros 罗列了使用 wsldl 包装的 linux 发行版。上面的列表包含了民间人士准备的各种 wsl 发布版。选一个自己习惯的发行版来使用。
+这里一个列表，https://wsldl-pg.github.io/docs/Using-wsldl/#distros 罗列了使用 wsldl 包装的 linux 发行版。上面的列表包含了民间人士准备的各种 wsl 发布版。Linux 发行版选择一个自己习惯的就可以了。推荐 Ubuntu、Debian、Fedora 这些大众化的选择，其他小众一点的发行版也可以的。在 wsl 中主要就是包管理工具的区别了。我使用的是 Debian，因为习惯了 apt 工具，自家的服务器也使用 Debian。另一个原因是 Debian 在国内有比较好的源，安装软件比较快。
 
 ## WSL 基本使用
 
@@ -89,16 +89,17 @@ echo nameserver 223.5.5.5 > /etc/resolv.conf
 ### 设置软件源
 
 ```sh
-echo deb https://mirrors.tuna.tsinghua.edu.cn/debian/ sid main contrib non-free > /etc/apt/sources.list
+echo deb http://mirrors.tuna.tsinghua.edu.cn/debian/ sid main contrib non-free > /etc/apt/sources.list
 
 # 更新
 apt-get update
+apt-get dist-upgrade # 安装好系统后，先是一波全局更新。sid 是开发版，更新速度还是很快的。
 ```
 
 ### 实用工具
 
 ```sh
-apt-get install iproute2 iputils-ping locales netbase net-tools openssh-client procps sudo xz-utils unzip
+apt-get install iproute2 iputils-ping locales net-tools openssh-client procps sudo xz-utils unzip
 ```
  
 ### locale-gen
@@ -114,7 +115,7 @@ locale-gen
 
 ```sh
 # 创建普通用户 feng
-useradd -m -G adm,sudo,plugdev,cdrom -s /bin/bash feng
+useradd -m -G adm,sudo -s /bin/bash feng
 passwd feng
 ```
 
