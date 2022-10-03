@@ -1,4 +1,5 @@
 ## 2022
+- [NPM 小技巧](docs/202210/npm-tips.md)
 - [Zig/JavaScript 代码风格指南](docs/202209/zig-style-guide.md)
 - [安装 WSL](docs/202207/install-wsl.md)
 - [实用代理设置](docs/202206/useful-proxy-settings.md)
