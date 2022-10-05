@@ -41,19 +41,23 @@ Zig 在语言文档也写了一段风格指南。第一眼看 Zig 其实有一�
 - 代码的不使用 Ascii control characters，除非是 LF、CR、HT、U+0009 (HT): U+0000 - U+0008, U+000b - U+000c, U+000e - U+0001f, U+007f.
 - 不能用非 ASCII Unicode 的字符结尾。
 
-## 后记
+## JavaScript 的风格又是如何？
 
-最近接手了一个 20K 行级别的应用项目。里面的代码可以用没有风格来形容，是「随意流」的风格。很多 js 的风格指南都推荐使用 `camelCase` 的写标识，而这个项目的代码却是同一个文件中 `camelCase`、`TitleCase`、`snake_case` 混合使用，文件名也是随意风格，有 `kebab-case`、 `TitleCase`、`camelCase`。所以我决心改变这种情况。Rust 也是混合使用，但是 rust 只 struct 名使用 `TitleCase`，其他基本上是 `snake_case`，算是比较统一。而 Zig 就是三者混用。在用 Zig 写了几行代码，有理解为什么是这样的写法——主要就是一眼可以看出哪个是方法，可以调用，哪个是变量，哪个是类型。
+最近接手了一个 20K 行级别的应用项目，代码都是「随意流」——大小写混合、camelCase/snake_case 混搭。总结就没有没有任何的风格。
+
+Rust 也是混合使用，但社区已经有比较完善的习惯用法，除 `struct` 名使用 `TitleCase`，其他基本上是 `snake_case`。Zig 也是三者混用。在用 Zig 写了几行代码，就可以理解为什么有这种约定——主要就是一眼可以看出哪个是方法，可以调用，哪个是变量，哪个是类型。
+
+>Zig 的创始人也有很多 JavaScript 使用的经验，第一眼看 Zig 也是一股 JavaScript 味道。比如 `const std = @import('std');`
 
 参考 Zig 的风格指南。我也总结了几条 js 的规则：
 
-- 文件名，顶层导出 default 的，使用 `TitleCase`；顶层导出多个对象的使用 `snake_case`。
-  - default 导出的应该只有 class、vue 组件
-  - 有 default 导出就不应该再导出其他对象
+- 文件名，顶层导出 default 的，使用 `TitleCase`；顶层导出多个对象的使用 `snake_case`
+  - `export default`的应该只有 class、vue 组件
+  - 有 `export default`就不应该再导出其他对象
   - 尽量不使用 default 导出
 - 目录使用 `snake_case`
-  - 一个目录的入口文件应该是 `index.js`
-  - 不打算被使用文件，应该写作 `_snake_case` 或 `_TitleCase`
+  - 如何需要，一个目录的入口文件应该是 `index.js`
+  - 不打算被外部使用的代码模块、文件，应该写作 `_snake_case` 或 `_TitleCase`
 - 类 class 使用 `TitleCase`
 - 方法使用 `camelCase`
 - 变量使用 `camelCase`
@@ -62,8 +66,10 @@ Zig 在语言文档也写了一段风格指南。第一眼看 Zig 其实有一�
 - 换行用系统默认（windows 是 crlf，linux/osx 是 lf）
   - git 应该设置换行为 `auto`
 - vue sfc 组件，使用 `TitleCase`
+  - 因为 vue sfc 组件都是 `export default`，相当于一种类型
 
-风格指南没有绝对正确的，关键是使用一套风格并且一直用。
+__风格指南没有绝对正确的，关键是使用一套风格并且一直用__。
 
 ----
-2022 年 09 月 16 日 初稿
+- 2022 年 09 月 16 日 初稿
+- 2022 年 10 月 05 日 修改部分措辞
