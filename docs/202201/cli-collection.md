@@ -6,7 +6,7 @@
 
 主页：[https://github.com/casey/just](https://github.com/casey/just)
 
-just 是一个类似于 make 工具，用于执行项目开发中的一些组合命令。通过 recipes 可以组成工作流 。如果熟悉 node.js 的话，大概也是知道 package.json 中可以增加自定义的脚本，用于启动或执行一些命令，使用最多的情况是构建项目。just 则更为通用。类 Makefile 的语法也更容易上手。
+just 是一个类似于 make 工具，用于执行项目开发中的一些组合命令。通过 recipes 可以组成工作流。如果熟悉 node.js 的话，大概也是知道 package.json 中可以增加自定义的脚本，用于启动或执行一些命令，使用最多的情况是构建项目。just 则更为通用。类 Makefile 的语法也更容易上手。
 
 使用：
 
@@ -124,7 +124,15 @@ WindTerm 是一个 SSH 客户端，类似于 XShell 和 mobaxterm。支持保存
 
 主页：[https://winlibs.com/](https://winlibs.com/)
 
-gcc 是开源软件生态中一个非常重要的编译器，在其基本上衍生出 mingw-w64 编译器，用于支持 windows 平台。winlibs 则是 mingw-64 的一个分发版本，同步 gcc 的版本迭代速度。
+winlibs 是 mingw-w64 的一处发行版。mingw-w64 是源自 mingw 项目的一个 Fork，包括一组用于 windows 应用开发的 Headers、库、GNU 工具和 64 位支持。
+
+类似的项目还有： 
+
+- https://www.msys2.org/
+- https://github.com/skeeto/w64devkit
+- https://github.com/niXman/mingw-builds-binaries
+- https://github.com/mstorsjo/llvm-mingw
+- https://nuwen.net/mingw.html
 
 ---
 
