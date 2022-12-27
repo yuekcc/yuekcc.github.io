@@ -1,4 +1,5 @@
 ## 2022
+- [Zig](docs/202212/zig.md)
 - [Make PHP great again](docs/202211/make-php-great-again.md)
 - [NPM 小技巧](docs/202210/npm-tips.md)
 - [Zig/JavaScript 代码风格指南](docs/202209/zig-style-guide.md)
