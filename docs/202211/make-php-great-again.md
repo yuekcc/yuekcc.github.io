@@ -10,7 +10,7 @@
 
 PHP 也不是一成不变。如今 PHP8.2 也快发布，JIT、Train、Type hinting、Fiber 都加上了。PHP 的劲性能也越发强大。只是有一点 PHP 至今没有改变——PHP 这么多年，一直是 one shot 程序。
 
-常说 PHP 性能不怎么样，更多是指 PHP 系统的综合性能不好，QPS 结果难看。单单比较 PHP 虚拟机的性能，Zend VM 的性能并不差，[比 Python、Ruby 好太多](TCLBG)。但是 PHP 系统综合性能一般，特别并发性能不好。这点大概就是 PHP 的编程模型的锅—— PHP 程序通常是 one shot 程序，重度依赖操作系统的进程管理。
+常说 PHP 性能不怎么样，更多是指 PHP 系统的综合性能不好，QPS 结果难看。单单比较 PHP 虚拟机的性能，Zend VM 的性能并不差，[比 Python、Ruby 好太多][TCLBG]。但是 PHP 系统综合性能一般，特别并发性能不好。这点大概就是 PHP 的编程模型的锅—— PHP 程序通常是 one shot 程序，重度依赖操作系统的进程管理。
 
 [TCLBG]: https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/php-python3.html
 
