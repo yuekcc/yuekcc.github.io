@@ -1,3 +1,6 @@
+## 2023
+- [Debounce 和 Throttle](docs/2023/debounce-throttle-notes.md)
+
 ## 2022
 - [Zig](docs/202212/zig.md)
 - [Make PHP great again](docs/202211/make-php-great-again.md)
