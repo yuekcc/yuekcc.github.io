@@ -35,7 +35,7 @@ selenium 也是另一个控制浏览器的工具（库）。selenium 大概是 J
 
 ## puppeteer 概念
 
-![puppeteer 概念](docs/202201/images/puppeteer_概念.svg)
+![puppeteer 概念](images/puppeteer_概念.svg)
 
 ## 简单的 UI 自动化测试实现 fetchweb
 

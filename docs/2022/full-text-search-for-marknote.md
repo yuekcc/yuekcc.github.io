@@ -14,7 +14,7 @@ elasticsearch 应该会有配合使用的组件。所以创建索引的问题就
 
 ## 设计
 
-![架构](docs/202111/images/fulltext-search-for-marknote-arch.svg)
+![架构](images/fulltext-search-for-marknote-arch.svg)
 
 下面从三个角度去分析产品。
 

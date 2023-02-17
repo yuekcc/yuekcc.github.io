@@ -1,6 +1,6 @@
 # Marknote 介绍
 
-<img src="docs/202111/images/marknote-screenshot.jpg" style="border: 2px solid #ccc; max-width: 100%">
+<img src="images/marknote-screenshot.jpg" style="border: 2px solid #ccc; max-width: 100%">
 
 - [在线预览](https://yuekcc.github.io/marknote/)
 - [源码](https://github.com/yuekcc/marknote)

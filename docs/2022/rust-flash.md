@@ -1,6 +1,6 @@
 # rust 快速体验
 
-![Rust 程序开发语言](/docs/202112/images/3ed4a443f105e3102e28b44eb3855c87de738796.png)
+![Rust 程序开发语言](images/3ed4a443f105e3102e28b44eb3855c87de738796.png)
 
 ## 安装
 

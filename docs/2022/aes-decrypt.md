@@ -14,7 +14,7 @@
 
 比如这样的一个流程：
 
-![AES 解密流程](docs/202112/images/aes-decrypt-workflow.svg)
+![AES 解密流程](images/aes-decrypt-workflow.svg)
 
 AES 解密是需要密码明文，需要设计一个流程用于获取密码明文，直接将密码的明文放到系统中就增加了泄密的风险。比如上面的流程就使用了二次解密的方法。
 
