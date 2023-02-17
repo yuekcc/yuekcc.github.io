@@ -3,7 +3,7 @@
 在项目中经常可以见到无意义 commit message，可见书写有效 commit message 也是技术活。网上可以找到一些
 文章，特别前端的多采用 [angular 规范][1]。
 
-每次提交， commit message 包含三个部分：header、body、footer。其中 body 和 footer 是可选部分。
+每次提交，commit message 包含三个部分：header、body、footer。其中 body 和 footer 是可选部分。
 
 具体就像这样：
 

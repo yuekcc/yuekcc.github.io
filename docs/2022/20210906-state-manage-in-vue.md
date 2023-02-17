@@ -33,7 +33,7 @@ Vuex 是 vue 官方出品的状态管理工具。Vuex 可以理解为一个中�
 
 ## 基于 createContext 实现的多领域状态管理
 
-Vue 是没有提供 useContext 这样的 API，只能自己实现。npm 有可以用的库。createContext 源自 React。Vue 版本的 createContext 可以使用　provide/inject API 和 renderless 方式实现。
+Vue 是没有提供 useContext 这样的 API，只能自己实现。npm 有可以用的库。createContext 源自 React。Vue 版本的 createContext 可以使用 provide/inject API 和 renderless 方式实现。
 
 所谓 renderless 的组件是会直接渲染子功能，作为父组件，只用于实现部分逻辑功能。如：
 

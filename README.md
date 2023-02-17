@@ -1,6 +1,6 @@
 # Welcome
 
-hello, 我是 zhanlefeng，一名软件工程师。这里是我个人的技术博客，涉猎 JavaScript、Node.js、Rust、Go、Wasm、操作系统、容器等。
+hello, 我是 zhanlefeng，一名软件工程师。这里是我个人的技术博客，涉猎 JavaScript、Node.js、Rust、Zig、Wasm、操作系统、容器化、云计算等。
 
 >JavaScript at day, Rustacean at night.
 

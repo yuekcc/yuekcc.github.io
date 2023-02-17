@@ -75,7 +75,7 @@ let data = Signal::new(...);
 let data = ctx.create_signal(...);
 ```
 
-`ctx` 指向当前响应式 `Scope`。在旧的方案中，响应式 `Scope` 由内部的一套复杂、本地线程绑定的方案进行管理 ，而现在则改为显式的引用。这个改变非常重要，否则无法将 `Signal` 关联到 `Scope` 中。
+`ctx` 指向当前响应式 `Scope`。在旧的方案中，响应式 `Scope`由内部的一套复杂、本地线程绑定的方案进行管理，而现在则改为显式的引用。这个改变非常重要，否则无法将将 `Signal` 关联到 `Scope` 中。
 
 那么，这个方案如何实现？答案就在 `Signal::new` 和 `ctx.create_signal` 的返回值中。
 
