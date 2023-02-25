@@ -1,4 +1,6 @@
 ## 2023
+- 我在学习 Java
+  - [线程池](docs/2023/java/thread_pool.md)
 - [Debounce 和 Throttle](docs/2023/debounce-throttle-notes.md)
 
 ## 2022
