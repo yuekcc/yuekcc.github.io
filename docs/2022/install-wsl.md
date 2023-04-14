@@ -6,6 +6,8 @@ wsl，windows subsystem for linux，是 windows 上用于运行 linux 技术。w
 
 下文中出现的 wsl，如果没有特别说明都是指 wsl2。
 
+>【2023-04-14】我已经迁移到 [Rocky9](https://github.com/mishamosher/RL-WSL)。Rocky 是 CentOS 联合创始人新建的 Linux 发行版，兼容 RHEL。使用 Rocky9 主要是兼容我项目的生产环境，对于 WSL，使用什么发行版基本上只是包管理器的区别。下面安装 Debian 的内容可以作为参考。
+
 ## 安装
 
 在 windows 10 的某个版本开始提供了 wsl 支持。一直开启 windows 更新的 windows 10 系统应该可以正常开启 wsl 功能。
@@ -76,6 +78,8 @@ wsl --shutdown
 双击上面的 Debian.exe 就可以进行 Debain wsl。默认使用 root 用户登录系统。配置系统期间，可以直接使用 root 用户。
 
 我在电脑上安装好 wsl 系统后，DNS 配置是有问题的。所以首先是修复 DNS 问题。
+
+>【2023-04-14】迁移到 Rocky 之后，原来 Debian 版本的上遇到的问题减少了很多，比如没有 DNS 问题、没有无法访问网络的问题。
 
 ### 设置 DNS nameserver
 
@@ -160,7 +164,19 @@ options = "metadata,umask=22,fmask=111"
 mountFsTab = true
 ```
 
+### 不加载 windows 系统 $PATH 路径
+
+在 /etc/wsl.conf 增加：
+
+```ini
+[interop]
+enabled = false
+appendWindowsPath = false
+```
+
 ## 设置静态 ip
+
+>【2023-04-14】如无必须，不应该设置静态 ip。
 
 首先关闭 wsl 自动生成 resolv.conf 功能。在 /etc/wsl.conf 中增加：
 
@@ -182,4 +198,5 @@ powershell -c "Get-NetAdapter 'vEthernet (WSL)' | Get-NetIPAddress | Remove-NetI
 
 ----
 
-2022 年 07 月 31 日
+- 2022-07-31 初稿
+- 2023-04-14 增加「不加载 windows 系统 $PATH 路径」说明；更新 Rocky Linux 相关内容。
