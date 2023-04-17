@@ -1,9 +1,10 @@
 # Welcome
 
-hello, 我是 zhanlefeng，一名软件工程师。这里是我个人的技术博客，涉猎 JavaScript、Node.js、Rust、Zig、Wasm、操作系统、容器化、云计算等。
+hello, 我是 Zhanlefeng，一名 __全干软件工程师__。这里是我的技术笔记，涉猎 JavaScript、Rust、Zig、Java、Wasm、Node.js、操作系统、容器化等。
 
->JavaScript at day, Rustacean at night.
+>JavaScript in day time, Rustacean at night
 
-[这里](/TOC.md) 可以看到我写的一些文章。[这里](https://github.com/yuekcc) 有我写的一些工具、demo。
+- [看我写的笔记 ✈](/TOC.md)
+- [看我的 Github ✈](https://github.com/yuekcc)
 
 [欢迎友好交流](https://github.com/yuekcc/yuekcc.github.io/issues)。
