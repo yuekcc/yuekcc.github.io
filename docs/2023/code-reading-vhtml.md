@@ -1,10 +1,12 @@
 # vhtml 源码阅读理解
 
-[vhtml] 是 Jason Miller (@developit) 很多年前实现的一个 jsx 渲染库。Jason Miller 是 [preact] 的核心开发之一。jsx 一般配合 vdom 使用。jsx 本质只是函数调用，可以通过自定义的 `h` 函数将 jsx 调用渲染为 HTML。
+[vhtml] 是 [Jason Miller][developit] 很多年前（有近 10 年）实现的一个 jsx 渲染库。Jason Miller 是 [preact] 的核心开发之一。
+
+jsx 一般配合 vdom 使用。jsx 本质只是函数调用，可以通过自定义的 `h` 函数将 jsx 调用渲染为 HTML。vhtml 的功能是将 jsx 渲染为 HTML 字符串。
 
 ## jsx
 
-jsx 在编写的时候表现为 js 代码中的 xml。比如 vhtml 的 README.md 中的这个例子：
+jsx 是一种 javascript 的语法拓展。在编写 jsx 时表现为 js 代码中的 xml。比如 vhtml 的 README.md 中的这个例子：
 
 ```js
 // import the library:
@@ -29,10 +31,10 @@ document.body.innerHTML = (
 );
 ```
 
-通过 bundler 或 babel 转换后，jsx 部分会转换为：
+javascript 引擎原生不支持 jsx。jsx 需要通过 bundler 或 babel 转换成一般 javascript 代码。上面的代码通过 babel 转换，可以得到这样的 javascript 代码：
 
 ```js
-// 格式化
+// 格式化后
 document.body.innerHTML = /*#__PURE__*/ React.createElement(
   'div',
   {
@@ -48,15 +50,11 @@ document.body.innerHTML = /*#__PURE__*/ React.createElement(
 );
 ```
 
-所以 jsx 转换后就是 `React.createElement` 的函数调用。通过 babel 的配置，可以将 `React.createElement` 替换为自定义的 `h` 函数。这样就可以实现将 jsx 渲染为 html。
+可以看出，jsx 转换后就是 `React.createElement` 的函数调用。通过 babel 的配置或 `@jsx` 转译注解，可以将 `React.createElement` 替换为自定义的 `h` 函数。而 vhtml 就提供 `h` 函数的实现。
 
-如果熟悉模板引擎的话，jsx 相当于模板语法，而 `h` 函数则是渲染函数。通过 `h` 函数可以将 jsx 渲染为 html 对象和 html 字符串。
+## vhtml 代码
 
-vhtml 的功能是将 jsx 渲染为 html 字符串。
-
-## vhtml
-
-vhtml 的核心代码在 [https://github.com/developit/vhtml/blob/master/src/vhtml.js]：
+vhtml 的核心代码在 [https://github.com/developit/vhtml/blob/master/src/vhtml.js][vhtml_core]：
 
 ```js
 import emptyTags from './empty-tags'; // empty-tags 中声明非闭合的元素，比如 input、hr 等
@@ -82,8 +80,8 @@ export default function h(name, attrs) {
   // h 函数一般是这样调用：h('p', {}, 'text1', 'text2')
   // 第一个参数可能是一个函数或标签名称；第二个参数是属性；余下的标签之间的内容，可能是空也可能是多个
   let stack = [],
-    s = '';
-  attrs = attrs || {};
+    s = ''; // 结果
+  attrs = attrs || {}; // 保存元素的属性
 
   // 倒序存入 stack，后续可以和 .pop() 弹出最后一个存入的数据
   for (let i = arguments.length; i-- > 2; ) {
@@ -150,5 +148,15 @@ export default function h(name, attrs) {
 }
 ```
 
-[preact]: https://preactjs.com/
+## 体会
+
+大佬的代码总是很简洁实用。首先安全性，XSS 预防；其次 stack 的处理也让人印象深刻。再就是 Array 对象的 `.pop`、`.push`、`.revert` 方法的使用；vhtml 的核心代码很短，仓库中也配置了单元测试，是一个很完整的项目。
+
+---
+
+- 2023-06-07 初稿
+
 [vhtml]: https://www.npmjs.com/package/vhtml
+[developit]: https://github.com/developit
+[preact]: https://preactjs.com/
+[vhtml_core]: https://github.com/developit/vhtml/blob/master/src/vhtml.js
