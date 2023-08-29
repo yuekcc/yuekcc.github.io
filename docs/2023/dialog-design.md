@@ -1,6 +1,6 @@
 # 弹窗设计笔记
 
-读 [B 端设计指南 04—— “弹窗” 究竟应该如何设计](design_guide) 的笔记。
+读 [B 端设计指南 04—— “弹窗” 究竟应该如何设计][design_guide] 的笔记。
 
 [design_guide]: https://www.woshipm.com/pd/4182303.html
 
