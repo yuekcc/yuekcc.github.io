@@ -3,14 +3,12 @@
 - [弹窗设计笔记](docs/2023/dialog-design.md)
 - [vhtml 源码阅读理解](docs/2023/code-reading-vhtml.md)
 - [向 ChatGPT 学习 libuv](docs/2023/learn-libuv.md)
-- 我在学习 Java
-  - [线程池](docs/2023/java/thread_pool.md)
+- [线程池](docs/2023/java/thread_pool.md)
 - [Debounce 和 Throttle](docs/2023/debounce-throttle-notes.md)
 
 ## 2022
 
 - [Zig](docs/2022/zig.md)
-- [Make PHP great again](docs/2022/make-php-great-again.md)
 - [NPM 小技巧](docs/2022/npm-tips.md)
 - [Zig/JavaScript 代码风格指南](docs/2022/zig-style-guide.md)
 - [安装 WSL](docs/2022/install-wsl.md)
