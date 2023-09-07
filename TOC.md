@@ -1,5 +1,6 @@
 ## 2023
 
+- [被看不上的前端开发](docs/2023/java-de-vs-frontend-de.md)
 - [弹窗设计笔记](docs/2023/dialog-design.md)
 - [vhtml 源码阅读理解](docs/2023/code-reading-vhtml.md)
 - [向 ChatGPT 学习 libuv](docs/2023/learn-libuv.md)
