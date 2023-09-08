@@ -1,5 +1,6 @@
 ## 2023
 
+- [前端开发的核心竞争力](docs/2023/frontend-se-true-tech.md)
 - [被看不上的前端开发](docs/2023/java-de-vs-frontend-de.md)
 - [弹窗设计笔记](docs/2023/dialog-design.md)
 - [vhtml 源码阅读理解](docs/2023/code-reading-vhtml.md)
