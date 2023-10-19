@@ -1,5 +1,5 @@
 ## 2023
-
+- [Neovim 笔记](docs/2023/nvim.md)
 - [tsconfig.json](docs/2023/tsconfig-cheat-sheet.md)
 - [前端开发的核心竞争力](docs/2023/frontend-se-true-tech.md)
 - [被看不上的前端开发](docs/2023/java-de-vs-frontend-de.md)
