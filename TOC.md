@@ -1,4 +1,5 @@
 ## 2023
+- [llama.cpp 驱动 baichuan2-7b-chat](docs/2023/baichuan.md)
 - [Neovim 笔记](docs/2023/nvim.md)
 - [tsconfig.json](docs/2023/tsconfig-cheat-sheet.md)
 - [前端开发的核心竞争力](docs/2023/frontend-se-true-tech.md)
