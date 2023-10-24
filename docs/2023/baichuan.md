@@ -46,10 +46,17 @@ python convert-baichuan-hf-to-gguf.py ../Baichuan2-7B-Chat-bc1/
 ## 量化
 
 ```sh
-./quantize ../Baichuan2-7B-Chat-bc1/ggml-model-f16.gguf ../Baichuan2-7B-Chat-bc1/ggml-model-q4_0.gguf Q4_0
+./quantize ../Baichuan2-7B-Chat-bc1/ggml-model-f16.gguf ../Baichuan2-7B-Chat-bc1/ggml-model-q6_k.gguf Q6_K
 ```
 
-## 执行
+参考 [Chinese Llama 2][chinese_llama_wiki] 的建议，可以使用 Q4_K 或 Q6_K 的量化模式。
+
+baichuan2 7b chat 模型在 Q6_K 的模式下进行量化后，生成的文件大约 5GB。在我的机器上，纯 CPU 推理下可以实现大约 5 token 每秒。硬件配置：i7 12650h（AVX2 指令） + 16g RAM + 1T SSD，Windows 11 系统。5 tps 对于人类阅读刚好够用，对于其他场景属于比较慢。
+
+[chinese_llama_wiki]: https://github.com/ymcui/Chinese-LLaMA-Alpaca-2/wiki/llamacpp_zh
+
+
+## 启动
 
 ```sh
 ./main.exe \
@@ -71,6 +78,17 @@ system_prompt_baichuan2.txt 来自 llama.cpp 的 prompts/chat-with-baichuan.txt�
 助手：
 ```
 
+## 启动 API 服务
+
+llama.cpp 提供了一个简洁的 server 实现，可以提供 web 体验：
+
+```sh
+./server.exe -m models/baichuan2-7b-chat-ggml-model-q4_0.gguf -c 4096
+```
+
+访问 https://127.0.0.1:8080，可以看到一个简单的 web 界面。
+
 ----
 
 - 2023-10-24
+- 2023-10-24，补充量化、server 的说明
