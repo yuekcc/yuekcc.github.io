@@ -29,7 +29,9 @@ You are a helpful, respectful and honest INTP-T AI Assistant. You are talking to
 
 这是的我提问题。
 
-`please help me with a number puzzle. if 1+1=3,2+2=4,3+3=5, ..., 6+6=8, 7+7=9, then what is 9+9 in same pattern?`
+```
+please help me with a number puzzle. if 1+1=3,2+2=4,3+3=5, ..., 6+6=8, 7+7=9, then what is 9+9 in same pattern?
+```
 
 题目中已经明显指出这个题目是一种数字谜语，主要考量的就是模型的推理能力。很不幸是的像通义千问、百川、讯飞星火都没有给出很好的答案。
 
@@ -73,7 +75,7 @@ This is because for all numbers between 1 and 6, the sum of the two numbers in t
 
 同样的问题，我也问了 GPT 3.5 Turbo，通过 API 方式访问的 GPT 3.5 Turbo 模型。GPT 3.5 Turbo 属于看一眼就马上给出答案：11。
 
-GPT 3.5 Turbo：
+GPT 3.5 Turbo:
 
 ```
 Based on the given pattern, we can observe that the sum of two numbers is always two more than the larger of the two numbers.
