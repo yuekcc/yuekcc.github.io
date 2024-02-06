@@ -31,7 +31,6 @@
 - [docutil 开发笔记](docs/2022/notes-on-docutil.md)
 - [OpenWrt 安装流水账](docs/2022/openwrt-install.md)
 - [Puppeteer 实现 UI 自动化测试](docs/2022/puppeteer.md)
-- [实用命令行工具](docs/2022/cli-collection.md)
 
 ## 2021
 
@@ -46,3 +45,7 @@
 - [Go 快速笔记](docs/2021/go-quick-learn.md)
 - [Commit message 规范化](docs/2021/change-log.md)
 - [Vue 组件状态管理笔记](docs/2021/state-manage-in-vue.md)
+
+## 其他
+
+- [实用工具合集](docs/2022/tools-collection.md)

@@ -1,4 +1,4 @@
-# 实用命令行工具
+# 实用工具合集
 
 基本上都是开发用的工具了。
 
@@ -126,7 +126,7 @@ WindTerm 是一个 SSH 客户端，类似于 XShell 和 mobaxterm。支持保存
 
 winlibs 是 mingw-w64 的一处发行版。mingw-w64 是源自 mingw 项目的一个 Fork，包括一组用于 windows 应用开发的 Headers、库、GNU 工具和 64 位支持。
 
-类似的项目还有： 
+类似的项目还有：
 
 - https://www.msys2.org/
 - https://github.com/skeeto/w64devkit
@@ -134,8 +134,15 @@ winlibs 是 mingw-w64 的一处发行版。mingw-w64 是源自 mingw 项目的�
 - https://github.com/mstorsjo/llvm-mingw
 - https://nuwen.net/mingw.html
 
+## 游览器
+
+- 一个没有包含 Google API Keys 的 Chromium 版本：[https://github.com/Hibbiki/chromium-win64](https://github.com/Hibbiki/chromium-win64)
+- Firefox 也有一些民间补丁版本，比如 [Mercury](https://github.com/Alex313031/Mercury)。同一作者也有一个 Chromium fork：[Thorium](https://github.com/Alex313031/Thorium)
+- Android 平台用的 Chromium 可以试试 [cromite](https://github.com/emtee40/cromite)
+
 ---
 
 - 2022 年 01 月 02 日
 - 2022 年 02 月 18 日，收录 WindTerm
 - 2022 年 05 月 09 日，收录 winlibs build of gcc
+- 2024 年 02 月 06 日，增加游览器
