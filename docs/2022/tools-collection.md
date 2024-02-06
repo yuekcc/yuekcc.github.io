@@ -138,7 +138,7 @@ winlibs 是 mingw-w64 的一处发行版。mingw-w64 是源自 mingw 项目的�
 
 - 一个没有包含 Google API Keys 的 Chromium 版本：[https://github.com/Hibbiki/chromium-win64](https://github.com/Hibbiki/chromium-win64)
 - Firefox 也有一些民间补丁版本，比如 [Mercury](https://github.com/Alex313031/Mercury)。同一作者也有一个 Chromium fork：[Thorium](https://github.com/Alex313031/Thorium)
-- Android 平台用的 Chromium 可以试试 [cromite](https://github.com/emtee40/cromite)
+- Android 平台用的 Chromium 可以试试 [cromite](https://github.com/uazo/cromite)
 
 ---
 
