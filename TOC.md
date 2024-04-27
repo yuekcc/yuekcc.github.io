@@ -1,5 +1,6 @@
 ## 2024
 
+- [Git 实践](docs/2024/git-good-practices.md)
 - [[转载] 数据上亿之后，如何处理分页](docs/2024/pagination-for-millions-of-data.md)
 
 ## 2023
