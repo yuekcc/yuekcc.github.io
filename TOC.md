@@ -1,5 +1,6 @@
 ## 2024
 
+- [后现代工具系列：WezTerm](docs/2024/postmodern-tools-terminal.md)
 - [Git 实践](docs/2024/git-good-practices.md)
 - [[转载] 数据上亿之后，如何处理分页](docs/2024/pagination-for-millions-of-data.md)
 
