@@ -52,3 +52,4 @@
 ## 其他
 
 - [实用工具合集](docs/2022/tools-collection.md)
+- [Memo](docs/2024/memo.md)
