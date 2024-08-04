@@ -1,5 +1,6 @@
 ## 2024
 
+- [Rsync 简明使用教程](docs/2024/rasync.md)
 - [[转载] Java 后端生成海报遇到性能压力](docs/2024/gen-image-with-java.md)
 - [后现代工具系列：WezTerm](docs/2024/postmodern-tools-terminal.md)
 - [Git 实践](docs/2024/git-good-practices.md)
