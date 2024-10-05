@@ -1,5 +1,6 @@
 ## 2024
 
+- [[转载] 小说储存方案](docs/2024/novel-storage-solution.md)
 - [[转载] 写代码真不能有洁癖](docs/2024/no-code-cleanliness.md)
 - [bashrc](docs/2024/bashrc.md)
 - [[转载] 程序员如何快速上手新语言](docs/2024/learn-lang-quick.md)
