@@ -2,8 +2,11 @@
   @# push to github
   git push origin
 
-  @# push to Codeberg
+  @# push to codeberg
   git push codeberg
+
+  @# push to sourcehut
+  git push sourcehut
   
   @# DONE
 
