@@ -1,5 +1,6 @@
 ## 2024
 
+- [[转载] 最小规模的 CI/CD 技术栈讨论](docs/2024/self-hosted-cicd.md)
 - [[转载] 2024 年如何安装 windows 系统](docs/2024/install-windows.md)
 - [[转载] 小说储存方案](docs/2024/novel-storage-solution.md)
 - [[转载] 写代码真不能有洁癖](docs/2024/no-code-cleanliness.md)
