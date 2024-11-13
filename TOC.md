@@ -1,5 +1,6 @@
 ## 2024
 
+- [[转载] 10 年程序员的迷茫](docs/2024/10-years-old-programmer.md)
 - [[转载] 最小规模的 CI/CD 技术栈讨论](docs/2024/self-hosted-cicd.md)
 - [[转载] 2024 年如何安装 windows 系统](docs/2024/install-windows.md)
 - [[转载] 小说储存方案](docs/2024/novel-storage-solution.md)
