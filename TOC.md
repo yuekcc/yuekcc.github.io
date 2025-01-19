@@ -1,3 +1,7 @@
+## 2025
+
+- [[转载] 从微服务走向单体化](docs/2025/microservice-to-monolic.md)
+
 ## 2024
 
 - [[转载] 10 年程序员的迷茫](docs/2024/10-years-old-programmer.md)
