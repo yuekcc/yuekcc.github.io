@@ -20,13 +20,13 @@ uWebSockets.js_binary_host=https://ghproxy.com/https://github.com/uNetworking/uW
 
 ```js
 // node_modules/prebuild-install/util.js
-function getEnvPrefix (pkgName) {
-  return 'npm_config_' + (pkgName || '').replace(/[^a-zA-Z0-9]/g, '_').replace(/^_/, '')
+function getEnvPrefix(pkgName) {
+  return 'npm_config_' + (pkgName || '').replace(/[^a-zA-Z0-9]/g, '_').replace(/^_/, '');
 }
 
-function getHostMirrorUrl (opts) {
-  const propName = getEnvPrefix(opts.pkg.name) + '_binary_host'
-  return process.env[propName] || process.env[propName + '_mirror']
+function getHostMirrorUrl(opts) {
+  const propName = getEnvPrefix(opts.pkg.name) + '_binary_host';
+  return process.env[propName] || process.env[propName + '_mirror'];
 }
 ```
 
@@ -40,12 +40,12 @@ function getHostMirrorUrl (opts) {
 {
   // ...
   "dependencies": {
-    "uWebSockets.js": "git+https://ghproxy.com/https://github.com/uNetworking/uWebSockets.js#v20.10.0",
+    "uWebSockets.js": "git+https://ghproxy.com/https://github.com/uNetworking/uWebSockets.js#v20.10.0"
     // ...
   }
 }
 ```
 
-----
+---
 
-2022 年 10 月 03 日 
+2022 年 10 月 03 日

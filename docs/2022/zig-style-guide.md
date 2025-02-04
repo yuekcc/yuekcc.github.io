@@ -1,6 +1,6 @@
 # Zig/JavaScript 代码风格指南
 
->部分内容源自 Zig 语言文档中的 [Style Guide][zig_style_guide]。
+> 部分内容源自 Zig 语言文档中的 [Style Guide][zig_style_guide]。
 
 [zig_style_guide]: https://ziglang.org/documentation/0.9.0/#Style-Guide
 
@@ -25,7 +25,7 @@ Zig 在语言文档也写了一段风格指南。第一眼看 Zig 其实有一�
 
 - 如果 `x` 是一个 `type`（类型）应该写作 `TitleCase`。除非是一个零字段的 `struct` 而且不会被实例化，这种情况下这个 `struct` 应该是一个 `namespace`，应该写作 `snake_case`。
 - 如果 `x` 可以调用，但是 `x` 返回的类型是 `type`，那么 `x` 应该是 `TitleCase`。
-- 如果 `x` 可以调用，并且不是上面的情况，则写作  `camelCase`。
+- 如果 `x` 可以调用，并且不是上面的情况，则写作 `camelCase`。
 - 其他场景 `x` 应该写作 `snake_case`。
 
 名词的缩写也应该按上面的规则，即使只有两个字母。
@@ -47,7 +47,7 @@ Zig 在语言文档也写了一段风格指南。第一眼看 Zig 其实有一�
 
 Rust 也是混合使用，但社区已经有比较完善的习惯用法，除 `struct` 名使用 `TitleCase`，其他基本上是 `snake_case`。Zig 也是三者混用。在用 Zig 写了几行代码，就可以理解为什么有这种约定——主要就是一眼可以看出哪个是方法，可以调用，哪个是变量，哪个是类型。
 
->Zig 的创始人也有很多 JavaScript 使用的经验，第一眼看 Zig 也是一股 JavaScript 味道。比如 `const std = @import('std');`
+> Zig 的创始人也有很多 JavaScript 使用的经验，第一眼看 Zig 也是一股 JavaScript 味道。比如 `const std = @import('std');`
 
 参考 Zig 的风格指南。我也总结了几条 js 的规则：
 
@@ -68,8 +68,9 @@ Rust 也是混合使用，但社区已经有比较完善的习惯用法，除 `s
 - vue sfc 组件，使用 `TitleCase`
   - 因为 vue sfc 组件都是 `export default`，相当于一种类型
 
-__风格指南没有绝对正确的，关键是使用一套风格并且一直用__。
+**风格指南没有绝对正确的，关键是使用一套风格并且一直用**。
 
-----
+---
+
 - 2022 年 09 月 16 日 初稿
 - 2022 年 10 月 05 日 修改部分措辞

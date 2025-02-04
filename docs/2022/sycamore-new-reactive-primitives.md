@@ -2,7 +2,7 @@
 
 [原文][original_post]，机翻 + 个人修订
 
->2022 年 05 月 01 日更新，sycamore 0.8.0-beta.4 对响应式 API 又做了修改。
+> 2022 年 05 月 01 日更新，sycamore 0.8.0-beta.4 对响应式 API 又做了修改。
 
 [original_post]: https://github.com/sycamore-rs/sycamore/blob/master/docs/posts/new-reactive-primitives.md
 
@@ -111,7 +111,7 @@ async fn AsyncFetch<G: Html>(ctx: ScopeRef) -> View<G> {
 
 虽然有不少优点，但这个新方案也存在一些缺点。
 
-第一点，arena allocators 只有在其创建的对象被销毁时才会释放内存。当 arena allocators 依然存在时，将无法释放内存。这意味着 `Signal` 的生命周长和 `Scope` 一样长，需要谨慎处理内存泄漏问题。比如在循环中多次使用 `ctx.create_signal` 创建对象。 
+第一点，arena allocators 只有在其创建的对象被销毁时才会释放内存。当 arena allocators 依然存在时，将无法释放内存。这意味着 `Signal` 的生命周长和 `Scope` 一样长，需要谨慎处理内存泄漏问题。比如在循环中多次使用 `ctx.create_signal` 创建对象。
 
 在一些场景下，需要使用一个基于引用计数的 `RcSignal`，用于覆盖使用旧 `Signal` 方案的一些场景。
 
@@ -136,4 +136,3 @@ create_scope(|ctx| {
 - 2022 年 03 月 09 日，第一版
 - 2022 年 03 月 12 日，修改部分文字
 - 2022 年 05 月 01 日，修改部分文字，增加 0.8.0-beta.4 的说明
-

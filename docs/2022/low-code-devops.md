@@ -14,5 +14,3 @@ ui 开发就比较有意义。平台可以让用户离线完成 ui 部分的开�
 由此我想到目前的的 serverless 平台。像 aws 的 lambda 或 deno deploy 这样的服务。接口通过简单上手的 js 实现，性能由于 v8 提供保证，安全可以通过 docker 或
 v8 isolate 提供。wasm 也可以成为一个理想的容器平台。毕竟运行 wasm 的虚拟机比 docker 更省资源。serverless 平台的运维由供应商统一提交。完全可以达
 到成本最小化。
-
-

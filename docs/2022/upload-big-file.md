@@ -58,7 +58,7 @@ const blob2 = new Blob([arrayBuffer2]); // 从 ArrayBuffer 构建 Blob 对象
 
 const text2 = await blob2.text(); // 使用 text 方法读出 Blob 对象的数据
 
-console.log(text2) // => hello, world
+console.log(text2); // => hello, world
 ```
 
 ### 文件上传流程
@@ -82,9 +82,6 @@ console.log(text2) // => hello, world
 ## 秒传功能实现
 
 秒传在实现是先检查服务器上已经还有相同 hash 的文件。由上面文件 Hashing 一段描述的，一个文件的指纹数据是唯一的，如果后台已经存在相同的 hash 就可以判断为已经有用户（可能是其他用户）上传了相同的文件。前端就可以直接表示为上传完成，然后结束流程。
-
-
-
 
 ## 参考
 

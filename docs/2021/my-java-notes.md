@@ -48,7 +48,7 @@ Hello, world
 javac 可以将 java 源代码（.java 文件）编译为 class 字节文件（.class），供 jvm 执行。常见命令参数：
 
 - `javac -d <目录> HelloWorld.java` 编译 java 源代码文件，并将生成的字节码放到 `<目录>` 里。如果代码里包含 `package` 语句
-会按 `.` 分割后，放到多级目录中。
+  会按 `.` 分割后，放到多级目录中。
 - `javac -g` 生成调试信息
 - `javac -version` 打印版本信息
 
@@ -119,7 +119,7 @@ Hello world for Words Class
 估计是习惯原因吧。javac 与 c/c++ 中的 cc 对应，需要用户指定相关的源代码文件，javac 才能找到相应的符号。如果需要编译大量源码和依赖第三方包
 的话，相当麻烦。
 
->与 js 的构建工具不同，javac 并不会按 import 语句自动去引入相应的文件。go 则使用一个约定来解决这个问题，一个包对应一个目录，编译时可以自动查找文件。
+> 与 js 的构建工具不同，javac 并不会按 import 语句自动去引入相应的文件。go 则使用一个约定来解决这个问题，一个包对应一个目录，编译时可以自动查找文件。
 
 在源码组织上。java 工程更习惯将同一个 package 源文件放到同级目录吧。比如，上面的示例，包名为 `space.lambdadriver.demo`，在保存源码文件时，
 一般会放置到 `space/lambdadriver/demo/` 这个目录下。
@@ -213,15 +213,15 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 这里不详细写了。先知道有这么一回事。java 项目分发更适合的做法是使用容器。可是在 windows 下就比较无力，对于普通用户安装包是比较容易接受的。
 我认为无论是使用安装包还是容器技术，减少文体体积都是比较友好的做法。试想一下，一个未经过优化的容器镜像可能占地 3~4 GB，无论传输、安装、更新、归档都是一笔巨大的投入。
 
-| 镜像 tag | OS/ARCH | 压缩后体积 | 主要开发语言 |
-|---------|---------|-----------|------------|
-| tomcat:jre8-openjdk-slim-buster | linux/amd64 | 81.04mb | java |
-| jetty:9.4.44-jre8-slim | linux/amd64 | 80.82mb | java |
-| caddy:alpine | linux/amd64 | 14.17mb | go |
-| nginx:stable-alpine | linux/amd64 | 9.41mb | c |
+| 镜像 tag                        | OS/ARCH     | 压缩后体积 | 主要开发语言 |
+| ------------------------------- | ----------- | ---------- | ------------ |
+| tomcat:jre8-openjdk-slim-buster | linux/amd64 | 81.04mb    | java         |
+| jetty:9.4.44-jre8-slim          | linux/amd64 | 80.82mb    | java         |
+| caddy:alpine                    | linux/amd64 | 14.17mb    | go           |
+| nginx:stable-alpine             | linux/amd64 | 9.41mb     | c            |
 
->tomcat 和 jetty 官方没有基于 alpine 的镜像，上面列出的是体积相对比较小的。caddy 和 nginx 的镜像因为使用了 alpine，一些系统级别的依赖占地也比较小。
->单纯比较镜像文件大小是没有意义的！但是在部署应用时，就不得不考虑这个问题。至少我所在项目组，镜像体积是限定尺寸的。一次全量部署，接近50个镜像，光是下载镜像都得二小时
+> tomcat 和 jetty 官方没有基于 alpine 的镜像，上面列出的是体积相对比较小的。caddy 和 nginx 的镜像因为使用了 alpine，一些系统级别的依赖占地也比较小。
+> 单纯比较镜像文件大小是没有意义的！但是在部署应用时，就不得不考虑这个问题。至少我所在项目组，镜像体积是限定尺寸的。一次全量部署，接近 50 个镜像，光是下载镜像都得二小时
 
 由这三个工具，可以看出 java 在云时代的努力。
 
@@ -243,7 +243,7 @@ OpenJ9 最早由 IBM 开发，后来贡献给了 Eclipse 基金会。不过后�
 
 Java + AOT，顺带搞了一个 N 种语言通过用运行时。AOT 是比较吸引的，冷启动可以做到毫秒级。这个特性真的是谁用谁知识，就连 Java 界的明星 Spring Boot 也要加入 AOT 的支持。在各种“云”当道的今天，冷启动速度已经成为了一个重要指标。
 
-GraalVM 出带有一个支持 N 种编程语言的组件。历史上不少项目都做过类似的功能，比如 MS 家的 .net 就搞过一票的 Iron* 语言。不过慢慢就没有下文了。
+GraalVM 出带有一个支持 N 种编程语言的组件。历史上不少项目都做过类似的功能，比如 MS 家的 .net 就搞过一票的 Iron\* 语言。不过慢慢就没有下文了。
 
 不过单 AOT 这个特性已经足够吸引一部分用户迁移到 GraalVM。
 
@@ -251,12 +251,12 @@ GraalVM 出带有一个支持 N 种编程语言的组件。历史上不少项目
 
 Java 具有自动的内存管理功能，这个功能是通过 JVM 中的垃圾回收器 GC 实现。不同版本中使用了不同的算法：
 
-| JDK 版本 | GC 算法 | 其他 |
-|---------|--------|------|
-| JDK 8 | ParallelGC | 默认，新版本中可以通过 `-XX:+UseParallelGC` 启用    |
-| JDK 17 | G1GC | JDK9+ 默认，JDK8 中可以通过 `-XX:+UseG1GC` 启用     |
-|         | ZGC | 通过 `-XX:+UseZGC -Xmx<size>` 启用 |
-|         | Shenandoah GC | 通过 `-XX:+UseShenandoahGC` 启用 |
+| JDK 版本 | GC 算法       | 其他                                             |
+| -------- | ------------- | ------------------------------------------------ |
+| JDK 8    | ParallelGC    | 默认，新版本中可以通过 `-XX:+UseParallelGC` 启用 |
+| JDK 17   | G1GC          | JDK9+ 默认，JDK8 中可以通过 `-XX:+UseG1GC` 启用  |
+|          | ZGC           | 通过 `-XX:+UseZGC -Xmx<size>` 启用               |
+|          | Shenandoah GC | 通过 `-XX:+UseShenandoahGC` 启用                 |
 
 ZGC 和 Shenandoah GC 是用于大堆优化的并行低感知 GC。低感知是指 Stop The World 时间很短（ms 级别），大堆是指 > 20GB 堆内存。所以对于一般场景更推荐默认配置。毕竟“没有免费的午餐”，GC 的低 STW 时长，是使用吞吐量为代价。
 
@@ -266,7 +266,6 @@ HotSpot 是带有 JIT 功能虚拟机。JIT 一般有一个特点：越跑越快
 
 TBA
 
-----
+---
 
-2021.11.13 
-
+2021.11.13

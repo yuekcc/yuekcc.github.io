@@ -21,13 +21,13 @@ _2024-10-21 11:00:45 +08:00_
 
 _2024-10-21 11:02:45 +08:00_
 
-原版 ltsc ，操作系统用第三方，不怕下毒吗
+原版 ltsc，操作系统用第三方，不怕下毒吗
 
 ## darlinghsu
 
 _2024-10-21 11:03:37 +08:00_
 
-原版+1
+原版 +1
 
 ## iphoneXr
 
@@ -71,9 +71,9 @@ _2024-10-21 11:09:49 +08:00_
 
 ventoy 做成启动 U 盘
 
-U 盘下放在 423down.com 下载的优启通 VIP 版 ISO ，EasyDrv8 万能驱动 VIP 版。
+U 盘下放在 423down.com 下载的优启通 VIP 版 ISO，EasyDrv8 万能驱动 VIP 版。
 
-twm000.top 下载的系统 ISO 。
+twm000.top 下载的系统 ISO。
 
 用了很久，也没啥问题
 
@@ -83,15 +83,15 @@ _2024-10-21 11:12:04 +08:00_
 
 https://windsys.win/
 
-一直用这个, 个人认为没什么问题, 讨厌装完系统后下各种常用软件, 尤其是 Windows 下默认没有包管理软件.
+一直用这个，个人认为没什么问题，讨厌装完系统后下各种常用软件，尤其是 Windows 下默认没有包管理软件。
 
 ## xclimbing
 
 _2024-10-21 11:15:38 +08:00_
 
-我建议安装精简掉更新和 WD 的系统，考虑兼容性，不要安装极度精简的版本，推荐：不忘初心、三蛋（ TWM_000 ）、小修（在无忧启动论坛找）。至于安装方法，要么是 PE （从无忧找 WePE 、Kuer 、Lightning 做的 PE ）+WinntSetup +VHD ，要么就是 ventoy + ISO +VHD 。
+我建议安装精简掉更新和 WD 的系统，考虑兼容性，不要安装极度精简的版本，推荐：不忘初心、三蛋（TWM_000）、小修（在无忧启动论坛找）。至于安装方法，要么是 PE（从无忧找 WePE、Kuer、Lightning 做的 PE）+WinntSetup +VHD，要么就是 ventoy + ISO +VHD。
 
-硬盘不要分区，系统安装到 VHD ，使用 VHD 差分系统代替克隆。这应该是目前最佳实践方式，前提一定要用固态硬盘。
+硬盘不要分区，系统安装到 VHD，使用 VHD 差分系统代替克隆。这应该是目前最佳实践方式，前提一定要用固态硬盘。
 
 ## SunsetShimmer
 
@@ -129,7 +129,7 @@ _2024-10-21 11:27:43 +08:00_
 
 _2024-10-21 11:37:29 +08:00_
 
-PE 我用的微 PE ，系统就用原版
+PE 我用的微 PE，系统就用原版
 
 ## suri68
 
@@ -141,13 +141,13 @@ _2024-10-21 12:04:21 +08:00_
 
 _2024-10-21 12:16:46 +08:00_
 
-直接 ventoy 制作硬盘版啊,用 vbox 制作一个 windows 虚拟机,再用 ventoy 启动虚拟机镜像,这样整个系统就在一个虚拟硬盘里面,备份系统跟多系统启动非常方便
+直接 ventoy 制作硬盘版啊，用 vbox 制作一个 windows 虚拟机，再用 ventoy 启动虚拟机镜像，这样整个系统就在一个虚拟硬盘里面，备份系统跟多系统启动非常方便
 
 ## liuzimin
 
 _2024-10-21 12:17:02 +08:00_
 
-看没人提，我提一嘴，优捷易 PE 。
+看没人提，我提一嘴，优捷易 PE。
 
 经测试有些新电脑用 WinPE 装完系统会卡启动，但优捷易 PE 不会。
 
@@ -175,7 +175,7 @@ ventoy 做启动盘
 
 _2024-10-21 12:59:29 +08:00_
 
-Windows 11 IoT LTSC, Windows Server 2025, 唯二的选择. https://massgrave.dev 上把所有你需要的所有东西都给了.
+Windows 11 IoT LTSC, Windows Server 2025, 唯二的选择。https://massgrave.dev 上把所有你需要的所有东西都给了。
 
 ## lg106
 
@@ -255,9 +255,9 @@ _2024-10-21 14:43:37 +08:00_
 
 很久不用 PE 了，直接两种方式：
 
-1 、官方镜像，直接用官方助手： https://www.microsoft.com/zh-cn/software-download/windows11
+1、官方镜像，直接用官方助手：https://www.microsoft.com/zh-cn/software-download/windows11
 
-2 、其他渠道的镜像，用 Rufus 。镜像地址： https://massgrave.dev/ 。工具地址： https://rufus.ie/zh/
+2、其他渠道的镜像，用 Rufus。镜像地址：https://massgrave.dev/ 。工具地址：https://rufus.ie/zh/
 
 ## JensenQian
 
@@ -301,7 +301,7 @@ _2024-10-21 16:22:22 +08:00_
 
 _2024-10-21 16:42:46 +08:00_
 
-ADK 自制 WinPE 真心简单,试试吧
+ADK 自制 WinPE 真心简单，试试吧
 
 ## opengps
 
@@ -319,7 +319,7 @@ _2024-10-21 16:57:42 +08:00_
 
 _2024-10-21 18:11:00 +08:00_
 
-三种方法下载 Windows 10 和 Windows 11 原生镜像： https://itxiaozhang.com/three-methods-to-download-windows-10-and-windows-11-iso/
+三种方法下载 Windows 10 和 Windows 11 原生镜像：https://itxiaozhang.com/three-methods-to-download-windows-10-and-windows-11-iso/
 
 ## jinliming2
 
@@ -381,7 +381,7 @@ _2024-10-21 22:08:02 +08:00_
 
 _2024-10-21 22:10:41 +08:00_
 
-刚装完，用 ms 自己的 Windows Media creation ，BIOS 设置启动项为 u 盘。
+刚装完，用 ms 自己的 Windows Media creation，BIOS 设置启动项为 u 盘。
 
 比 PE 还要简单
 

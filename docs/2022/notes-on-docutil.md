@@ -10,7 +10,7 @@ docutil 是一个纯前端博客应用。通过 docutil 可以高效地部署一
 
 ## 核心
 
-docutil 源于一次 “小作业”——使用 vanilla js 实山寨一个 [docsify][docsify]。那次 “小作业” 的成果便是 [marknote][marknote-project]。演进到后面，想法慢慢就变成为使用 wasm 实现一个相同功能的应用。
+docutil 源于一次“小作业”——使用 vanilla js 实山寨一个 [docsify][docsify]。那次“小作业”的成果便是 [marknote][marknote-project]。演进到后面，想法慢慢就变成为使用 wasm 实现一个相同功能的应用。
 
 [marknote-project]: https://github.com/yuekcc/marknote
 [docsify]: https://docsify.js.org/
@@ -50,7 +50,7 @@ docutil
 
 docutil 比 marknote 多实现一个搜索的弹窗，大概 100 行代码。虽然 docutil 本身复杂度不高，但是可以看出 rust 的表达能力并不比 js 低多少。
 
-## 默认 unmutable ，默认 move
+## 默认 unmutable，默认 move
 
 rust 中默认是 move 语义。我理解是一个值会绑定到一个变量。变量可以声明为是否有权限修改这个值的数据。
 
@@ -68,7 +68,7 @@ fn main() {
 	let a = get_something();
 	let b = a;
 	let c = b;
-	
+
 	println!("{} {} {}", a, b, c);
 }
 ```
@@ -81,16 +81,16 @@ fn main() {
 
 ```js
 function get_something() {
-	let result = "something";
-	return result
+  let result = 'something';
+  return result;
 }
 
 function main() {
-	let a = get_something();
-	let b = a;
-	let c = b;
-	
-	console.log(a, b, c);
+  let a = get_something();
+  let b = a;
+  let c = b;
+
+  console.log(a, b, c);
 }
 
 main(); // => something something something
@@ -110,7 +110,7 @@ move 语义的代码写起来也会比较啰嗦。在需要保持相同的多份
 
 rust 没有 gc，主要依赖生命周期实现**自动内存管理**。rust 中大部分场景是可以自动管理 内存。生命周期的一个重要参考范围就是代码块。在 rust 中，一对 `{}` 表示一个代码块。代码块中的变量，当程序离开这个代码块时，就会触发 `drop` 操作，释放内存。
 
->When a value is no longer needed, Rust will run a “destructor” on that value. The most common way that a value is no longer needed is when it goes out of scope.
+> When a value is no longer needed, Rust will run a “destructor” on that value. The most common way that a value is no longer needed is when it goes out of scope.
 
 在现代的很多编程语言中都有代码块的概念，特别是有闭包的编程语言。顺便一提，rust 也支持闭包。docutil 也使用了不少闭包作为事件的回调函数（这种写法 js 中也非常普遍）。
 
@@ -127,8 +127,8 @@ pub fn SearchBox<G: Html>(ctx: ScopeRef<'_>) -> View<G> {
 			keyword.set(String::new());
 		}
 	};
-	
-	view! {ctx, 
+
+	view! {ctx,
 		// ...
 	}
 }
@@ -136,7 +136,7 @@ pub fn SearchBox<G: Html>(ctx: ScopeRef<'_>) -> View<G> {
 
 `keyword` 是一个可响应对象引用，类型是 `&Signal<String>`。`reset` 是一个闭包，目标是重置 `keyword` 的值。可以看出 `reset` 是一个代码块返回的结果，在 rust 中，代码块也可以有返回值，属于 rust 的一种表达式。
 
-reset 代码块中，首先是 clone 一次 `keyword`，因为后面的 html 模板中也用到了这个值，不能被直接移动到闭包中（否则无法实现功能），所以这里只是将 clone 出来的 `keyword` 移动到闭包中。注意（1）和（2）的 `keyword` 不是同一个变量，rust 支持变量声明  shadowing，可以出现同名变量。虽然同名，但是也是受到生命周期行为约束。还有就是这里并没有数据竞争问题，因为两个 `keyword` 都在 `SearchBox` 这个函数的内部，也没有 async 块。
+reset 代码块中，首先是 clone 一次 `keyword`，因为后面的 html 模板中也用到了这个值，不能被直接移动到闭包中（否则无法实现功能），所以这里只是将 clone 出来的 `keyword` 移动到闭包中。注意（1）和（2）的 `keyword` 不是同一个变量，rust 支持变量声明 shadowing，可以出现同名变量。虽然同名，但是也是受到生命周期行为约束。还有就是这里并没有数据竞争问题，因为两个 `keyword` 都在 `SearchBox` 这个函数的内部，也没有 async 块。
 
 ## async/await
 

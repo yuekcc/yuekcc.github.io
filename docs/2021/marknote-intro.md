@@ -14,16 +14,16 @@ Marknote 最初的想法是山寨一个 [boot-cli]([https://github.com/vvpvvp/bo
 ## 特性
 
 - 页面布局改为顶部导航，下面为正文内容的布局
-    - 正文部分保持左右布局，方便组织文章；左侧是导航，右则是文章
-    - 文章可以指定使用不同的侧栏
-    - 增加打印机优化的样式
+  - 正文部分保持左右布局，方便组织文章；左侧是导航，右则是文章
+  - 文章可以指定使用不同的侧栏
+  - 增加打印机优化的样式
 - markdown 增加了一个简单的 `[TOC]` 语法拓展
 - 主题支持大屏小屏设备
 - 打印机优化
 
 网站主页，实际上是仓库的 README.md 文件。选择这个文档为主页的目的是与 github 这样的托管服务保持一致。在 github.io 不能访问时，可以直接访问仓库，起码内容还可以正常浏览。
 
->github.io 域名在我用的网络偶然会抽风，访问不了
+> github.io 域名在我用的网络偶然会抽风，访问不了
 
 网站除主页外，应该有一个侧栏，侧栏可以起到链接、跳转的功能。这样就可以将多个文章组织为一个整体。参考一些使用 [vuepress](https://vuepress.vuejs.org/zh/) 的文章网站，我也给文章的连接增加了 `sidebar` 参数，用于指定渲染文章时使用不同的侧栏。在概念上，就可以实现文章分类。
 
@@ -39,10 +39,10 @@ Marknote 最初的想法是山寨一个 [boot-cli]([https://github.com/vvpvvp/bo
 - [x] 文档
 - [x] 实现一个更好 `[TOC]` 拓展
 - [x] 增加一套主题
-    - ~~[ ] 支持 light/dark 切换~~
+  - ~~[ ] 支持 light/dark 切换~~
 - [x] 语法高亮
 - [x] 使用 sycamore 重写（新仓库：[https://github.com/yuekcc/docutil](https://github.com/yuekcc/docutil)）
-    - [x] 改名 marknote => docutil
+  - [x] 改名 marknote => docutil
 
 ## 用户
 
@@ -51,8 +51,7 @@ Marknote 最初的想法是山寨一个 [boot-cli]([https://github.com/vvpvvp/bo
 - https://yuekcc.github.io/marknote/
 - https://lambdadriver.space/
 
-----
+---
 
 - 2021.11.6：初稿
 - 2021.11.7: 完成部分计划
-

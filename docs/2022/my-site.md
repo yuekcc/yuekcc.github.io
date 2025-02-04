@@ -99,7 +99,7 @@ docutil-deploy-hook 功能非常简单：一、响应 GITHUB 的 push webhook �
 
 网站更新、全文搜索索引更新，这些都算是 Gitops 的一个实现，只是都是基于 pull 方式：由 GITHUB 回调，再主动 GIT PULL 更新数据。
 
-由上面的框架图也可以看出，搜索更新、部署是独立的服务。因此一次更新需要 pull 两次网站。这样明显是一种浪费。二是网站整体部署都比较麻烦， docutil-deploy-hook 和 marknote-search-mvp 当前使用 node.js 实现，都是 MVP 级别的实现，需要进一步完善。三是服务器是支持 docker，可以考虑引入 docker 解决部署的问题。
+由上面的框架图也可以看出，搜索更新、部署是独立的服务。因此一次更新需要 pull 两次网站。这样明显是一种浪费。二是网站整体部署都比较麻烦，docutil-deploy-hook 和 marknote-search-mvp 当前使用 node.js 实现，都是 MVP 级别的实现，需要进一步完善。三是服务器是支持 docker，可以考虑引入 docker 解决部署的问题。
 
 ---
 

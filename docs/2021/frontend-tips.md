@@ -22,7 +22,7 @@ const 关键字的好处是变量声明后，不能被再次赋值可以减少�
 
 ### 外部接口尽量进行“空”判断
 
-接口数据是不可靠的。因为不是所有人都是面向协议编程。__偷偷修改接口输出结构不是偶发事件__。
+接口数据是不可靠的。因为不是所有人都是面向协议编程。**偷偷修改接口输出结构不是偶发事件**。
 
 ### 异步编程时优先使用 async/await 语法，这些代码会更清晰
 
@@ -41,7 +41,7 @@ javascript 是动态类型语言，只有在运行的才知道具体的变量类
 写清晰好理解的代码，而不是幸运代码。日常工作不是面试不是考试，不需要 show 技巧。
 
 ```js
-const sum = "1" + 100 - (+new Date()) + "1000A"; // 第一眼实在不知道最终结果会是什么
+const sum = '1' + 100 - +new Date() + '1000A'; // 第一眼实在不知道最终结果会是什么
 ```
 
 ### 时常重构代码
@@ -84,7 +84,7 @@ vue 的 template 中项目构建时会转换为 render 函数。可以自动处�
 
 ```html
 <PageHeader>
-    <el-button>hello</el-button>
+  <el-button>hello</el-button>
 </PageHeader>
 ```
 
@@ -118,15 +118,15 @@ scss 语法上更接近 css，可以少学一门语言。
 
 ### 使用局部分样式
 
-局部样式可以减少样式覆盖问题。不使用 `scoped` 属性，也可以通过在最外层增加一个前置的样式 class控制影响范围。
+局部样式可以减少样式覆盖问题。不使用 `scoped` 属性，也可以通过在最外层增加一个前置的样式 class 控制影响范围。
 
 比如在一组件中：
 
 ```vue
 <template>
-    <div class="page-header">
-        <h1>xxx</h1>
-    </div>
+  <div class="page-header">
+    <h1>xxx</h1>
+  </div>
 </template>
 ```
 
@@ -134,22 +134,23 @@ scss 语法上更接近 css，可以少学一门语言。
 
 ```scss
 .page-header {
-    h1 {
-        // ...
-    }
+  h1 {
+    // ...
+  }
 }
 ```
 
 ### 类命名：kebab-case
 
 例：
+
 ```scss
 .page-title {
-    // ...
+  // ...
 
-    & h1 {
-        // ...
-    }
+  & h1 {
+    // ...
+  }
 }
 ```
 
@@ -198,7 +199,7 @@ windows 系统、macos 默认情况下不区分大小写，linux 的文件却区
 - `filter`: vue 的过滤器
 - `directive`: vue 的自定义指令
 
->`filter` 可以少用了。vue3 已经不支持 `filter`。
+> `filter` 可以少用了。vue3 已经不支持 `filter`。
 
 ### 一个代码文件只用于编写一组紧密相关的函数、一个组件、一个类，甚至一个函数、常量
 
@@ -221,7 +222,6 @@ prettier 是目前流行的代码格式化工具，属于强制风格的格式�
 }
 ```
 
-
 ### 使用 eslint
 
 js 是动态类型语言。eslint 可以在编写代码时进行一些检查，减少错误。也可以矫正一些不好编程习惯。**对于提升个人技术**是非常有帮助。
@@ -243,13 +243,8 @@ eslint 有非常多插件。推荐配合 prettier 使用。
   "parserOptions": {
     "sourceType": "module"
   },
-  "plugins": [
-    "prettier"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended"
-  ]
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"]
 }
 ```
 
@@ -268,8 +263,8 @@ eslint 有非常多插件。推荐配合 prettier 使用。
 ### 简化导入（import）路径，使用绝对路径导入
 
 ```ts
-import { formatDateTime } from '@/shared/utils/format-date-time'
-import { PageHeader} from '@/components/page-header'
+import { formatDateTime } from '@/shared/utils/format-date-time';
+import { PageHeader } from '@/components/page-header';
 ```
 
 工具类直接指定到具体的文件。vue 组件可以先在组件所在目录中建立一个 index.ts 文件，再引用。绝对路径的好处是不用人工计算这样的目录：`../../../../xxxx`，而且重构时也会相对方便。
@@ -296,19 +291,17 @@ page-header.vue 代码：
 ```vue
 <script lang="ts">
 export default {
-    // ...
-    setup() {
-        return {
-
-        }
-    }
-}
+  // ...
+  setup() {
+    return {};
+  },
+};
 </script>
 
 <template>
-    <div>
-        <slot />
-    </div>
+  <div>
+    <slot />
+  </div>
 </template>
 ```
 
@@ -324,7 +317,7 @@ commit、push 是多人协作开发的第一步。有些情况下做的一个需
 
 个人分支独立发展一段时间后，可以进行一些 rebase。将自己的变动放置在主干之上，可以减少一些 merge 的记录。自己的代码也不容易被覆盖。
 
-----
+---
 
-- 2021年11月7日，迁移文章，源仓库 https://github.com/yuekcc/frontend-tips
-- 2022年02月19日，修改部分内容
+- 2021 年 11 月 7 日，迁移文章，源仓库 https://github.com/yuekcc/frontend-tips
+- 2022 年 02 月 19 日，修改部分内容

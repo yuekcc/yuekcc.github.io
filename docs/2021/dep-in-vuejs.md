@@ -24,7 +24,7 @@ class Dep {
   }
 
   notify() {
-    this._subscribers.forEach((sub) => sub());
+    this._subscribers.forEach(sub => sub());
   }
 }
 
@@ -38,7 +38,7 @@ export function watchEffect(effect) {
 Dep 类包含两个方法，一个私有属性：
 
 - `#depend` 用于在数据的 getter 中收集变化依赖
-- `#notify` 用于在 setter 中通知这个 dep 追踪的数据发生的改变，并执行注册在 `subscribers` 中的回调函数 
+- `#notify` 用于在 setter 中通知这个 dep 追踪的数据发生的改变，并执行注册在 `subscribers` 中的回调函数
 
 Dep 类是观察者模式的一个变种。与 Observable 不同的是 Dep 是利用了闭包的特性自动收集依赖。
 
@@ -50,7 +50,7 @@ Dep 类是观察者模式的一个变种。与 Observable 不同的是 Dep 是�
 export default {
   data() {
     return {
-      name: "",
+      name: '',
       age: 0,
     };
   },
@@ -60,7 +60,7 @@ export default {
     },
   },
   render(h) {
-    return h("div", this.message);
+    return h('div', this.message);
   },
 };
 ```
@@ -71,7 +71,7 @@ export default {
 这个在 `created` 事件后，`this.name`、`this.age`、`this.message` 都可以直接在 `render` 函数中使用。
 vue 初始化这些数据，目的是执行 `render` 函数，渲染视图。
 
->无论是 `template` 选项或 sfc 组件，模板最终会通过动态或静态的方式编译为 `render` 函数。
+> 无论是 `template` 选项或 sfc 组件，模板最终会通过动态或静态的方式编译为 `render` 函数。
 
 对于 `this.message`，由代码可以看出，依赖于 `this.name` 和 `this.age`。vue 初始 `data` 中的对象时，会为每个字段创建一个 dep 对象，
 通过拦截 setter 和 getter 实现数据变化时响应。大概的流程：
@@ -90,6 +90,6 @@ vue 初始化这些数据，目的是执行 `render` 函数，渲染视图。
 
 vue2 中的 Dep 实现当然会更复杂，毕竟有优化和 edge case 的考虑。上面的只是一个简化的版本，用来理解 vue 是如何实现响应式的。
 
-----
+---
 
 2021.11.7 从本地文章中添加到当前仓库。有少量修改

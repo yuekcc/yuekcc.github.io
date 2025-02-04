@@ -11,7 +11,7 @@ GitHub: https://github.com/puppeteer/puppeteer
 
 - UI 自动化测试
 - 爬虫（获取数据部分）
-  - 因为 puppeteer 本身是控制浏览器，因此可以处理 js动态生成的 DOM 和静态 DOM
+  - 因为 puppeteer 本身是控制浏览器，因此可以处理 js 动态生成的 DOM 和静态 DOM
 - 打印为 PDF（浏览器自带功能）
 - 网页截图（浏览器自带功能）
 
@@ -22,6 +22,7 @@ selenium 也是另一个控制浏览器的工具（库）。selenium 大概是 J
 主要区别：
 
 - 连接方式
+
   - selenium 通过 Restful 接口连接 webdriver，webdriver 再通过 devtools 协议连接浏览器
   - puppeteer 则直接通过 devtools 协议连接浏览器
 
@@ -92,4 +93,4 @@ steps:
 
 ---
 
-2022年01月08日
+2022 年 01 月 08 日
