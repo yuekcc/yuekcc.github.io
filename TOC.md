@@ -1,5 +1,5 @@
 ## 2025
-
+- [[转载]  面对铺面而来的 Deepseek，普通人很难不焦虑吧](docs/2025/deekseek.md)
 - [[转载] 从微服务走向单体化](docs/2025/microservice-to-monolic.md)
 
 ## 2024
