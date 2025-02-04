@@ -13,7 +13,6 @@ A pointer is a memory address.
 
 (Mmm, short paragraphs.)
 
-
 ## Starting off
 
 Say you declare a variable named foo.
@@ -36,13 +35,13 @@ As I said, foo occupies some memory. Its location in memory is called its addres
 
 Think of every variable as a box. foo is a box that is sizeof(int) bytes in size. The location of this box is its address. When you access the address, you actually access the contents of the box it points to.
 
-This is true of all variables, regardless of type. In fact, grammatically speaking, there is no such thing as a “pointer variable”: all variables are the same. There are, however, variables with different types. foo's type is int. foo_ptr's type is int *. (Thus, “pointer variable” really means “variable of a pointer type”.)
+This is true of all variables, regardless of type. In fact, grammatically speaking, there is no such thing as a “pointer variable”: all variables are the same. There are, however, variables with different types. foo's type is int. foo_ptr's type is int \*. (Thus, “pointer variable” really means “variable of a pointer type”.)
 
 The point of that is that the pointer is not the variable! The pointer to foo is the contents of foo_ptr. You could put a different pointer in the foo_ptr box, and the box would still be foo_ptr. But it would no longer point to foo.
 
 ![boxes](/pointers/boxes.png)
 
-The pointer has a type, too, by the way. Its type is int. Thus it is an “int pointer” (a pointer to int). An int **'s type is int * (it points to a pointer to int). The use of pointers to pointers is called multiple indirection. More on that in a bit.
+The pointer has a type, too, by the way. Its type is int. Thus it is an “int pointer” (a pointer to int). An int \*_'s type is int _ (it points to a pointer to int). The use of pointers to pointers is called multiple indirection. More on that in a bit.
 
 ## Interlude: Declaration syntax
 
@@ -52,13 +51,13 @@ The obvious way to declare two pointer variables in a single declaration is:
 int* ptr_a, ptr_b;
 ```
 
-- If the type of a variable containing a pointer to int is int *,
+- If the type of a variable containing a pointer to int is int \*,
 - and a single declaration can declare multiple variables of the same type by simply providing a comma-separated list (ptr_a, ptr_b),
-- hen you can declare multiple int-pointer variables by simply giving the int-pointer type (int *) followed by a comma-separated list of names to use for the variables (ptr_a, ptr_b).
+- hen you can declare multiple int-pointer variables by simply giving the int-pointer type (int \*) followed by a comma-separated list of names to use for the variables (ptr_a, ptr_b).
 
-Given this, what is the type of ptr_b? int *, right?
+Given this, what is the type of ptr_b? int \*, right?
 
-*bzzt* Wrong!
+_bzzt_ Wrong!
 
 The type of ptr_b is int. It is not a pointer.
 
@@ -127,7 +126,7 @@ So how do you access the value at a pointer? You must dereference it.
 int bar = *foo_ptr;
 ```
 
-In this declaration, the dereference operator (prefix *, not to be confused with the multiplication operator) looks up the value that exists at an address. (This is called a “load” operation.)
+In this declaration, the dereference operator (prefix \*, not to be confused with the multiplication operator) looks up the value that exists at an address. (This is called a “load” operation.)
 
 It's also possible to write to a dereference expression (the C way of saying this: a dereference expression is an lvalue, meaning that it can appear on the left side of an assignment):
 
@@ -145,7 +144,7 @@ Here's a declaration of a three-int array:
 int array[] = { 45, 67, 89 };
 ```
 
-Note that we use the [] notation because we are declaring an array. int *array would be illegal here; the compiler would not accept us assigning the { 45, 67, 89 } initializer to it.
+Note that we use the [] notation because we are declaring an array. int \*array would be illegal here; the compiler would not accept us assigning the { 45, 67, 89 } initializer to it.
 
 This variable, array, is an extra-big box: three ints' worth of storage.
 
@@ -178,7 +177,7 @@ printf(" third element: %i\n", *array_ptr);
  first element: 45
 second element: 67
  third element: 89
- ```
+```
 
 In case you're not familiar with the ++ operator: it adds 1 to a variable, the same as variable += 1 (remember that because we used the postfix expression array_ptr++, rather than the prefix expression ++array_ptr, the expression evaluated to the value of array_ptr from before it was incremented rather than after).
 
@@ -228,7 +227,7 @@ That one might bend the brain a little. Here's a diagram:
 
 array points to the first element of the array; array_ptr is set to &array[1], so it points to the second element of the array. So array_ptr[1] is equivalent to array[2] (array_ptr starts at the second element of the array, so the second element of array_ptr is the third element of the array).
 
-Also, you might notice that because the first element is sizeof(int) bytes wide (being an int), the second element is sizeof(int) bytes forward of the start of the array. You are correct: array[1] is equivalent to *(array + 1). (Remember that the number added to or subtracted from a pointer is multiplied by the size of the pointer's type, so that “1” adds sizeof(int) bytes to the pointer value.)
+Also, you might notice that because the first element is sizeof(int) bytes wide (being an int), the second element is sizeof(int) bytes forward of the start of the array. You are correct: array[1] is equivalent to \*(array + 1). (Remember that the number added to or subtracted from a pointer is multiplied by the size of the pointer's type, so that “1” adds sizeof(int) bytes to the pointer value.)
 
 ## Interlude: Structures and unions
 
@@ -308,7 +307,7 @@ Here are how the values of these pointers equate to each other:
 ***d == **c == *b == a == 3; // Dereferencing an (int ***) thrice, or an (int **) twice, or an (int *) once, gets you an int (3 - 3 = 0; 2 - 2 = 0; 1 - 1 = 0)
 ```
 
-Thus, the & operator can be thought of as adding asterisks (increasing pointer level, as I call it), and the *, ->, and [] operators as removing asterisks (decreasing pointer level).
+Thus, the & operator can be thought of as adding asterisks (increasing pointer level, as I call it), and the \*, ->, and [] operators as removing asterisks (decreasing pointer level).
 
 ## Pointers and const
 
@@ -326,7 +325,7 @@ int const *ptr_a;
 int *const ptr_b;
 ```
 
-In the first example, the int (i.e. *ptr_a) is const; you cannot do *ptr_a = 42. In the second example, the pointer itself is const; you can change *ptr_b just fine, but you cannot change (using pointer arithmetic, e.g. ptr_b++) the pointer itself.
+In the first example, the int (i.e. *ptr_a) is const; you cannot do *ptr_a = 42. In the second example, the pointer itself is const; you can change \*ptr_b just fine, but you cannot change (using pointer arithmetic, e.g. ptr_b++) the pointer itself.
 
 ## Function pointers
 
@@ -356,7 +355,7 @@ strcpy_ptr = &strcpy; // This works too
 // strcpy_ptr = &strcpy[0]; // But not this
 ```
 
-Note the parentheses around *strcpy_ptr in the above declaration. These separate the asterisk indicating return type (char *) from the asterisk indicating the pointer level of the variable (*strcpy_ptr — one level, pointer to function).
+Note the parentheses around _strcpy_ptr in the above declaration. These separate the asterisk indicating return type (char _) from the asterisk indicating the pointer level of the variable (\*strcpy_ptr — one level, pointer to function).
 
 Also, just like in a regular function declaration, the parameter names are optional:
 
@@ -364,7 +363,7 @@ Also, just like in a regular function declaration, the parameter names are optio
     char *(*strcpy_ptr_noparams)(char *, const char *) = strcpy_ptr; // Parameter names removed — still the same type
 ```
 
-The type of the pointer to strcpy is char *(*)(char *, const char *); you may notice that this is the declaration from above, minus the variable name. You would use this in a cast. For example:
+The type of the pointer to strcpy is char _(_)(char _, const char _); you may notice that this is the declaration from above, minus the variable name. You would use this in a cast. For example:
 
 ```c
 strcpy_ptr = (char *(*)(char *dst, const char *src))my_strcpy;
@@ -409,7 +408,7 @@ In order to explain this, I'm going to summarize all the declaration syntax you'
 char *ptr;
 ```
 
-This declaration tells us the pointer type (char), pointer level (*), and variable name (ptr). And the latter two can go into parentheses:
+This declaration tells us the pointer type (char), pointer level (\*), and variable name (ptr). And the latter two can go into parentheses:
 
 ```c
 char (*ptr);
@@ -423,7 +422,7 @@ char *strcpy(char *dst, const char *src);
 
 Huh. A function declaration.
 
-But we also removed the * indicating pointer level — remember that the * in this function declaration is part of the return type of the function. So if we add the pointer-level asterisk back (using the parentheses):
+But we also removed the _ indicating pointer level — remember that the _ in this function declaration is part of the return type of the function. So if we add the pointer-level asterisk back (using the parentheses):
 
 ```c
 char *(*strcpy_ptr)(char *dst, const char *src);
@@ -439,7 +438,7 @@ YES WE CAN! And the result is the declaration of a function that returns a funct
 char *(*get_strcpy_ptr(void))(char *dst, const char *src);
 ```
 
-Remember that the type of a pointer to a function taking no arguments and returning int is int (*)(void). So the type returned by this function is char *(*)(char *, const char *) (with, again, the inner * indicating a pointer, and the outer * being part of the return type of the pointed-to function). You may remember that that is also the type of strcpy_ptr.
+Remember that the type of a pointer to a function taking no arguments and returning int is int (_)(void). So the type returned by this function is char _(_)(char _, const char _) (with, again, the inner _ indicating a pointer, and the outer \* being part of the return type of the pointed-to function). You may remember that that is also the type of strcpy_ptr.
 
 So this function, which is called with no parameters, returns a pointer to a strcpy-like function:
 
@@ -509,14 +508,13 @@ That one uses indexing. Which, as we found out earlier, uses a pointer (not an a
 
 ## Version history
 
-
 1.3.1 — 2023-10-26
 
 - Replaced hotlinked Creative Commons bug with my own high-resolution redraw of it.
-- Upgraded various links to HTTPS, and replaced dead links with corrected ones or Wayback  Machine links.
+- Upgraded various links to HTTPS, and replaced dead links with corrected ones or Wayback Machine links.
 - Switched character set to UTF-8.
 
-1.3 — 2010-01-13
+  1.3 — 2010-01-13
 
 - Fixed explanation of the relationship between Pointers and const.
 - Added -> as one of the dereference operators in Multiple indirection.
@@ -527,16 +525,16 @@ That one uses indexing. Which, as we found out earlier, uses a pointer (not an a
 - Replaced references to the PowerPC with references to Intel processors. (Fortunately, no factual changes were necessary.)
 - Fixed a couple of compilation errors and a few warnings in the sample code (in addition to the aforementioned array-decaying discussion).
 
-1.2.2 — 2007-01-08
+  1.2.2 — 2007-01-08
 
 - Fixed link to the Pointer arithmetic section from the 1.1 section below.
 - Changed the hyphen to an en dash in the year range in the copyright notice (reference: Chicago Manual of Style).
 
-1.2.1 — 2006-04-05
+  1.2.1 — 2006-04-05
 
 - Changed byline from “Mac-arena the Bored Zo” to my real name.
 
-1.2 — 2006-01-19
+  1.2 — 2006-01-19
 
 - Added Function pointers section.
 - Added Pointers and const section.
@@ -545,7 +543,7 @@ That one uses indexing. Which, as we found out earlier, uses a pointer (not an a
 - Smart quotes.
 - Reworded parenthetical about ++x vs x++, at Colin Barrett's suggestion.
 
-1.1 — 2006-01-01
+  1.1 — 2006-01-01
 
 - Added:
   - Table of contents
@@ -560,6 +558,6 @@ That one uses indexing. Which, as we found out earlier, uses a pointer (not an a
 - Added diagram in Starting off.
 - Explained array declaration syntax (as opposed to pointer declaration syntax) in Arrays.
 
-1.0 — 2005-12-22
+  1.0 — 2005-12-22
 
-- First public release. 
+- First public release.
