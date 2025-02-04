@@ -105,8 +105,6 @@ apt-get dist-upgrade # 安装好系统后，先是一波全局更新。sid 是�
 apt-get install iproute2 iputils-ping locales net-tools openssh-client procps sudo xz-utils unzip
 ```
 
-
-
 ### locale-gen
 
 ```sh
