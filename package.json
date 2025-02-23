@@ -35,11 +35,18 @@
       "plugin:prettier/recommended"
     ]
   },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
+  "dependencies": {
+    "@preact/signals": "^2.0.1",
+    "@shikijs/markdown-it": "^3.0.0",
+    "@types/bun": "^1.2.3",
+    "estree-util-to-js": "^2.0.0",
+    "github-markdown-css": "^5.8.1",
+    "hast-util-from-html": "^2.0.3",
+    "hast-util-to-estree": "^3.1.2",
+    "markdown-it": "^14.1.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "preact": "^10.26.2",
     "prettier": "^2.4.0",
-    "sirv-cli": "^1.0.14"
+    "shiki": "^3.0.0"
   }
 }
