@@ -4,7 +4,7 @@ import docModules from './doc-modules';
 import renderIcpNotice from './icp.md';
 import renderToc from './TOC.md';
 
-import 'github-markdown-css/github-markdown.css';
+import 'github-markdown-css/github-markdown-light.css';
 import './style.css';
 
 const body = signal();
@@ -53,9 +53,20 @@ function App() {
     <>
       <div class="top-bar">
         <a href="/">首页</a>
+        <a href="https://github.com/yuekcc" target="_blank">
+          GITHUB↗️
+        </a>
       </div>
-      <div onClick={handleLink}>{body.value}</div>
-      <div class="icp markdown-body">{renderIcpNotice()}</div>
+      <article class="post" onClick={handleLink}>
+        {body.value}
+        <div class="post-link">
+          <p>{'----'}</p>
+          <pre>
+            <code>链接：{document.location.href}</code>
+          </pre>
+        </div>
+      </article>
+      <div class="icp">{renderIcpNotice()}</div>
     </>
   ) : undefined;
 }
