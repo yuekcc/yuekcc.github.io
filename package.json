@@ -1,11 +1,10 @@
 {
   "name": "pages",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "2.0.0",
   "scripts": {
-    "serve": "sirv --dev ."
+    "build": "bun build.js"
   },
-  "author": "yuekcc",
+  "author": "zhanlefeng",
   "license": "MIT",
   "prettier": {
     "printWidth": 120,
@@ -14,26 +13,6 @@
     "trailingComma": "all",
     "arrowParens": "avoid",
     "endOfLine": "auto"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "commonjs": true,
-      "es2020": true,
-      "jest": true,
-      "mocha": true,
-      "node": true
-    },
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "plugins": [
-      "prettier"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:prettier/recommended"
-    ]
   },
   "dependencies": {
     "@preact/signals": "^2.0.1",
