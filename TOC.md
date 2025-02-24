@@ -20,7 +20,7 @@
 ## 2023
 
 - [上手 Mistral 8x7B MOE 模型](docs/2023/handson-mistral-8x7b.md)
-- [[转载] 全栈、后台如何选择](docs/2023/fullstack-or-backend-only.md)
+- [[转载] 现在做全栈是不是一个好方向](docs/2023/fullstack-or-backend-only.md)
 - [[转载] OSS 对象储存的安全性讨论](docs/2023/oss-security.md)
 - [llama.cpp 驱动 baichuan2-7b-chat](docs/2023/baichuan.md)
 - [Neovim 笔记](docs/2023/nvim.md)

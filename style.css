@@ -105,6 +105,7 @@ body {
     margin: 1rem;
     font-size: 1rem;
     gap: 1rem;
+    align-items: center;
   }
 
   .icp {
