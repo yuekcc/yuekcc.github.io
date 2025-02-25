@@ -2,11 +2,9 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - 'master'
-    paths:
+    paths-ignore:
       - 'docs/**'
-      - 'src/**'
+      - 'index.html'
 
 jobs:
   update:
