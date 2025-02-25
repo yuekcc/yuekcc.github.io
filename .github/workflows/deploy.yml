@@ -16,8 +16,7 @@ jobs:
           bun-version: latest
       - uses: actions/checkout@v4
         with:
-          ref: main
-          fetch-depth: 0
+          ref: master
       - name: Setup git
         run: |
           git config --local user.email "github-actions[bot]@github.com"
@@ -30,8 +29,8 @@ jobs:
         run: |
           git add .
           git commit -m "[bot] AUTO UPDATE"
-      - name: Push main branch
+      - name: Push master branch
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: master
