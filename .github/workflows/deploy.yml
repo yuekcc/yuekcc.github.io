@@ -5,7 +5,8 @@ on:
     branches:
       - 'master'
     paths:
-      - 'dist/**'
+      - 'docs/**'
+      - 'src/**'
 
 jobs:
   update:
