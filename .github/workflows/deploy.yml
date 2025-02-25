@@ -1,13 +1,22 @@
 name: Deploy
 
 on:
+  # 推送代码时触发
   push:
     paths-ignore:
       - 'docs/**'
       - 'index.html'
+  # 手工触发
+  workflow_dispatch:
+
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
 jobs:
-  update:
+  # 构建
+  build:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -34,3 +43,23 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+  # 部署 github pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
