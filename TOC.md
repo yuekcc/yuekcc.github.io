@@ -1,5 +1,6 @@
 ## 2025
-- [[转载]  面对铺面而来的 Deepseek，普通人很难不焦虑吧](docs/2025/deekseek.md)
+
+- [[转载] 面对铺面而来的 Deepseek，普通人很难不焦虑吧](docs/2025/deekseek.md)
 - [[转载] 从微服务走向单体化](docs/2025/microservice-to-monolic.md)
 
 ## 2024
@@ -66,3 +67,16 @@
 - [实用工具合集](docs/2022/tools-collection.md)
 - [Memo](docs/2024/memo.md)
 - [关于 C 指针](docs/pointers/pointers.md)
+
+## 一些链接
+
+- [首页](/)
+- [所有笔记](/TOC.md)
+- 我的 [GitHub](https://github.com/yuekcc)
+
+## 一些玩具
+
+- [picar](https://github.com/yuekcc/picar)
+- [init-nodejs-project](https://github.com/yuekcc/inp)
+- [marknote](https://github.com/yuekcc/marknote)
+- [docutil](https://github.com/docutil/docutil)
