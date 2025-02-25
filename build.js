@@ -30,25 +30,18 @@ async function step2() {
   await build({
     target: 'browser',
     plugins: [md()],
-    entrypoints: ['./index.html'],
+    entrypoints: ['./src/index.html'],
     outdir: 'out',
     splitting: true,
     minify: true,
     publicPath: '/',
     naming: {
-      chunk: 'chunk/[hash].[ext]'
-    }
+      chunk: 'chunk/[hash].[ext]',
+    },
   });
-}
-
-async function step3() {
-  console.log('STEP3 copy images');
-
-  await fs.cp('images', 'out/images', { recursive: true, force: true });
 }
 
 console.log('BEGIN');
 await step1();
 await step2();
-await step3();
 console.log('DONE');
