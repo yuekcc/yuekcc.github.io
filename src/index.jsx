@@ -1,6 +1,6 @@
 import { signal } from '@preact/signals';
 import { render } from 'preact';
-import docModules from './doc-modules';
+import docModules from '../doc-modules';
 import renderIcpNotice from './icp.md';
 import renderToc from './TOC.md';
 

@@ -39,7 +39,7 @@ This is true of all variables, regardless of type. In fact, grammatically speaki
 
 The point of that is that the pointer is not the variable! The pointer to foo is the contents of foo_ptr. You could put a different pointer in the foo_ptr box, and the box would still be foo_ptr. But it would no longer point to foo.
 
-![boxes](/pointers/boxes.png)
+![boxes](/images/pointers/boxes.png)
 
 The pointer has a type, too, by the way. Its type is int. Thus it is an “int pointer” (a pointer to int). An int \*_'s type is int _ (it points to a pointer to int). The use of pointers to pointers is called multiple indirection. More on that in a bit.
 
@@ -223,7 +223,7 @@ printf("%i\n", array_ptr[1]);
 
 That one might bend the brain a little. Here's a diagram:
 
-![array_indexing](/pointers/array_indexing.png)
+![array_indexing](/images/pointers/array_indexing.png)
 
 array points to the first element of the array; array_ptr is set to &array[1], so it points to the second element of the array. So array_ptr[1] is equivalent to array[2] (array_ptr starts at the second element of the array, so the second element of array_ptr is the third element of the array).
 

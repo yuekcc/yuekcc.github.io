@@ -7,7 +7,6 @@ import { listDocs } from './build/doc-list';
 
 async function step1() {
   console.log('STEP1 create doc-modules.js');
-
   const outputFile = 'doc-modules.js';
 
   const docModule = new CodePrinter();
@@ -36,6 +35,9 @@ async function step2() {
     splitting: true,
     minify: true,
     publicPath: '/',
+    naming: {
+      chunk: 'chunk/[hash].[ext]'
+    }
   });
 }
 

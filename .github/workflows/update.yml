@@ -1,0 +1,38 @@
+name: Daily update
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 北京时间每天上午 9 点执行，获取昨天的数据
+    - cron: '0 1 * * *'
+
+jobs:
+  update:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Setup git
+        run: |
+          git config --local user.email "github-actions[bot]@github.com"
+          git config --local user.name "github-actions[bot]"
+      - name: Build
+        run: |
+          bun install
+          bun run build
+          git checkout doc-modules.js
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "[bot] AUTO UPDATE"
+      - name: Push main branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
