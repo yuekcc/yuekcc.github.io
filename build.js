@@ -1,5 +1,4 @@
-import { build } from 'bun';
-import fs from 'node:fs/promises';
+import { build, $ } from 'bun';
 import path from 'node:path';
 import md from './build/bun-plugin-md';
 import { CodePrinter } from './build/CodePrinter';
@@ -31,17 +30,26 @@ async function step2() {
     target: 'browser',
     plugins: [md()],
     entrypoints: ['./src/index.html'],
-    outdir: 'out',
+    outdir: 'out/dist',
     splitting: true,
     minify: true,
-    publicPath: '/',
+    publicPath: '/dist/',
     naming: {
-      chunk: 'chunk/[hash].[ext]',
+      chunk: 'chunk-[hash].[ext]',
     },
   });
+}
+
+async function step3() {
+  console.log('STEP3 install');
+
+  await $`rm -rf dist index.html`
+  await $`mv out/* .`
+  await $`mv dist/index.html .`
 }
 
 console.log('BEGIN');
 await step1();
 await step2();
+await step3();
 console.log('DONE');

@@ -20,6 +20,12 @@ async function dispatchRoutes(url) {
     return;
   }
 
+  if (pathname === '/index.html') {
+    body.value = renderToc();
+    window.history.replaceState({ pathname }, '', pathname);
+    return;
+  }
+
   const load = docModules[pathname.replace(/^\//, '')];
   if (load) {
     const { default: render } = await load();
@@ -52,8 +58,8 @@ function App() {
   return body.value ? (
     <>
       <div class="top-bar">
-        <a href="/">首页</a>
-        <a href="https://github.com/yuekcc" target="_blank">
+        <a href="/index.html">首页</a>
+        <a href="https://github.com/yuekcc" target="_blank" rel="noreferrer">
           GITHUB↗️
         </a>
       </div>
