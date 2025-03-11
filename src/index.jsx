@@ -26,7 +26,7 @@ async function dispatchRoutes(url) {
     return;
   }
 
-  const load = docModules[pathname.replace(/^\//, '')];
+  const load = docModules[pathname.replace(/^\/[_]?/, '')];
   if (load) {
     const { default: render } = await load();
     body.value = render();
@@ -47,7 +47,7 @@ function App() {
       const url = new URL(href);
 
       // 加载文章
-      if (/\/.+\.md/.test(url.pathname)) {
+      if (/_docs\/.+\.md/.test(url.pathname)) {
         e.preventDefault();
         dispatchRoutes(url);
         window.history.pushState({ pathname: url.pathname }, '', url.pathname);

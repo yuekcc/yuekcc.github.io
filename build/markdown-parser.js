@@ -20,6 +20,16 @@ md.renderer.rules.image = function (tokens, idx, options, env, self) {
   return defaultImageRenderer(tokens, idx, options, env, self);
 };
 
+md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  const href = tokens[idx].attrGet('href');
+  console.log('link_open', href)
+  if (/docs\/.+\.md/.test(href)) {
+    tokens[idx].attrSet('href', href.replace('docs/', '_docs/'));
+  }
+
+  return self.renderToken(tokens, idx, options);
+};
+
 export async function parseMarkdown(filePath, source) {
   return md.render(source, { filePath });
 }
