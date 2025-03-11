@@ -63,7 +63,7 @@ import{e as n,h as a}from"/dist/chunk-scq2q67j.js";function e(){return a("div",{
 `,a("h3",{children:"MeiliSearch"},void 0,!1,void 0,this),`
 `,a("p",{children:"MeiliSearch 是一个 Rust 实现的全文搜索服务器。API 简单、功能足够就是 MeiliSearch 现有版本的特点。MeiliSearch 目前还是单机使用，占用资源特别少，适合自建全文搜索服务器。"},void 0,!1,void 0,this),`
 `,a("p",{children:["关于 MeiliSearch 可以看其",a("a",{href:"https://www.meilisearch.com/",children:"官方网站"},void 0,!1,void 0,this),"。"]},void 0,!0,void 0,this),`
-`,a("p",{children:["关于全文搜索的实现，可以看我的这篇：",a("a",{href:"https://lambdadriver.space/#/docs/202111/full-text-search-for-marknote.md",children:"# Marknote 全文搜索的想法"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,a("p",{children:["关于全文搜索的实现，可以看我的这篇：",a("a",{href:"https://lambdadriver.space/#/_docs/202111/full-text-search-for-marknote.md",children:"# Marknote 全文搜索的想法"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,a("h2",{children:"网站更新"},void 0,!1,void 0,this),`
 `,a("p",{children:["docutil 是一个完全静态的网站工具，因此需要自行解决更新问题。当前的方案是通过 WebHook 实现触发，再经 git pull 同步网站的内容。这个服务由 ",a("a",{href:"https://github.com/yuekcc/docutil-deploy-hook",children:"docutil-deploy-hook"},void 0,!1,void 0,this)," 提供。"]},void 0,!0,void 0,this),`
 `,a("p",{children:"docutil-deploy-hook 功能非常简单：一、响应 GITHUB 的 push webhook 回调；二、执行更新脚本。"},void 0,!1,void 0,this),`

@@ -1,5 +1,5 @@
 import{e as n,h as a}from"/dist/chunk-scq2q67j.js";function e(){return a("div",{class:"markdown-body",children:a(n,{children:[a("h1",{children:"预览 Sycamore 全新的响应式原语"},void 0,!1,void 0,this),`
-`,a("p",{children:[a("a",{href:"https://github.com/sycamore-rs/sycamore/blob/master/docs/posts/new-reactive-primitives.md",children:"原文"},void 0,!1,void 0,this),"，机翻 + 个人修订"]},void 0,!0,void 0,this),`
+`,a("p",{children:[a("a",{href:"https://github.com/sycamore-rs/sycamore/blob/master/_docs/posts/new-reactive-primitives.md",children:"原文"},void 0,!1,void 0,this),"，机翻 + 个人修订"]},void 0,!0,void 0,this),`
 `,a("blockquote",{children:[`
 `,a("p",{children:"2022 年 05 月 01 日更新，sycamore 0.8.0-beta.4 对响应式 API 又做了修改。"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
