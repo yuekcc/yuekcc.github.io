@@ -15,14 +15,8 @@ body.subscribe(() => {
 async function dispatchRoutes(url) {
   const { pathname } = url;
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/index.html') {
     body.value = renderToc();
-    return;
-  }
-
-  if (pathname === '/index.html') {
-    body.value = renderToc();
-    window.history.replaceState({ pathname }, '', pathname);
     return;
   }
 
@@ -60,7 +54,7 @@ function App() {
       <div class="top-bar">
         <a href="/index.html">首页</a>
         <a href="https://github.com/yuekcc" target="_blank" rel="noreferrer">
-          GITHUB↗️
+          GITHUB↗
         </a>
       </div>
       <article class="post" onClick={handleLink}>
