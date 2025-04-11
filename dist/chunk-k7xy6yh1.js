@@ -1,16 +1,16 @@
 import{e as a,h as n}from"/dist/chunk-scq2q67j.js";function s(){return n("div",{class:"markdown-body",children:n(a,{children:[n("h1",{children:"Java 的简单工作流引擎实现"},void 0,!1,void 0,this),`
 `,n("h2",{children:"User"},void 0,!1,void 0,this),`
-`,n("p",{children:"我想用java8实现一个工作流引擎。"},void 0,!1,void 0,this),`
+`,n("p",{children:"我想用 java8 实现一个工作流引擎。"},void 0,!1,void 0,this),`
 `,n("p",{children:"要求"},void 0,!1,void 0,this),`
 `,n("ol",{children:[`
-`,n("li",{children:"不依赖三方组件的情况下"},void 0,!1,void 0,this),`
+`,n("li",{children:"不依赖三方组件"},void 0,!1,void 0,this),`
 `,n("li",{children:"这个是专用的工作流引擎，不需要有太多抽象"},void 0,!1,void 0,this),`
 `,n("li",{children:"需要实现持久化。使用 mysql 为数据库"},void 0,!1,void 0,this),`
 `,n("li",{children:"我的项目主要依赖有 spring boot 2.7、jpa"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `,n("h2",{children:"Assistant"},void 0,!1,void 0,this),`
-`,n("p",{children:"根据您的需求，我为您设计一个基于Spring Boot 2.7的轻量级工作流引擎实现方案："},void 0,!1,void 0,this),`
-`,n("h3",{children:"1. 数据库设计（JPA Entity实现）"},void 0,!1,void 0,this),`
+`,n("p",{children:"根据您的需求，我为您设计一个基于 Spring Boot 2.7 的轻量级工作流引擎实现方案："},void 0,!1,void 0,this),`
+`,n("h3",{children:"1. 数据库设计（JPA Entity 实现）"},void 0,!1,void 0,this),`
 `,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-java",children:[n("span",{className:"line",children:[n("span",{style:{color:"#E1E4E8"},children:"@"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"Entity"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("span",{className:"line",children:[n("span",{style:{color:"#F97583"},children:"public"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:" class"},void 0,!1,void 0,this),n("span",{style:{color:"#B392F0"},children:" WorkflowDefinition"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" {"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("span",{className:"line",children:[n("span",{style:{color:"#E1E4E8"},children:"    @"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"Id"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
@@ -89,7 +89,7 @@ import{e as a,h as n}from"/dist/chunk-scq2q67j.js";function s(){return n("div",{
 `,n("span",{className:"line",children:[n("span",{style:{color:"#F97583"},children:"    private"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" LocalDateTime createTime;"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("span",{className:"line",children:[n("span",{style:{color:"#F97583"},children:"    private"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" LocalDateTime completeTime;"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("span",{className:"line",children:n("span",{style:{color:"#E1E4E8"},children:"}"},void 0,!1,void 0,this)},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this),`
-`,n("h3",{children:"2. Repository接口"},void 0,!1,void 0,this),`
+`,n("h3",{children:"2. Repository 接口"},void 0,!1,void 0,this),`
 `,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-java",children:[n("span",{className:"line",children:[n("span",{style:{color:"#F97583"},children:"public"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:" interface"},void 0,!1,void 0,this),n("span",{style:{color:"#B392F0"},children:" WorkflowDefinitionRepository"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:" extends"},void 0,!1,void 0,this),n("span",{style:{color:"#B392F0"},children:" JpaRepository"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:"<"},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"WorkflowDefinition"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:", "},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"Long"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:"> {"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("span",{className:"line",children:n("span",{style:{color:"#E1E4E8"},children:"}"},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
 `,n("span",{className:"line"},void 0,!1,void 0,this),`
@@ -217,15 +217,15 @@ import{e as a,h as n}from"/dist/chunk-scq2q67j.js";function s(){return n("div",{
 `,n("li",{children:[`
 `,n("p",{children:[n("strong",{children:"状态管理"},void 0,!1,void 0,this),"："]},void 0,!0,void 0,this),`
 `,n("ul",{children:[`
-`,n("li",{children:"使用NodeType区分节点类型（开始/结束/任务节点）"},void 0,!1,void 0,this),`
-`,n("li",{children:"通过Transition实现节点流转逻辑"},void 0,!1,void 0,this),`
+`,n("li",{children:"使用 NodeType 区分节点类型（开始/结束/任务节点）"},void 0,!1,void 0,this),`
+`,n("li",{children:"通过 Transition 实现节点流转逻辑"},void 0,!1,void 0,this),`
 `,n("li",{children:"实例状态由当前节点位置决定"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `,n("li",{children:[`
 `,n("p",{children:[n("strong",{children:"持久化设计"},void 0,!1,void 0,this),"："]},void 0,!0,void 0,this),`
 `,n("ul",{children:[`
-`,n("li",{children:"使用JPA关联关系管理流程定义"},void 0,!1,void 0,this),`
+`,n("li",{children:"使用 JPA 关联关系管理流程定义"},void 0,!1,void 0,this),`
 `,n("li",{children:"每个工作流实例独立存储"},void 0,!1,void 0,this),`
 `,n("li",{children:"任务与实例关联存储"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
@@ -233,7 +233,7 @@ import{e as a,h as n}from"/dist/chunk-scq2q67j.js";function s(){return n("div",{
 `,n("li",{children:[`
 `,n("p",{children:[n("strong",{children:"扩展性考虑"},void 0,!1,void 0,this),"："]},void 0,!0,void 0,this),`
 `,n("ul",{children:[`
-`,n("li",{children:"条件表达式可扩展为Groovy脚本解析"},void 0,!1,void 0,this),`
+`,n("li",{children:"条件表达式可扩展为 Groovy 脚本解析"},void 0,!1,void 0,this),`
 `,n("li",{children:"可增加历史记录表跟踪流程流转"},void 0,!1,void 0,this),`
 `,n("li",{children:"可增加审批人字段实现任务分配"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
@@ -241,14 +241,14 @@ import{e as a,h as n}from"/dist/chunk-scq2q67j.js";function s(){return n("div",{
 `,n("li",{children:[`
 `,n("p",{children:[n("strong",{children:"事务管理"},void 0,!1,void 0,this),"："]},void 0,!0,void 0,this),`
 `,n("ul",{children:[`
-`,n("li",{children:"使用Spring的@Transactional注解保证操作原子性"},void 0,!1,void 0,this),`
+`,n("li",{children:"使用 Spring 的@Transactional 注解保证操作原子性"},void 0,!1,void 0,this),`
 `,n("li",{children:"关键操作包含在单一事务中"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `,n("li",{children:[`
 `,n("p",{children:[n("strong",{children:"异常处理"},void 0,!1,void 0,this),"："]},void 0,!0,void 0,this),`
 `,n("ul",{children:[`
-`,n("li",{children:"需要自定义WorkflowException"},void 0,!1,void 0,this),`
+`,n("li",{children:"需要自定义 WorkflowException"},void 0,!1,void 0,this),`
 `,n("li",{children:"建议使用全局异常处理器"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `]},void 0,!0,void 0,this),`
