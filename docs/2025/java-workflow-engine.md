@@ -2,19 +2,20 @@
 
 ## User
 
-我想用java8实现一个工作流引擎。
+我想用 java8 实现一个工作流引擎。
 
 要求
-1. 不依赖三方组件的情况下
+
+1. 不依赖三方组件
 2. 这个是专用的工作流引擎，不需要有太多抽象
 3. 需要实现持久化。使用 mysql 为数据库
 4. 我的项目主要依赖有 spring boot 2.7、jpa
 
 ## Assistant
 
-根据您的需求，我为您设计一个基于Spring Boot 2.7的轻量级工作流引擎实现方案：
+根据您的需求，我为您设计一个基于 Spring Boot 2.7 的轻量级工作流引擎实现方案：
 
-### 1. 数据库设计（JPA Entity实现）
+### 1. 数据库设计（JPA Entity 实现）
 
 ```java
 @Entity
@@ -97,7 +98,7 @@ public class Task {
 }
 ```
 
-### 2. Repository接口
+### 2. Repository 接口
 
 ```java
 public interface WorkflowDefinitionRepository extends JpaRepository<WorkflowDefinition, Long> {
@@ -239,26 +240,30 @@ public class WorkflowController {
 ### 设计说明：
 
 1. **状态管理**：
-   - 使用NodeType区分节点类型（开始/结束/任务节点）
-   - 通过Transition实现节点流转逻辑
+
+   - 使用 NodeType 区分节点类型（开始/结束/任务节点）
+   - 通过 Transition 实现节点流转逻辑
    - 实例状态由当前节点位置决定
 
 2. **持久化设计**：
-   - 使用JPA关联关系管理流程定义
+
+   - 使用 JPA 关联关系管理流程定义
    - 每个工作流实例独立存储
    - 任务与实例关联存储
 
 3. **扩展性考虑**：
-   - 条件表达式可扩展为Groovy脚本解析
+
+   - 条件表达式可扩展为 Groovy 脚本解析
    - 可增加历史记录表跟踪流程流转
    - 可增加审批人字段实现任务分配
 
 4. **事务管理**：
-   - 使用Spring的@Transactional注解保证操作原子性
+
+   - 使用 Spring 的@Transactional 注解保证操作原子性
    - 关键操作包含在单一事务中
 
 5. **异常处理**：
-   - 需要自定义WorkflowException
+   - 需要自定义 WorkflowException
    - 建议使用全局异常处理器
 
 这个实现方案保持了简单性，同时提供了基本的工作流引擎功能。后续可以根据具体业务需求扩展以下功能：
@@ -269,6 +274,6 @@ public class WorkflowController {
 4. 增加审批意见记录
 5. 实现会签/或签等高级功能
 
-----
+---
 
 - 2025-04-12 by DeepSeek R1

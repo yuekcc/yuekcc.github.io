@@ -1,5 +1,6 @@
 ## 2025
 
+- [[AI 助学] Java DDD 示例](docs/2025/java-ddd.md)
 - [[AI 助学] Java 的简单工作流引擎实现](docs/2025/java-workflow-engine.md)
 - [[转载] 什么是 Java 味](docs/2025/java-smell.md)
 - [[AI 助学] Java 工程学](docs/2025/java-project.md)
