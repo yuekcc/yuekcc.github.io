@@ -1,4 +1,7 @@
-import{e,h as n}from"/dist/chunk-scq2q67j.js";function o(){return n("div",{class:"markdown-body",children:n(e,{children:[n("h1",{children:"OpenWrt 安装流水账"},void 0,!1,void 0,this),`
+import{e,h as n}from"/dist/chunk-scq2q67j.js";function a(){return n("div",{class:"markdown-body",children:n(e,{children:[n("h1",{children:"OpenWrt 安装流水账"},void 0,!1,void 0,this),`
+`,n("blockquote",{children:[`
+`,n("p",{children:"2025-05-04，升级 OpenWrt 24.10，同步更新内容。"},void 0,!1,void 0,this),`
+`]},void 0,!0,void 0,this),`
 `,n("p",{children:n("strong",{children:"回忆版"},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
 `,n("p",{children:"OpenWrt 是一个用于路由器的 Linux 发行版，官方已经适配相当多的路由器硬件，也支持 x86 平台。OpenWrt 是一个资源占用少，功能很明确的操作系统。自带一个不错的 Web 管理界面。对于我的 矿渣 NAS 机来说应该正好适合。"},void 0,!1,void 0,this),`
 `,n("h2",{children:"冷备份需求"},void 0,!1,void 0,this),`
@@ -33,8 +36,11 @@ import{e,h as n}from"/dist/chunk-scq2q67j.js";function o(){return n("div",{class
 `]},void 0,!0,void 0,this),`
 `,n("p",{children:"因为是 Live Linux 中进行操作的，扩容暂时没有发现文件丢失。"},void 0,!1,void 0,this),`
 `,n("p",{children:[n("strong",{children:"重要"},void 0,!1,void 0,this)," 扩容完成后需要更新 /dev/sdb1/boot/grub/grub.cfg 的中关于 ROOT PARTUUID 设置。"]},void 0,!0,void 0,this),`
+`,n("blockquote",{children:[`
+`,n("p",{children:"使用最新 BookwormPup64 10.0.10，扩容后 UUID 没有变化，不过最好还是检查一下。"},void 0,!1,void 0,this),`
+`]},void 0,!0,void 0,this),`
 `,n("ol",{children:[`
-`,n("li",{children:["查看新的 UUID：",n("code",{children:"lsblkl -n -o PARTUUID /dev/sdb2"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("li",{children:["查看新的 UUID：",n("code",{children:"lsblk -n -o PARTUUID /dev/sdb2"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
 `,n("li",{children:["编辑 ",n("code",{children:"/dev/sdb1/boot/grub/grub.cfg"},void 0,!1,void 0,this)," 将启动菜单中的 ",n("code",{children:"root=PARTUUID=xxxx-xx-xxx-xxx-xxx"},void 0,!1,void 0,this)," 替换为新的 PARTUUID。"]},void 0,!0,void 0,this),`
 `]},void 0,!0,void 0,this),`
 `,n("p",{children:"扩容完成，重启机器进入 OpenWrt 环境。"},void 0,!1,void 0,this),`
@@ -42,7 +48,7 @@ import{e,h as n}from"/dist/chunk-scq2q67j.js";function o(){return n("div",{class
 `,n("h3",{children:"设置 root 密码"},void 0,!1,void 0,this),`
 `,n("p",{children:"启动后，默认就会使用 root 账号登录系统，无密码。"},void 0,!1,void 0,this),`
 `,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"$"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" passwd"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
-`,n("p",{children:"按提示设置新密码"},void 0,!1,void 0,this),`
+`,n("p",{children:"按提示设置新密码。"},void 0,!1,void 0,this),`
 `,n("h3",{children:"设置网络"},void 0,!1,void 0,this),`
 `,n("p",{children:"我 OpenWrt 只是用于提供文件共享服务，因此 OpenWrt 是放置到网络的路由器之下。需要设置 WAN 口为 DHCP 模式。我的机器只有一张网卡，因此被默认设置了 LAN 口。需要手工设置 WAN 口。"},void 0,!1,void 0,this),`
 `,n("p",{children:["编辑 ",n("code",{children:"/etc/config/network"},void 0,!1,void 0,this),"，增加下面内容，并删除 ",n("code",{children:"config interface 'lan'"},void 0,!1,void 0,this)," 相关的内容："]},void 0,!0,void 0,this),`
@@ -78,18 +84,48 @@ import{e,h as n}from"/dist/chunk-scq2q67j.js";function o(){return n("div",{class
 `,n("ol",{start:"4",children:[`
 `,n("li",{children:"其他工具"},void 0,!1,void 0,this),`
 `]},void 0,!0,void 0,this),`
-`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"opkg"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" install"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" rsync"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
+`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"opkg"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" install"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" rsync"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" vim-full"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" vim-runtime"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
 `,n("h3",{children:"软件设置"},void 0,!1,void 0,this),`
 `,n("p",{children:"软件设置就可以直接在 Luci 中进行。"},void 0,!1,void 0,this),`
-`,n("ol",{children:[`
-`,n("li",{children:"挂载硬盘"},void 0,!1,void 0,this),`
-`]},void 0,!0,void 0,this),`
+`,n("h4",{children:"1. 挂载硬盘"},void 0,!1,void 0,this),`
+`,n("p",{children:n("strong",{children:"OpenWrt 24.10 似乎会自动挂载了，不需要手工挂载硬盘"},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
 `,n("p",{children:"菜单 -> System -> Mount Points"},void 0,!1,void 0,this),`
 `,n("p",{children:'将相应的硬盘，然后 "Save & Apply"'},void 0,!1,void 0,this),`
-`,n("ol",{start:"2",children:[`
-`,n("li",{children:"设置 Samba"},void 0,!1,void 0,this),`
-`]},void 0,!0,void 0,this),`
+`,n("h4",{children:"2. 创建普通用户"},void 0,!1,void 0,this),`
+`,n("p",{children:"Samba 服务需要一个普通用户（需要 UID >= 1000）。先安装 useradd 相关的工具："},void 0,!1,void 0,this),`
+`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"opkg"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" install"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" shadow"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
+`,n("p",{children:"然后创建一个普通用户 xyz："},void 0,!1,void 0,this),`
+`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:[n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"useradd"},void 0,!1,void 0,this),n("span",{style:{color:"#79B8FF"},children:" -s"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" /bin/sh"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" xyz"},void 0,!1,void 0,this),n("span",{style:{color:"#6A737D"},children:" # 也可以将 shell 设置为 /bin/false"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"passwd"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" xyz"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this),`
+`,n("p",{children:"将用户 xyz 加入到 smb 用户列表："},void 0,!1,void 0,this),`
+`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-sh",children:[n("span",{className:"line",children:[n("span",{style:{color:"#B392F0"},children:"smbpasswd"},void 0,!1,void 0,this),n("span",{style:{color:"#79B8FF"},children:" -a"},void 0,!1,void 0,this),n("span",{style:{color:"#9ECBFF"},children:" xyz"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("span",{className:"line",children:n("span",{style:{color:"#6A737D"},children:"# 然后按提示设置一个密码，可以和用户的密码不同的"},void 0,!1,void 0,this)},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this),`
+`,n("h4",{children:"3. 设置 Samba"},void 0,!1,void 0,this),`
 `,n("p",{children:"菜单 -> Services -> Network Shares"},void 0,!1,void 0,this),`
-`,n("p",{children:["在 Shared Directories 中增加相应的路径。如果有多个目录，Name 会设置为子目录的名称。在 Windows 上写入文件，需要选中 ",n("code",{children:"Force Root"},void 0,!1,void 0,this),"，不然会提示无权限。"]},void 0,!0,void 0,this),`
+`,n("p",{children:"在全局配置中。Interface 选择 wan。勾上：Enable extra Tuning。其余为默认。"},void 0,!1,void 0,this),`
+`,n("p",{children:"在 Shared Directories 增加相应的映射："},void 0,!1,void 0,this),`
+`,n("ul",{children:[`
+`,n("li",{children:[n("code",{children:"Name"},void 0,!1,void 0,this)," 设置为共享的名称（会展示在 Windows 上）"]},void 0,!0,void 0,this),`
+`,n("li",{children:[n("code",{children:"Path"},void 0,!1,void 0,this)," 填写具体的目录，比如 ",n("code",{children:"/mnt/sda1"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("li",{children:[n("code",{children:"Allowed users"},void 0,!1,void 0,this)," 填写刚才创建的 ",n("code",{children:"xyz"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("li",{children:["勾中 ",n("code",{children:"Browseable"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("li",{children:[n("code",{children:"Create mask"},void 0,!1,void 0,this)," 为默认的 0666"]},void 0,!0,void 0,this),`
+`,n("li",{children:[n("code",{children:"Directory mask"},void 0,!1,void 0,this)," 为默认为 0777"]},void 0,!0,void 0,this),`
+`]},void 0,!0,void 0,this),`
+`,n("p",{children:[n("strong",{children:"重要"},void 0,!1,void 0,this)," 最好将 xyz 设置为共享目录的 Owner，否则会经常出现无权限。通过 ",n("code",{children:"chown -R xyz:xyz /mnt/sda1"},void 0,!1,void 0,this)," 修改 owner。如果文件权限不是 777，也可以手工设置一下：",n("code",{children:"chmod -R 777 /mnt/sda1"},void 0,!1,void 0,this),"。"]},void 0,!0,void 0,this),`
+`,n("p",{children:"还需要修改 template 以支持 windows 链接到 Samba 服务："},void 0,!1,void 0,this),`
+`,n("pre",{className:"shiki github-dark",style:{backgroundColor:"#24292e",color:"#e1e4e8"},tabIndex:"0",children:n("code",{className:"language-ini",children:[n("span",{className:"line",children:n("span",{style:{color:"#6A737D"},children:"# 修改这些项目"},void 0,!1,void 0,this)},void 0,!1,void 0,this),`
+`,n("span",{className:"line",children:[n("span",{style:{color:"#E1E4E8"},children:"map to "},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"guest"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" = never"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("span",{className:"line",children:[n("span",{style:{color:"#E1E4E8"},children:"local "},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"master"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" = yes"},void 0,!1,void 0,this)]},void 0,!0,void 0,this),`
+`,n("span",{className:"line",children:[n("span",{style:{color:"#E1E4E8"},children:"preferred "},void 0,!1,void 0,this),n("span",{style:{color:"#F97583"},children:"master"},void 0,!1,void 0,this),n("span",{style:{color:"#E1E4E8"},children:" = yes"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this),`
+`,n("p",{children:"其他为默认。"},void 0,!1,void 0,this),`
+`,n("p",{children:"最后 Save & Apply。重新启动 Samba 服务。"},void 0,!1,void 0,this),`
+`,n("blockquote",{children:[`
+`,n("p",{children:["设置完成后，如果 Windows 访问 ",n("code",{children:"\\\\<ip>"},void 0,!1,void 0,this),` 提示无网络名（实际是无权限），重启 Windows 系统再试试。
+其他 SMB 客户端也可以通过 `,n("code",{children:"\\\\<ip>"},void 0,!1,void 0,this)," 访问，需要填写用户名（xyz）和密码。Windows 系统如果在访问 ",n("code",{children:"\\\\<ip>"},void 0,!1,void 0,this)," 没有弹出登录窗口，可以在 Windows 凭据手工添加认证。"]},void 0,!0,void 0,this),`
+`]},void 0,!0,void 0,this),`
 `,n("hr",{},void 0,!1,void 0,this),`
-`,n("p",{children:"2022 年 02 月 13 日 更新"},void 0,!1,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)}export{o as default};
+`,n("ul",{children:[`
+`,n("li",{children:"2025 年 05 月 04 日，增加 Samba 普通用户设置的内容"},void 0,!1,void 0,this),`
+`,n("li",{children:"2022 年 02 月 13 日 更新"},void 0,!1,void 0,this),`
+`]},void 0,!0,void 0,this)]},void 0,!0,void 0,this)},void 0,!1,void 0,this)}export{a as default};
