@@ -50,7 +50,7 @@
 - [我的网站架构](docs/2022/my-site.md)
 - [预览 Sycamore 全新的响应式原语](docs/2022/sycamore-new-reactive-primitives.md)
 - [docutil 开发笔记](docs/2022/notes-on-docutil.md)
-- [OpenWrt 安装流水账](docs/2022/openwrt-install.md)
+- [OpenWrt 安装流水账](docs/2022/openwrt-install.md) _2025.5.4更新_
 - [Puppeteer 实现 UI 自动化测试](docs/2022/puppeteer.md)
 
 ## 2021

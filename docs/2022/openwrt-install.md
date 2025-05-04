@@ -1,5 +1,7 @@
 # OpenWrt 安装流水账
 
+> 2025-05-04，升级 OpenWrt 24.10，同步更新内容。
+
 **回忆版**
 
 OpenWrt 是一个用于路由器的 Linux 发行版，官方已经适配相当多的路由器硬件，也支持 x86 平台。OpenWrt 是一个资源占用少，功能很明确的操作系统。自带一个不错的 Web 管理界面。对于我的 矿渣 NAS 机来说应该正好适合。
@@ -69,7 +71,9 @@ GParted 是 Puppy Linux 自带的分区操作软件。图形化操作更省事�
 
 **重要** 扩容完成后需要更新 /dev/sdb1/boot/grub/grub.cfg 的中关于 ROOT PARTUUID 设置。
 
-1. 查看新的 UUID：`lsblkl -n -o PARTUUID /dev/sdb2`
+> 使用最新 BookwormPup64 10.0.10，扩容后 UUID 没有变化，不过最好还是检查一下。
+
+1. 查看新的 UUID：`lsblk -n -o PARTUUID /dev/sdb2`
 2. 编辑 `/dev/sdb1/boot/grub/grub.cfg` 将启动菜单中的 `root=PARTUUID=xxxx-xx-xxx-xxx-xxx` 替换为新的 PARTUUID。
 
 扩容完成，重启机器进入 OpenWrt 环境。
@@ -84,7 +88,7 @@ GParted 是 Puppy Linux 自带的分区操作软件。图形化操作更省事�
 $ passwd
 ```
 
-按提示设置新密码
+按提示设置新密码。
 
 ### 设置网络
 
@@ -153,25 +157,77 @@ opkg install block-mount blockd kmod-fs-autofs4 lsblk fdisk kmod-usb-storage kmo
 4. 其他工具
 
 ```sh
-opkg install rsync
+opkg install rsync vim-full vim-runtime
 ```
 
 ### 软件设置
 
 软件设置就可以直接在 Luci 中进行。
 
-1. 挂载硬盘
+#### 1. 挂载硬盘
+
+**OpenWrt 24.10 似乎会自动挂载了，不需要手工挂载硬盘**
 
 菜单 -> System -> Mount Points
 
 将相应的硬盘，然后 "Save & Apply"
 
-2. 设置 Samba
+#### 2. 创建普通用户
+
+Samba 服务需要一个普通用户（需要 UID >= 1000）。先安装 useradd 相关的工具：
+
+```sh
+opkg install shadow
+```
+
+然后创建一个普通用户 xyz：
+
+```sh
+useradd -s /bin/sh xyz # 也可以将 shell 设置为 /bin/false
+passwd xyz
+```
+
+将用户 xyz 加入到 smb 用户列表：
+
+```sh
+smbpasswd -a xyz
+# 然后按提示设置一个密码，可以和用户的密码不同的
+```
+
+#### 3. 设置 Samba
 
 菜单 -> Services -> Network Shares
 
-在 Shared Directories 中增加相应的路径。如果有多个目录，Name 会设置为子目录的名称。在 Windows 上写入文件，需要选中 `Force Root`，不然会提示无权限。
+在全局配置中。Interface 选择 wan。勾上：Enable extra Tuning。其余为默认。
+
+在 Shared Directories 增加相应的映射：
+
+- `Name` 设置为共享的名称（会展示在 Windows 上）
+- `Path` 填写具体的目录，比如 `/mnt/sda1`
+- `Allowed users` 填写刚才创建的 `xyz`
+- 勾中 `Browseable`
+- `Create mask` 为默认的 0666
+- `Directory mask` 为默认为 0777
+
+**重要** 最好将 xyz 设置为共享目录的 Owner，否则会经常出现无权限。通过 `chown -R xyz:xyz /mnt/sda1` 修改 owner。如果文件权限不是 777，也可以手工设置一下：`chmod -R 777 /mnt/sda1`。
+
+还需要修改 template 以支持 windows 链接到 Samba 服务：
+
+```ini
+# 修改这些项目
+map to guest = never
+local master = yes
+preferred master = yes
+```
+
+其他为默认。
+
+最后 Save & Apply。重新启动 Samba 服务。
+
+> 设置完成后，如果 Windows 访问 `\\<ip>` 提示无网络名（实际是无权限），重启 Windows 系统再试试。
+> 其他 SMB 客户端也可以通过 `\\<ip>` 访问，需要填写用户名（xyz）和密码。Windows 系统如果在访问 `\\<ip>` 没有弹出登录窗口，可以在 Windows 凭据手工添加认证。
 
 ---
 
-2022 年 02 月 13 日 更新
+- 2025 年 05 月 04 日，增加 Samba 普通用户设置的内容
+- 2022 年 02 月 13 日 更新
