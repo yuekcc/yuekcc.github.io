@@ -17,6 +17,9 @@ async function dispatchRoutes(url) {
 
   if (pathname === '/' || pathname === '/index.html') {
     body.value = renderToc();
+    if (pathname === '/index.html') {
+      window.history.replaceState({ pathname }, '', '/')
+    }
     return;
   }
 
@@ -34,41 +37,50 @@ window.addEventListener('popstate', () => {
   dispatchRoutes(document.location);
 });
 
-function App() {
-  async function handleLink(e) {
-    if (e && e.target && e.target.tagName === 'A') {
-      const href = e.target.href;
-      const url = new URL(href);
+function MainLayout({ children }) {
+  return (
+    <>
+      <div class="top-bar">
+        <a href="/">首页</a>
+        <a href="https://github.com/yuekcc" target="_blank" rel="noreferrer">
+          GITHUB↗️
+        </a>
+      </div>
+      <article class="post">{children}</article>
+      <div class="icp">{renderIcpNotice()}</div>
+    </>
+  );
+}
 
-      // 加载文章
-      if (/_docs\/.+\.md/.test(url.pathname)) {
-        e.preventDefault();
-        dispatchRoutes(url);
-        window.history.pushState({ pathname: url.pathname }, '', url.pathname);
+function App() {
+  const [loading, setLoading] = useState(false);
+
+  function handleLink({ target }) {
+    if (target?.tagName === 'A') {
+      const url = new URL(target.href);
+      if (url.pathname.includes('_docs/')) {
+        event.preventDefault();
+        setLoading(true);
+        dispatchRoutes(url).finally(() => setLoading(false));
+        window.history.pushState({}, '', url);
       }
     }
   }
 
-  return body.value ? (
-    <>
-      <div class="top-bar">
-        <a href="/index.html">首页</a>
-        <a href="https://github.com/yuekcc" target="_blank" rel="noreferrer">
-          GITHUB↗
-        </a>
-      </div>
-      <article class="post" onClick={handleLink}>
-        {body.value}
+  return (
+    <MainLayout>
+      {loading && <div class="loading">加载中...</div>}
+      <div onClick={handleLink}>
+        {body.value || <div class="empty">暂无内容</div>}
         <div class="post-link">
           <p>{'----'}</p>
           <pre>
             <code>链接：{document.location.href}</code>
           </pre>
         </div>
-      </article>
-      <div class="icp">{renderIcpNotice()}</div>
-    </>
-  ) : undefined;
+      </div>
+    </MainLayout>
+  );
 }
 
 dispatchRoutes(document.location);
