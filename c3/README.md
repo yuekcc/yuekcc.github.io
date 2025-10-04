@@ -1,147 +1,184 @@
-# C3 语言
+# C3 笔记
 
-C3 是 C 语言的一种进化，也是一种最小化的系统编程语言。
+## 源码结构
 
-设计目标：
+文件后缀使用 `.c3`，还有配合包管理使用的 `.c3l`、`.c3i`。
 
-1. 生产性质的语言，而且可以简单的地完成工作
-1. 简约，特性正好足够
-1. 接近 C，只有必须的改进
-1. 对于 C 程序员应该很容易上手
-1. 和 C 无缝集成
-1. 符合人体工学
-1. 惰性数据设计
-1. 初始化为零
-1. 避免大聪明设计
+### Hello World
 
-C3 最早源于 Bas van de Berg 的 C2 语言，后面又独立演进。在错误处理，宏，泛型，字符串方面有更多新的设计。
-
-## 路线图
-
-C3 目前已经是性能稳定的状态，0.6.x 系列可用于生产项目。直到 1.0。
-
-0.8 到 0.9 的重点是更新跨平台的标准和修订部分语言特性。同时工具链也是持续更新。
-
-标准库在 1.0 之前会不断修改。
-
-目前计划一年迭代一个 0.1 版本，在 2028 年发布 1.0。
-
-## 数据类型
-
-### 整数
-
-有符号整数：ichar，short，int，long，int128，iptr，isz
-无符号整数：char，ushort，uint，ulong，uint128，uptr，usz
-
-在 64 位机器上，iptr/uptr，isz/usz 都是 64 位，如同 long/ulong。如果是在 32 位机器上，则相当于 int/uint。
-
-字面量支持下面这些形式：
+一个典型的 c3 代码如下：
 
 ```c3
-a = -2_00;
-b = 0o770;
-c = 0x7f7f7f;
-d = 123;
+// hello.c3
+import std::io;
+
+fn void main()
+{
+    io::printn("Hello, World!");
+}
 ```
 
-字面量也支持后缀：
+代码文件应该统一使用 UTF-8 编码。使用下面的命令进行编译：
 
-1. i8 -> ichar
-1. i16 -> short
-1. i32 -> int
-1. i64 -> long
-1. i128 -> int128
-1. u8 -> char
-1. u16 -> ushort
-1. u32 -> uint
-1. u -> uint
-1. u64 -> ulong
-1. u128 -> uint128
+```sh
+c3c compile hello.c3
+```
 
-### 布尔值
+### 程序入口
 
-bool 只有两个值：true，false。
+c3 程序的入口总是 `main` 函数。main 函数可以使用下面两种形式：
 
-### 字符字面量
+```c3
+fn void main() {}
+```
 
-字符字面量使用 `''` 单引号包裹。C3 支持单个字符字面量，也支持 2、4、8 个字符表示一个宽字面量。注意会转换为不同的类型，ushort，unit，ulong。
+```c3
+fn void main(String[] args)
+```
 
-### 浮点数
+> c3 似乎也支持使用 C 语言形式的 main 函数，可以试一下。
 
-只支持 float 和 double，两种类型。分别是 32 位浮点和 64 位浮点。
+### 模块
 
-C3 的浮点数字面量也支持后续声明：
+c3 通过 `module mymodule;` 语句声明一个模块。c3 的代码实际是由模块组成，一个代码文件可以包含多个模块，一个模块也可以分散在多个文件中。模块支持嵌套，模块的范围由声明语句开始直到遇到下一个模块声明语句。
 
-1. f32 -> float
-1. f -> float
-1. f64 -> double
+通过 `import mymodule` 将模块的函数、常量等对象导入到当前的模块中。比如上面的 `import std::io;` 语句表示入符号到当前的模块中，使用时需要加上模块的名称作为前缀。
+
+模块中的符号默认是所有模块可见（公开），也可以按需要设置其可见性。
+
+详见：[https://c3-lang.org/language-fundamentals/modules/](https://c3-lang.org/language-fundamentals/modules/)
+
+> 有点像 java 的 package。
+
+## 基本类型
+
+c3 提供了和 c 语言几乎一致类型系统。但是有一点不同，c3 中声明的变量会进行零值初始化。
+
+当然也可以显式初始化 undefined：
+
+```c3
+int x;               // x = 0
+int y @noinit;       // y is explicitly undefined and must be assigned before use.
+
+AStruct foo;         // foo is implicitly zeroed
+AStruct bar = {};    // bar is explicitly zeroed
+AStruct baz @noinit; // baz is explicitly undefined
+```
+
+### 整数家族
+
+有符号整数类型：`ichar`、`short`、`int`、`long`、`int128`、`iptr`、`isz`
+无符号整数类型：`char`、`ushort`、`uint`、 `ulong`、`uint128`、`uptr`、`usz`
+
+数字字面量支持这些写法：
+
+```
+a = -2_000;
+b = 0o770;
+c = 0x7f7f7f;
+```
+
+### 布尔类型
+
+`bool` 表示布尔类型，值只能是 `true` 或 `false` 其中一个。
+
+### 浮点
+
+浮点类型有：`float`（32 位）、`double`（64 位）。
 
 ### 数组
 
-使用 `Type[size]` 形式声明数组，同时支持 `Type[*]` 由编译器自动推导长度。比如：
+数组类型使用 `Type[size]` 这种形式表示。如：
 
 ```c3
-int[3] abc = { 1, 2, 3 };
-int[*] bcd = { 1, 2, 3 };
+int[3] abc = { 1, 2, 3 }; // 显式声明 int[3]
+int[*] bcd = { 1, 2, 3 }; // 自动计算长度方式声明 int[3]
 ```
-
-### 切片
-
-切片类型使用 `Type[]` 形式声明。切片不保存数据，切片更像是数组或向量的一个视图。
-
-切片有两个属性 `.ptr` 指向切片引用的数组，`.len` 表示切片的长度。
 
 ### 向量
 
-向量使用 `Type[<*>]` 形式声明。向量是基于硬件的 SIMD 向量。支持很多并行的操作。
+c3 中可以通过 `int[<*>] a = { 1, 2 };` 声明一个向量。向量是一种并行的数据结构，基于硬件 SIMD 向量。
 
-向量也使用 `{ ... }` 形式使用字面量初始化。
+### 切片
 
-比如：
+c3 支持切片类型，使用 `Type[]` 形式表示。切片不保管数据，实际上是组数或向量的视图。切片类型包含 `.ptr` 和 `.len` 两个类型。
 
-```c3
-int[<*>] b = { 1, 2 };
-int[<2>] c = { 2, 4 };
-int[<2>] d =  b * c；// => { 2, 8 }
-```
+### 字符字面量
+
+用 `''` （单引号）表示字符字面量。c3 的字符字面量支持单字符、双字符、四字符、八字符字面量。
 
 ### 字符串
 
-字符串字面量非常特别，可以转换为不同类型的数组和切片。字符串字面量使用 `" "` 包裹，特殊符号需要使用转义符号。
+c3 内置三种字符串类型：`String`、`ZString`、`WString`，都是通过 typedef inline 声明的类型。
 
-C3 也提供了原始字符串支持，使用 \`\` （反引号）包裹。在原始字符串中不支持使用转义符号。
-
-可以使用 String、ZString、char[]、chat* 声明一个字符串变量。String 实际上是 char[] 的一个 inline 别名，ZString 则是 chart* 的别名。
-
-注意 String 需要显式类型转换才能转换为 char[]，反之亦然。
-
-### Base64 和 Hex 数据字面量
-
-```c3
-char[*] hello_world_base64 = b64"SGVsbG8gV29ybGQh";
-char[*] hello_world_hex = x"4865 6c6c 6f20 776f 726c 6421";
-```
+`String` 是 `char[]`。`ZString` 则是 `char*`，`ZString` 兼容 C 语言，使用 `null` 表示字符串结束。WString 是 `ushort*`，表示 UTF-16 编码的字符串。String、ZString、WString 在需要时可以显式转换为底层的类型。
 
 ### 指针
 
-Type* 声明一个指针变量。比如 Foo* 表示声明了一个指向 Foo 类型的指针。指标可以设置为 null，表示一个无效、空指针。
+使用 `Type*` 表指针类型。
 
-### void*
+#### void\*
 
-万能指标。void* 表示一个可以转换为任意类型的指针。
+`void*` 是一个特殊的指针类型，可以强制转换为其他类型指针，是一种万能指针。
 
-## 变量
+## 注释
 
-C3 默认会使用零值初始化变量。可以使用 `@noinit` 显式声明变量为 undefined，当然在使用该变量前必须先初始化。
+c3 支持 4 种注释：
 
-示例：
+1. `//` 单行注释
+2. `/* ... */` C 语言风格的多行注释，但支持嵌套
+3. `<* ... *>` 文档注释。C3 编译器也会处理文档注释，并实现一种文档化协议
+4. `#!` shebang 注释。shebang 注释只能在第一行中使用
 
-```c3
-int x; // x=0
-int y @noinit; // y 为 undefined。在使用前需要初始化
+### 文档化协议
 
-AStruct foo; // 隐藏初始化为零值（编译器默认行为）
-AStruct bar = {}; // 显式初始化为零值
-AStruct baz @noinit; // 显式声明变量为 undefined
-```
+TBD
+
+## 表达式
+
+c3 的表达式和 c 语言一致，但增加了一些新内容：
+
+1. `&&` 操作符，用于获取一个函数范围内的指针；
+2. 计算顺序优化：
+
+    - Binary expressions are evaluated from left to right.
+    - Assignment occurs right to left, so a = a++ would result in a being unchanged.
+    - Call arguments are evaluated in parameter order.
+
+3. 复合字面量（Compound literals），支持 struct、数组、切片等对象的快速初始化；
+4. 编译期常量：c3 通过实现编译期计算，可以将很多表达式在编译期进行计算：
+
+    - `null` 字面量
+    - 布尔类型、浮点、整数字面量
+    - 常量间计算
+    - 编译期变量（`$`前缀的变量）
+    - 使用常量初始化的全局变量
+    - 非代码生成而且只使用常量的宏
+    - 强制类型转换到布尔、浮点、整数类型
+    - 字符串字面量
+    - 使用常量初始化的数组等
+
+    下面三种情况，都**不是**编译期常量：
+
+    1. 非 null 指针对象，即使是使用了常量进行初始化的指针也不是常量
+    2. 强制转换到非数值的类型
+    3. 复合字面量
+
+5. 导入二进制数据。使用 `$embed(...)` 可以将二进制数据嵌入到代码。
+
+    实际上会生成这样的表达式：`char[*] my_image = $embed("my_image.png");`，类型也可以是其他数组或切片类型：`char*`, `void*`, `char[]`, `char[*]` 或者 `String`。
+
+## 语句
+
+c3 的语句和 c 语言一致，但增加了一些新内容：
+
+1. Labelled break and continue
+
+1. Do-without-while
+
+1. Nextcase and labelled nextcase
+
+1. Switch cases with runtime evaluation
+
+1. Jumptable switches with `@jump`
 
