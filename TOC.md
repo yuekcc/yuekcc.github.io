@@ -15,6 +15,7 @@
 
 ### 2025
 
+- [[转载] 在数据库设计时，部分统计字段或者需要计算的字段，要增加一个字段单独存吗](docs/2025/db-field.md)
 - [[AI 助学] Java 分层架构概念解析](docs/2025/java-xo.md)
 - [[AI 助学] Java DDD 示例](docs/2025/java-ddd.md)
 - [[AI 助学] Java 的简单工作流引擎实现](docs/2025/java-workflow-engine.md)
