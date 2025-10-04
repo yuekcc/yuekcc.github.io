@@ -1,4 +1,17 @@
-# Memo 2024
+# Memo
+
+## 2025-06-06
+
+```sh
+# 搜索包
+xbps-query -Rs libffi
+
+# 安装包
+xbps-install libffi
+
+# 删除包
+xbps-remove libffi
+```
 
 ## 2024-11-06
 
@@ -24,3 +37,4 @@ cd build
 cmake -G "MinGW Makefiles" ..
 mingw32-make
 ```
+
