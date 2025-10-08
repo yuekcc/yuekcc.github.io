@@ -1,5 +1,15 @@
 # Memo
 
+## 2025-10-08
+
+清理 github 幽灵通知。在通知页面的 F12 中执行下面的代码：
+
+```js
+(function(){var f=document.querySelector('.js-notifications-mark-all-actions form[action="/notifications/beta/mark"]');if(f){fetch(f.action,{method:f.method,body:new FormData(f),credentials:"include"}).then(r=>{if(r.ok)setTimeout(()=>location.reload(),500);});}})();
+```
+
+出处：[https://linux.do/t/topic/999652](https://linux.do/t/topic/999652)
+
 ## 2025-06-06
 
 ```sh
