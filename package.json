@@ -15,17 +15,16 @@
     "endOfLine": "auto"
   },
   "dependencies": {
-    "@preact/signals": "^2.0.1",
-    "@shikijs/markdown-it": "^3.0.0",
-    "@types/bun": "^1.2.3",
+    "@preact/signals": "^2.5.0",
+    "@types/bun": "^1.3.2",
     "estree-util-to-js": "^2.0.0",
     "github-markdown-css": "^5.8.1",
     "hast-util-from-html": "^2.0.3",
-    "hast-util-to-estree": "^3.1.2",
-    "markdown-it": "^14.1.0",
+    "hast-util-to-estree": "^3.1.3",
+    "markdown-exit": "^1.0.0-beta.6",
     "markdown-it-task-lists": "^2.1.1",
-    "preact": "^10.26.2",
-    "prettier": "^2.4.0",
-    "shiki": "^3.0.0"
+    "preact": "^10.27.2",
+    "prettier": "^2.8.8",
+    "shiki": "^3.15.0"
   }
 }
