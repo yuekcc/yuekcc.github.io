@@ -1,7 +1,7 @@
 # Everything you need to know about pointers in C
 
-原文地址：[https://boredzo.org/pointers/](https://boredzo.org/pointers/)
-翻译：[简体中文](./pointers.zh.md)
+- 原文地址：[https://boredzo.org/pointers/](https://boredzo.org/pointers/)
+- 翻译：[简体中文](./pointers.zh.md)
 
 Version 1.3.1.
 
