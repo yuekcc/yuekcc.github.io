@@ -1,6 +1,6 @@
 import { signal } from '@preact/signals';
 import { render } from 'preact';
-import docModules from '../doc-modules';
+import DOCS from '../docs.js';
 import renderIcpNotice from '../icp.md';
 import renderToc from '../TOC.md';
 
@@ -20,7 +20,7 @@ async function dispatchRoutes(url) {
     return;
   }
 
-  const load = docModules[pathname.replace(/^\/[_]?/, '')];
+  const load = DOCS[pathname.replace(/^\/[_]?/, '')];
   if (load) {
     const { default: render } = await load();
     body.value = render();

@@ -20,16 +20,20 @@ md.renderer.rules.image = (tokens, idx, options, env, self) => {
   let src = tokens[idx].attrGet('src');
   src = src.startsWith('/') ? src.replace(/^\//, '') : src;
 
-  console.log('IMG URL', src);
-  tokens[idx].attrSet('src', `/${src}`);
+  const updatedSrc = `/${src}`;
+
+  console.log('IMG URL', src, '=>', updatedSrc);
+  tokens[idx].attrSet('src', updatedSrc);
   return defaultImageRenderer(tokens, idx, options, env, self);
 };
 
 md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
   const href = tokens[idx].attrGet('href');
-  console.log('link_open', href);
   if (/docs\/.+\.md/.test(href)) {
-    tokens[idx].attrSet('href', href.replace('docs/', '_docs/'));
+    const updatedHref = href.replace('docs/', '_docs/');
+    tokens[idx].attrSet('href', updatedHref);
+
+    console.log('link_open', href, '=>', updatedHref);
   }
 
   return self.renderToken(tokens, idx, options);

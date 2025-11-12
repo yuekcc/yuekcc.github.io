@@ -5,21 +5,21 @@ import { CodePrinter } from './build/CodePrinter';
 import { listDocs } from './build/doc-list';
 
 async function step1() {
-  console.log('STEP1 create doc-modules.js');
-  const outputFile = 'doc-modules.js';
+  console.log('STEP1 create docs.js');
+  const outputFile = 'docs.js';
 
   const docModule = new CodePrinter();
-  docModule.print(`const docModules = {}`);
+  docModule.print(`const docs = {}`);
 
   const docs = listDocs('docs');
   for (const file of docs) {
     const modPath = path.resolve(file);
     docModule.print(
-      `docModules[${JSON.stringify(file.replaceAll('\\', '/'))}] = () => import(${JSON.stringify(modPath)});`,
+      `docs[${JSON.stringify(file.replaceAll('\\', '/'))}] = () => import(${JSON.stringify(modPath)});`,
     );
   }
 
-  docModule.print('export default docModules;');
+  docModule.print('export default docs;');
   await docModule.writeFile(outputFile);
 }
 
