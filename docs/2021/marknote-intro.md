@@ -9,7 +9,7 @@
 
 ## 想法
 
-Marknote 最初的想法是山寨一个 [boot-cli]([https://github.com/vvpvvp/book-cli)。book-cli 是一个纯前端渲染的网站工具。类似概念的著名产品还有：[docsify](https://github.com/docsifyjs/docsify)。当然 docsify 功能更多。相对本地执行的静态网站生成器，例如 [hugo](https://gohugo.io/)，纯前端型的工具功能更加简单（简陋），而且几乎不存在 SEO 可能。不过好处就是，用户可以更专注于内容本身，也可以在线使用。比如通过 github 直接编写文章并发布新网站。
+Marknote 最初的想法是山寨一个 [boot-cli](https://github.com/vvpvvp/book-cli)。book-cli 是一个纯前端渲染的网站工具。类似概念的著名产品还有：[docsify](https://github.com/docsifyjs/docsify)。当然 docsify 功能更多。相对本地执行的静态网站生成器，例如 [hugo](https://gohugo.io/)，纯前端型的工具功能更加简单（简陋），而且几乎不存在 SEO 可能。不过好处就是，用户可以更专注于内容本身，也可以在线使用。比如通过 github 直接编写文章并发布新网站。
 
 ## 特性
 
