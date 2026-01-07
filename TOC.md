@@ -13,6 +13,10 @@
 
 ## 流水账
 
+### 2026
+
+- [[AI 助学] Junit、Mockito DT 实战](docs/2026/junit-mockito-guide.md)
+
 ### 2025
 
 - [[AI 助学] C 语言内存管理研究](docs/2025/c-mm.md)
