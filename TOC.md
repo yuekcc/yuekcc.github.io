@@ -15,7 +15,8 @@
 
 ### 2026
 
-- [[AI 助学] Google Guice](docs/2026/google_guice.md)
+- [[AI 助学] Agent 是什么](docs/2026/what-is-agent.md)
+- [[AI 助学] Google Guice](docs/2026/google-guice.md)
 - [[AI 助学] Junit、Mockito DT 实战](docs/2026/junit-mockito-guide.md)
 
 ### 2025
