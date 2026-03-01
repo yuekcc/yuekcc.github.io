@@ -18,16 +18,37 @@ export default () => ({
   async setup(build) {
     console.log('PLUGIN setup md (markdown) plugin');
 
+    // 缓存已处理的文件以避免重复处理
+    const processedCache = new Map();
+
     build.onLoad({ filter: /\.md$/ }, async args => {
       console.log(`MD2JSX ${args.path}`);
 
-      const contents = await Bun.file(args.path).text();
-      const code = await compiler(args.path, contents);
+      try {
+        // 检查缓存
+        if (processedCache.has(args.path)) {
+          return processedCache.get(args.path);
+        }
 
-      return {
-        contents: code,
-        loader: 'jsx',
-      };
+        // 并行读取文件内容
+        const fileContent = await Bun.file(args.path).text();
+
+        // 编译Markdown为JSX
+        const code = await compiler(args.path, fileContent);
+
+        const result = {
+          contents: code,
+          loader: 'jsx',
+        };
+
+        // 缓存结果
+        processedCache.set(args.path, result);
+
+        return result;
+      } catch (error) {
+        console.error(`Error processing Markdown file ${args.path}:`, error);
+        throw new Error(`Failed to compile ${args.path}: ${error.message}`);
+      }
     });
   },
 });
