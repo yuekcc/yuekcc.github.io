@@ -15,6 +15,7 @@
 
 ### 2026
 
+- [独立开发收款方案讨论](docs/2026/paying.md)
 - [[AI 助学] C3 语言入门教程](docs/2026/c3-guile.md)
 - [[AI 助学] C3 语言快速入门指南](docs/2026/the-little-c3-book.md)
 - [[AI 助学] Agent 是什么](docs/2026/what-is-agent.md)
