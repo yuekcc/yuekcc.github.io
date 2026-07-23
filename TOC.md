@@ -14,7 +14,7 @@
 ## 流水账
 
 ### 2026
-
+- [[转载] Coding agent 个人开发思考](docs/2026/coding-agent-dev.md)
 - [独立开发收款方案讨论](docs/2026/paying.md)
 - [[AI 助学] C3 语言入门教程](docs/2026/c3-guile.md)
 - [[AI 助学] C3 语言快速入门指南](docs/2026/the-little-c3-book.md)
