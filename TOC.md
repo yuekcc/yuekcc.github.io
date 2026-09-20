@@ -14,6 +14,7 @@
 ## 流水账
 
 ### 2026
+- [[转载] 软件工程师最终会消失吗 ](docs/2026/will-swe-disappear.md)
 - [[转载] Coding agent 个人开发思考](docs/2026/coding-agent-dev.md)
 - [独立开发收款方案讨论](docs/2026/paying.md)
 - [[AI 助学] C3 语言入门教程](docs/2026/c3-guile.md)
