@@ -1,5 +1,17 @@
 # Memo
 
+## 2026-10-11
+
+Windows 备份数据：
+
+1. 添加 SMB 映射：`net use Z: \\192.168.1.16\folder_name /user:用户名`
+2. 通过 robocopy 复制文件：`robocopy "D:\xxx" "Z:" /E /COPY:DAT /DCOPY:DAT /R:2 /W:2 /XJ /NP /NFL /NDL /LOG:"D:\copy_photos19.log"`
+
+  - `/E` 复制所有子目录，包括空目录
+  - 如果你不要子目录，只复制 `D:\xxx` 当前层文件，去掉 `/E`
+  - 如果你要子目录但不要空目录，把 `/E` 换成 `/S`
+  - 不要用 `/MIR`，除非你确定要镜像并删除目标里多余的文件
+
 ## 2025-11-06
 
 VIM 常用操作：
